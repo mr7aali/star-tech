@@ -4,7 +4,9 @@ import { AiOutlineSearch } from "react-icons/ai"
 import { MdOutlineElectricBolt, MdOutlineManageAccounts } from "react-icons/md";
 import Image from "next/image";
 const NavBar = () => {
+
     return (
+
         <>
             <div className="top bg-[#081621] flex justify-center items-center">
                 <div className="container mx-auto flex items-center">
@@ -48,7 +50,7 @@ const NavBar = () => {
                                 <p className="text-[#acabab] text-sm">Register or Login</p>
                             </div>
                         </div>
-                        <Link href={"df"} className="mx-5 flex items-center justify-center rounded-md" style={{ border: '1px solid #ef4a23' }}>
+                        <Link href={"pc_builder"} className="mx-5 flex items-center justify-center rounded-md" style={{ border: '1px solid #ef4a23' }}>
                             <button href='pc' style={{ border: '1px solid red' }} className="text-[#fff] h-full w-[100%] px-5">PC Builder</button>
                         </Link>
                     </div>
