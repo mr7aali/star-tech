@@ -1,9 +1,11 @@
 import RootLayouts from "@/components/Layouts/RootLayouts";
 import Image from "next/image";
-import { BsCartPlusFill, BsCurrencyDollar, BsCpu } from "react-icons/bs";
+import { BsCartPlusFill, BsCurrencyDollar, BsCpu ,BsMotherboard} from "react-icons/bs";
 import { AiFillSave } from "react-icons/ai";
 import { AiFillPrinter } from "react-icons/ai";
 import { MdScreenShare } from "react-icons/md";
+import DefaultCard from "@/components/card/DefaultCard";
+import {CgSmartphoneRam} from "react-icons/cg"
 
 
 const PcBuilderPage = () => {
@@ -66,7 +68,7 @@ const PcBuilderPage = () => {
                     <h1 className="text-sm font-bold bg-[#808996] text-[#fff] pl-2">Core Components</h1>
 
 
-                    <div className="h-[60px] flex justify-between mt-10">
+                    {/* <div className="h-[60px] flex justify-between mt-10">
                         <div className="flex ">
                             <div style={{ background: "rgba(55, 73, 187, 0.1)" }} className="rounded-md w-[60px] h-[60px] flex justify-center items-center">
                                 <BsCpu className="text-4xl text-[#3749bb]" />
@@ -86,8 +88,13 @@ const PcBuilderPage = () => {
                                 <button style={{ border: '2px solid #3749bb' }} className="px-5 py-[10px] rounded-md text-[#3749bb] font-bold text-sm">Choose</button>
                             </div>
                         </div>
-                    </div>
-
+                    </div> */}
+                    <DefaultCard comName={"CPU"} icon={BsCpu} />
+                    <DefaultCard comName={"MotherBoard"} icon={BsMotherboard} />
+                    <DefaultCard comName={"RAM"} icon={CgSmartphoneRam} />
+                    <DefaultCard comName={"Storage"} icon={AiFillPrinter} />
+                    <DefaultCard comName={"Power Supply"} icon={AiFillPrinter} />
+                    <DefaultCard comName={"Monitor"} icon={AiFillPrinter} />
 
                 </div>
 
