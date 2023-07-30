@@ -1,9 +1,11 @@
 import RootLayouts from "@/components/Layouts/RootLayouts";
 import Image from "next/image";
-import { BsCartPlusFill } from "react-icons/bs";
+import { BsCartPlusFill, BsCurrencyDollar } from "react-icons/bs";
 import { AiFillSave } from "react-icons/ai";
 import { AiFillPrinter } from "react-icons/ai";
 import { MdScreenShare } from "react-icons/md";
+
+
 const PcBuilderPage = () => {
     return (
         <div style={{ border: "1px solid #C3C8EB" }} className="max-w-4xl bg-[#F9F9FC] mx-auto mt-11">
@@ -38,6 +40,34 @@ const PcBuilderPage = () => {
 
                 </div>
             </div>
+
+            <div style={{ borderTop: "1px solid #C3C8EB" }} className="bg-[#fff]">
+
+                <div className="mx-16">
+
+                    <div className="flex justify-between items-center">{/* subHeader */}
+                        <div>
+                            <h1 className="font-bold text-[#3749BB] mt-5">PC Builder - Build Your Own Computer - Star Tech</h1>
+                            <div className="flex items-center">
+                                <input type="checkbox" name="input-hide" placeholder="dkfj" id="" />
+                                <label for="input-hide" className="ml-2 text-[#808996] text-sm">Hide Unconfigured Components</label>
+                            </div>
+                        </div>
+                        <div className=" bg-[#3749BB] rounded-md px-[20px] py-[5px] my-5">
+
+
+                            <div className="flex items-center text-[#fff] justify-center">
+                                <p>100</p>
+                                <BsCurrencyDollar />
+                            </div>
+                            <p className="text-sm text-[#fff]">0 iteams</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
 
         </div>
     );
