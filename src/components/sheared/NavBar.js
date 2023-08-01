@@ -11,7 +11,7 @@ const NavBar = () => {
             <div className="top bg-[#081621] flex justify-center items-center">
                 <div className="container mx-auto flex items-center">
 
-                    <div className="mx-4 py-5">
+                    <Link href={"/"} className="mx-4 py-5">
                         {/* <img className="w-[117px] " src="https://www.startech.com.bd/image/catalog/logo.png" alt="" srcSet="" /> */}
                         <Image
                             src="https://www.startech.com.bd/image/catalog/logo.png"
@@ -19,7 +19,7 @@ const NavBar = () => {
                             height={92}
                             alt=""
                         />
-                    </div>
+                    </Link>
 
                     <div className=" h-[42px] flex-1 rounded-sm ml-5 relative">
                         <input className=" w-full rounded-sm h-full p-[15px] outline-none" placeholder="Search" type="text" />

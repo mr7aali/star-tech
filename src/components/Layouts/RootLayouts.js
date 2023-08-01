@@ -1,3 +1,4 @@
+import Footer from "../sheared/Footer";
 import NavBar from "../sheared/NavBar";
 
 const RootLayouts = ({ children }) => {
@@ -6,6 +7,7 @@ const RootLayouts = ({ children }) => {
             <NavBar />
             {children}
             {/* <h1>This is Footer</h1> */}
+            <Footer/>
         </div>
     );
 };

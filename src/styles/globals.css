@@ -11,7 +11,8 @@
 }
 
 .drop-down-child {
-    opacity: 0;
+    /* opacity: 0; */
+    display: none;
     position: absolute;
     top: 35px;
     left: 0;
@@ -20,20 +21,31 @@
     border-top: 5px solid rgb(239, 74, 35);
     transition: .3s ease;
     box-shadow: 5px -4px 124px -29px rgba(0, 0, 0, 0.87);
+    background: white;
+    z-index: 25;
 }
 
 .drop-down-child li:hover {
     /* border: 1px solid red; */
     background-color: rgb(239, 74, 35);
-   color: white;
+    color: white;
 }
 
+/* 
 .drop-down-parent:hover+.drop-down-child {
+    display: block;
+    opacity: 1;
+} */
+
+.drop-down-container:hover .drop-down-child {
     display: block;
     opacity: 1;
 }
 
 .drop-down-child:hover {
     opacity: 1;
-    
+    display: block;
+    /* border: 1px solid red; */
+    border-top: 5px solid rgb(239, 74, 35);
+
 }

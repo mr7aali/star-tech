@@ -10,7 +10,7 @@ import {CgSmartphoneRam} from "react-icons/cg"
 
 const PcBuilderPage = () => {
     return (
-        <div style={{ border: "1px solid #C3C8EB" }} className="max-w-4xl bg-[#F9F9FC] mx-auto mt-11">
+        <div style={{ border: "1px solid #C3C8EB" }} className="max-w-4xl bg-[#F9F9FC] mx-auto mt-11 mb-5">
 
             <div className="header flex justify-between">{/** header */}
                 <div className="mx-5 py-5">
@@ -95,7 +95,6 @@ const PcBuilderPage = () => {
                     <DefaultCard comName={"Storage"} icon={AiFillPrinter} />
                     <DefaultCard comName={"Power Supply"} icon={AiFillPrinter} />
                     <DefaultCard comName={"Monitor"} icon={AiFillPrinter} />
-
                 </div>
 
             </div>
