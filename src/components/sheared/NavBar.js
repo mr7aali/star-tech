@@ -47,7 +47,11 @@ const NavBar = () => {
                             <MdOutlineManageAccounts className="text-[#ef4a23] mr-4 text-2xl" />
                             <div>
                                 <h3 className="text-[#fff] text-xm">Account</h3>
-                                <p className="text-[#acabab] text-sm">Register or Login</p>
+                                <p className="text-[#acabab] text-sm">
+                                    <Link href={"/login"} className="py-1 cursor-pointer hover:text-[#ef4a23]">Register </Link>
+                                     or
+                                    <Link href={"/login"} className="py-1 cursor-pointer hover:text-[#ef4a23]"> Login</Link>
+                                </p>
                             </div>
                         </div>
                         <Link href={"pc_builder"} className="mx-5 flex items-center justify-center rounded-md" style={{ border: '1px solid #ef4a23' }}>

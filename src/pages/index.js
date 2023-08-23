@@ -28,7 +28,6 @@ export const getStaticProps = async () => {
       data: data
     }
   }
-
 }
 
 HomePage.getLayout = function getLayout(page) {
