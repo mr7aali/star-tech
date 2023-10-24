@@ -4,10 +4,18 @@ import { AiOutlineSearch } from "react-icons/ai"
 import { MdOutlineElectricBolt, MdOutlineManageAccounts } from "react-icons/md";
 import Image from "next/image";
 const NavBar = () => {
+    const NavMenuList = ["Desktop", "Laptop", "Component", "Monitor", "UPS",
+        "Phone", "Tablet", "Office Equipment", "Camera", "Security", "Networking",
+        "Software", "Server & Storage", "Accessories", "Gadget", "Gaming", "TV", "AC"
+    ].map(li => (
+        <li key={li} className="mx-2 py-4 text-[12px] font-serif font-bold cursor-pointer hover:text-[#ef4a23]">
+            {li}
+        </li>
+    ))
 
     return (
 
-        <div className="" style={{boxShadow:'0px 1px 10px 0px rgba(0,0,0,0.31)'}}>
+        <div className="" style={{ boxShadow: '0px 1px 10px 0px rgba(0,0,0,0.31)' }}>
             <div className="top bg-[#081621] flex justify-center items-center">
                 <div className="container mx-auto flex items-center">
 
@@ -49,7 +57,7 @@ const NavBar = () => {
                                 <h3 className="text-[#fff] text-xm">Account</h3>
                                 <p className="text-[#acabab] text-sm">
                                     <Link href={"/login"} className="py-1 cursor-pointer hover:text-[#ef4a23]">Register </Link>
-                                     or
+                                    or
                                     <Link href={"/login"} className="py-1 cursor-pointer hover:text-[#ef4a23]"> Login</Link>
                                 </p>
                             </div>
@@ -62,88 +70,11 @@ const NavBar = () => {
 
                 </div>
             </div>
-            <div className="flex justify-center container mx-auto pt-3 pb-2">
-                <div className="py-[8px] px-3 cursor-pointer drop-down-container">
-                    <h1 className="hover:text-[#ef4a23] drop-down-parent text-[14px] font-semibold">Desktop</h1>
-                    <ul className="drop-down-child">
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                    </ul>
-                </div>
-                <div className="py-[8px] px-3 cursor-pointer drop-down-container">
-                    <h1 className="hover:text-[#ef4a23] drop-down-parent text-[14px] font-semibold">Laptop</h1>
-                    <ul className="drop-down-child">
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                    </ul>
-                </div>
-                <div className="py-[8px] px-3 cursor-pointer drop-down-container">
-                    <h1 className="hover:text-[#ef4a23] drop-down-parent text-[14px] font-semibold">Component</h1>
-                    <ul className="drop-down-child">
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                    </ul>
-                </div>
-                <div className="py-[8px] px-3 cursor-pointer drop-down-container">
-                    <h1 className="hover:text-[#ef4a23] drop-down-parent text-[14px] font-semibold">Monitor</h1>
-                    <ul className="drop-down-child">
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                    </ul>
-                </div>
-                <div className="py-[8px] px-3 cursor-pointer drop-down-container">
-                    <h1 className="hover:text-[#ef4a23] drop-down-parent text-[14px] font-semibold">UPS</h1>
-                    <ul className="drop-down-child">
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                    </ul>
-                </div>
-                <div className="py-[8px] px-3 cursor-pointer drop-down-container">
-                    <h1 className="hover:text-[#ef4a23] drop-down-parent text-[14px] font-semibold">Phone</h1>
-                    <ul className="drop-down-child">
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                    </ul>
-                </div>
-                <div className="py-[8px] px-3 cursor-pointer drop-down-container">
-                    <h1 className="hover:text-[#ef4a23] drop-down-parent text-[14px] font-semibold">Tablet</h1>
-                    <ul className="drop-down-child">
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                    </ul>
-                </div>
-                <div className="py-[8px] px-3 cursor-pointer drop-down-container">
-                    <h1 className="hover:text-[#ef4a23] drop-down-parent text-[14px] font-semibold">TV</h1>
-                    <ul className="drop-down-child">
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                    </ul>
-                </div>
-                <div className="py-[8px] px-3 cursor-pointer drop-down-container">
-                    <h1 className="hover:text-[#ef4a23] drop-down-parent text-[14px] font-semibold">AC</h1>
-                    <ul className="drop-down-child">
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                        <li> <p className="px-2">List 1</p> </li>
-                    </ul>
-                </div>
+            <div className="flex justify-center items-center">
+                <ul className="flex">
+
+                    {NavMenuList}
+                </ul>
             </div>
         </div>
     );
