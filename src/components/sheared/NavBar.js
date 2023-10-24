@@ -14,7 +14,6 @@ const NavBar = () => {
     ))
 
     return (
-
         <div className="" style={{ boxShadow: '0px 1px 10px 0px rgba(0,0,0,0.31)' }}>
             <div className="top bg-[#081621] flex justify-center items-center">
                 <div className="container mx-auto flex items-center">
@@ -72,7 +71,6 @@ const NavBar = () => {
             </div>
             <div className="flex justify-center items-center">
                 <ul className="flex">
-
                     {NavMenuList}
                 </ul>
             </div>

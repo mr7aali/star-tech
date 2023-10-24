@@ -1,7 +1,8 @@
 
 import ProductCard from '@/components/card/ProductCard';
 import RootLayouts from '../components/Layouts/RootLayouts'
-import Banner from '@/components/card/Banner';
+import Banner from '@/components/HomePage/Banner';
+
 
 
 
@@ -12,7 +13,7 @@ export default function HomePage({ data }) {
 
   return (
     <div >
-      <div  style={{border:'1px solid red'}} className='container mx-auto mt-8'>
+      <div  >
         <Banner />
       </div>
       <div className='max-w-5xl grid grid-cols-3 gap-2 mx-auto my-24'>
