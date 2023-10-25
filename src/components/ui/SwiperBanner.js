@@ -5,6 +5,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import Image from 'next/image';
 
 
 
@@ -19,11 +20,12 @@ const SwiperBanner = () => {
     };
     return (
         <Swiper
-           
+
             spaceBetween={30}
             centeredSlides={true}
             autoplay={{
-                delay: 2500,
+                delay: 5000,
+                // delay: 25000,
                 disableOnInteraction: false,
             }}
             pagination={{
@@ -34,20 +36,22 @@ const SwiperBanner = () => {
             onAutoplayTimeLeft={onAutoplayTimeLeft}
             className="mySwiper h-[100%] w-[100%]"
         >
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 5</SwiperSlide>
-            <SwiperSlide>Slide 6</SwiperSlide>
-            <SwiperSlide>Slide 7</SwiperSlide>
-            <SwiperSlide>Slide 8</SwiperSlide>
-            <SwiperSlide>Slide 9</SwiperSlide>
-            <div className="autoplay-progress" slot="container-end">
+            <SwiperSlide>
+                <Image height={500} width={982} src="https://www.startech.com.bd/image/cache/catalog/home/banner/Uttara%20Sayed%20Grand%20Notice-982x500.png" alt="" srcset="" />
+            </SwiperSlide>
+            <SwiperSlide>
+                <Image height={500} width={982} src="https://www.startech.com.bd/image/cache/catalog/home/IMG-20231022-WA0004-982x500.jpg" alt="" srcset="" />
+            </SwiperSlide>
+            <SwiperSlide>
+                <Image height={500} width={982} src="https://www.startech.com.bd/image/cache/catalog/home/banner/express-delivery-girl-receiving-parcel-home-banner-982x500.webp" alt="" srcset="" />
+            </SwiperSlide>
+
+
+            <div className="autoplay-progress text-[#ef4a23]" slot="container-end">
                 <svg viewBox="0 0 48 48" ref={progressCircle}>
                     <circle cx="24" cy="24" r="20"></circle>
                 </svg>
-                <span ref={progressContent}></span>
+                <span ref={progressContent} className='text-[#ef4a23;]'></span>
             </div>
         </Swiper>
     );

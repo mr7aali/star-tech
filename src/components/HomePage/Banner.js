@@ -5,7 +5,7 @@ const Banner = () => {
 
     return (
         <div className="max-w-[1290px] mx-auto h-[500px] gap-5 grid grid-cols-12 my-8">
-            <div className="bg-[red] col-span-9">
+            <div className="col-span-9">
 
                 <SwiperBanner />
 
