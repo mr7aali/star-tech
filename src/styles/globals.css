@@ -3,6 +3,10 @@
 @tailwind utilities;
 @import url('./loginpage.css');
 
+
+body{
+    background-color: #f2f4f8;
+}
 .drop-down-container {
 
     position: relative;
