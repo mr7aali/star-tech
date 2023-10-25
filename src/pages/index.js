@@ -16,12 +16,16 @@ export default function HomePage({ data }) {
       <div  >
         <Banner />
       </div>
+
+
       <div className='max-w-5xl grid grid-cols-3 gap-2 mx-auto my-24'>
         {
           data?.map(c => <ProductCard key={c.id} data={c} />)
         }
 
       </div>
+
+      
     </div>
   )
 }

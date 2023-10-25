@@ -6,7 +6,7 @@ import Image from "next/image";
 const Banner = () => {
     return (
         <>
-            <div className="max-w-[1290px] mx-auto gap-5 grid grid-cols-12 my-8">
+            <div className="max-w-[1290px] mx-auto gap-5 bg-[red] grid grid-cols-12 my-8">
                 <div className="col-span-9">
 
                     <SwiperBanner />
@@ -46,7 +46,7 @@ const Banner = () => {
 
             </div>
             <div  style={{borderRadius:'33px'}} className="max-w-[1290px] mx-auto flex items-center py-2 px-5 bg-[#fff]">
-                <marquee behavior="" direction="" className="text-[20] font-mono">26th October Thursday, our all outlets are open. Additionally, our online activities are open and operational.</marquee>
+                <marquee behavior="scroll" direction="left"  className="text-[20] font-mono">26th October Thursday, our all outlets are open. Additionally, our online activities are open and operational.</marquee>
             </div>
         </>
     );
