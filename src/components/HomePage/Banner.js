@@ -1,15 +1,20 @@
 import { SearchOutlined } from "@ant-design/icons";
-import SwiperBanner from "../ui/SwiperBanner";
+import dynamic from "next/dynamic";
+// import SwiperBanner from "../ui/SwiperBanner";
 import Image from "next/image";
+// import Marquee from "../ui/Marquee"
+
+const SwiperBanner = dynamic(() => import('../ui/SwiperBanner'), { ssr: false });
+const Marquee = dynamic(() => import('../ui/Marquee'), { ssr: false });
 
 
 const Banner = () => {
     return (
         <>
-            <div className="max-w-[1290px] mx-auto gap-5 bg-[red] grid grid-cols-12 my-8">
+            <div className="max-w-[1290px] mx-auto gap-5  grid grid-cols-12 my-8">
                 <div className="col-span-9">
 
-                    <SwiperBanner />
+                    <SwiperBanner  />
 
                 </div>
                 <div className=" gap-5 col-auto grid grid-rows-2 col-start-10 col-end-13">
@@ -45,9 +50,9 @@ const Banner = () => {
                 
 
             </div>
-            <div  style={{borderRadius:'33px'}} className="max-w-[1290px] mx-auto flex items-center py-2 px-5 bg-[#fff]">
-                <marquee behavior="scroll" direction="left"  className="text-[20] font-mono">26th October Thursday, our all outlets are open. Additionally, our online activities are open and operational.</marquee>
-            </div>
+
+         \
+            <Marquee/>
         </>
     );
 };

@@ -1,9 +1,11 @@
 
 import ProductCard from '@/components/card/ProductCard';
 import RootLayouts from '../components/Layouts/RootLayouts'
+// import dynamic from 'next/dynamic';
 import Banner from '@/components/HomePage/Banner';
 
 
+// const Banner = dynamic(() => import('@/components/HomePage/Banner'), { ssr: false });
 
 
 export default function HomePage({ data }) {
@@ -25,7 +27,7 @@ export default function HomePage({ data }) {
 
       </div>
 
-      
+
     </div>
   )
 }
