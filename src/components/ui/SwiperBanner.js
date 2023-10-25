@@ -37,13 +37,13 @@ const SwiperBanner = () => {
             className="mySwiper h-[100%] w-[100%]"
         >
             <SwiperSlide>
-                <Image height={500} width={982} src="https://www.startech.com.bd/image/cache/catalog/home/banner/Uttara%20Sayed%20Grand%20Notice-982x500.png" alt="" srcset="" />
+                <Image height={500} width={982} src="https://www.startech.com.bd/image/cache/catalog/home/banner/Uttara%20Sayed%20Grand%20Notice-982x500.png" alt="" />
             </SwiperSlide>
             <SwiperSlide>
-                <Image height={500} width={982} src="https://www.startech.com.bd/image/cache/catalog/home/IMG-20231022-WA0004-982x500.jpg" alt="" srcset="" />
+                <Image height={500} width={982} src="https://www.startech.com.bd/image/cache/catalog/home/IMG-20231022-WA0004-982x500.jpg" alt="" />
             </SwiperSlide>
             <SwiperSlide>
-                <Image height={500} width={982} src="https://www.startech.com.bd/image/cache/catalog/home/banner/express-delivery-girl-receiving-parcel-home-banner-982x500.webp" alt="" srcset="" />
+                <Image height={500} width={982} src="https://www.startech.com.bd/image/cache/catalog/home/banner/express-delivery-girl-receiving-parcel-home-banner-982x500.webp" alt="" />
             </SwiperSlide>
 
 
