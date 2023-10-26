@@ -23,8 +23,8 @@ const FeaturedCategory = () => {
     return (
         <div className="max-w-[1300px] mx-auto">
             <div className="mt-12">
-                <h3 className="text-center text-[25px] font-bold font-serif">Featured Category</h3>
-                <p className="text-center text-[#01132d]  text-[15px] opacity-90 font-serif">Get Your Desired Product from Featured Category!</p>
+                <h3 className="text-center text-[26px] md:text-[30px] font-bold font-serif">Featured Category</h3>
+                <p className="text-center text-[#01132d] mt-2 mb-3 text-[15px] md:text-[18px] opacity-90 font-serif">Get Your Desired Product from Featured Category!</p>
             </div>
 
 
