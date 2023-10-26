@@ -143,5 +143,3 @@ const framerIcon = {
     delay: 1.5,
   },
 }
-
-
