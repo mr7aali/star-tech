@@ -31,7 +31,7 @@ export default function HomePage({ data }) {
         }
       </div> */}
 
-      <div className='mt-[500px]'></div>
+      <div className='mt-[100px]'></div>
     </div>
   )
 }

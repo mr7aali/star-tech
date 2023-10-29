@@ -1,26 +1,42 @@
+import Image from "next/image";
+
 const Footer = () => {
     return (
-        <div className="bg-[#081621]">
-
-            <footer className=" bottom-0 left-0 z-20 w-full p-4 bg-[#081621] border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
-                <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" className="hover:underline">Flowbite™</a>. All Rights Reserved.
-                </span>
-                <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
-                    <li>
-                        <a href="#" className="mr-4 hover:underline md:mr-6">About</a>
-                    </li>
-                    <li>
-                        <a href="#" className="mr-4 hover:underline md:mr-6">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="#" className="mr-4 hover:underline md:mr-6">Licensing</a>
-                    </li>
-                    <li>
-                        <a href="#" className="hover:underline">Contact</a>
-                    </li>
-                </ul>
-            </footer>
-        </div>
+        <>
+          
+            <div className=" bg-gray-900">
+                <div className="max-w-2xl mx-auto text-white py-10">
+                    <div className="text-center">
+                        <h3 className="text-3xl mb-3"> Download our fitness app </h3>
+                        <p> Stay fit. All day, every day. </p>
+                        <div className="flex justify-center my-10">
+                            <div className="flex items-center border w-auto rounded-lg px-4 py-2 w-52 mx-2">
+                                <Image width={150} height={150} src="https://cdn-icons-png.flaticon.com/512/888/888857.png" alt="" className="w-7 md:w-8"/>
+                                    <div className="text-left ml-3">
+                                        <p class='text-xs text-gray-200'>Download on </p>
+                                        <p className="text-sm md:text-base"> Google Play Store </p>
+                                    </div>
+                            </div>
+                            <div className="flex items-center border w-auto rounded-lg px-4 py-2 w-44 mx-2">
+                                <Image width={150} height={150} src="https://cdn-icons-png.flaticon.com/512/888/888841.png" className="w-7 md:w-8" alt=""/>
+                                    <div className="text-left ml-3">
+                                        <p class='text-xs text-gray-200'>Download on </p>
+                                        <p className="text-sm md:text-base"> Apple Store </p>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="mt-28 flex flex-col md:flex-row md:justify-between items-center text-sm text-gray-400">
+                        <p className="order-2 md:order-1 mt-8 md:mt-0"> &copy; Beautiful Footer, 2021. </p>
+                        <div className="order-1 md:order-2">
+                            <span className="px-2">About us</span>
+                            <span className="px-2 border-l">Contact us</span>
+                            <span className="px-2 border-l">Privacy Policy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
     );
 };
 
