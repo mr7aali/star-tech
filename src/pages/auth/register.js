@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import RootLayouts from '@/components/Layouts/RootLayouts';
+import Link from 'next/link';
 import { BiSolidCommentError } from "react-icons/bi"
 
 const RegisterPage = () => {
@@ -45,7 +46,7 @@ const RegisterPage = () => {
                 <p className="w-full mt-5 mb-2"><span >Already have an account?</span></p>
 
 
-                <a href="" className='btn st-outline w-full'>login page</a>
+                <Link href="/auth/login" className='btn st-outline w-full'>login page</Link>
             </form>
         </div>
     );
