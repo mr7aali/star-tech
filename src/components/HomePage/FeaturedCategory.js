@@ -33,7 +33,7 @@ const FeaturedCategory = () => {
             <div  className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 mt-10 mx-3">
                 {
                     items.map(item => (
-                        <div key={item} className="bg-white rounded-xl shadow-md cursor-pointer hover:shadow-inner hover:text-[#ef4a23]">
+                        <div key={item} className="bg-white rounded-xl shadow-md cursor-pointer hov er:shadow-inner hover:text-[#ef4a23]">
                             <a
                                 // style={{border:'1px solid red'}}
                                 // href="https://www.startech.com.bd/gimbal"
