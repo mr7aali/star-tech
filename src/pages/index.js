@@ -4,6 +4,7 @@ import RootLayouts from '../components/Layouts/RootLayouts'
 // import dynamic from 'next/dynamic';
 import Banner from '@/components/HomePage/Banner';
 import FeaturedCategory from '@/components/HomePage/FeaturedCategory';
+import FeaturedProducts from '@/components/HomePage/FeaturedProducts';
 
 
 // const Banner = dynamic(() => import('@/components/HomePage/Banner'), { ssr: false });
@@ -19,6 +20,7 @@ export default function HomePage({ data }) {
 
       <Banner />
       <FeaturedCategory />
+      <FeaturedProducts/>
 
 
 
