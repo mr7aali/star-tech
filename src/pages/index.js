@@ -48,6 +48,8 @@ export const getStaticProps = async () => {
   }
 }
 
+
+
 HomePage.getLayout = function getLayout(page) {
   return (
     <RootLayouts>

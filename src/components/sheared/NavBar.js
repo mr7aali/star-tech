@@ -24,11 +24,11 @@ const NavBar = () => {
     ))
 
     return (
-        <div className="relative" style={{ boxShadow: '0px 1px 10px 0px rgba(0,0,0,0.31)', }}>
+        <div  className="relative" style={{ boxShadow: '0px 1px 10px 0px rgba(0,0,0,0.31)',}}>
             <div className="top bg-[#081621] flex justify-center items-center">
                 <div className="mx-auto w-[1290px] flex items-center justify-between">
 
-                    <div onClick={() => setOpen(!open)} className="pl-5 cursor-pointer lg:hidden">
+                    <div  onClick={() => setOpen(!open)} className="pl-5 cursor-pointer lg:hidden">
                         <span className="p-2 text-[#fff] text-[25px] flex justify-center items-center"><BarsOutlined /></span>
                     </div>
 
@@ -42,7 +42,7 @@ const NavBar = () => {
                         />
                     </Link>
 
-                    <div className="h-[42px] hidden lg:block flex-1 rounded-sm ml-5 relative">
+                    <div className="h-[42px]  hidden lg:block flex-1 rounded-sm ml-5 relative">
                         <input className=" w-full rounded-sm h-full p-[15px] outline-none" placeholder="Search" type="text" />
 
                         <AiOutlineSearch className="absolute right-0 top-2 cursor-pointer  text-[black] mr-4 text-2xl" />
@@ -67,12 +67,12 @@ const NavBar = () => {
 
                         <div className="ml-[15px] flex items-center cursor-pointer" >
                             <MdOutlineManageAccounts className="text-[#ef4a23] mr-4 text-2xl" />
-                            <div>
+                            <div >
                                 <h3 className="text-[#fff] text-[15px]">Account</h3>
                                 <small className="text-[#acabab] text-[12px]">
-                                    <Link href={"/login"} className="py-1 cursor-pointer hover:text-[#ef4a23]">Register </Link>
+                                    <Link href={"/auth/register"} className="py-1 cursor-pointer hover:text-[#ef4a23]">Register </Link>
                                     or
-                                    <Link href={"/login"} className="py-1 cursor-pointer hover:text-[#ef4a23]"> Login</Link>
+                                    <Link href={"/auth/login"} className="py-1 cursor-pointer hover:text-[#ef4a23]"> Login</Link>
                                 </small>
                             </div>
                         </div>

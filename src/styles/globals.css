@@ -165,3 +165,10 @@ html {
     color: #fff;
     text-decoration: none
 }
+
+.before-login p.no-account-text {
+    text-align: center;
+    margin: 25px 0 35px;
+    border-bottom: 1px solid #eee;
+    height: 11px;
+}
