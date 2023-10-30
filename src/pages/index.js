@@ -12,8 +12,8 @@ export default function HomePage() {
 
   return (
     <div >
-      <Banner />
-      <FeaturedCategory />
+      {/* <Banner />
+      <FeaturedCategory /> */}
       <FeaturedProducts/>
 
 

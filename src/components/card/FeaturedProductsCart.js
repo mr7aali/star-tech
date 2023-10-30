@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const FeaturedProductsCart = () => {
     return (
-        <div className="w-[250px] relative bg-[#fff]  rounded-md shadow-md mb-5 mx-2">
+        <div  className="w-[220px] sm:w-[250px] relative bg-[#fff]  rounded-md hover:shadow-inner shadow-md m-2">
             <div style={{ borderRadius: "0px 15px 15px 0px" }} className="absolute top-2 bg-[#6e2594]">
                 <span className="text-[12px] text-[#fff] p-2">Earn Point: 100</span>
             </div>
