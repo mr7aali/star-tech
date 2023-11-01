@@ -4,9 +4,9 @@ import { BiErrorCircle } from "react-icons/bi";
 const FormsInput = (
     { name, type, value, id, placeholder, validation }
 ) => {
-    const { control, formState: { errors }, register } = useFormContext();
+    const { control, formState: { errors } } = useFormContext();
     const capitalizedFieldName = name.charAt(0).toUpperCase() + name.slice(1);
-    console.log(errors[name]?.message);
+    // console.log(errors[name]?.message);
     return (
         <>
             <Controller
@@ -14,8 +14,8 @@ const FormsInput = (
                 rules={{
                     required: `${capitalizedFieldName} field cannot be empty!`,
                     minLength: {
-                        value: 4,
-                        message: 'Min length is 4'
+                        value: 6,
+                        message: `${capitalizedFieldName} must be at least 6 characters long.`
                     }
                 }}
                 name={name}
@@ -25,6 +25,7 @@ const FormsInput = (
                         type={type}
                         placeholder={placeholder}
                         value={value ? value : field.value || ""}
+                        style={{style:'1px solid red'}}
                         className='block rounded-md px-5 w-full font-serif py-2 outline-none focus:border-[#5252ff] border-[#ddd] border-[1px] rounded-' />
                 )}
             />
