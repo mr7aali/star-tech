@@ -52,7 +52,7 @@ const RegisterPage = () => {
                         Passwoard
 
                     </label>
-                    <FormsInput name={"phone"} type="passwoard" placeholder='passwoard' />
+                    <FormsInput name={"password"} type="passwoard" placeholder='passwoard' />
                 </div>
                 <div className='mt-5'>
                     <button className='btn w-full pt-4 block' type='submit'> Continue</button>
@@ -62,43 +62,6 @@ const RegisterPage = () => {
 
                 <Link href="/auth/login" className='btn st-outline w-full'>login page</Link>
             </Forms>
-            {/* <form >
-                <div className='grid grid-cols-2 gap-4'>
-                    <div >
-                        <label htmlFor="" className='font-serif text-[14px] mt-5 mb-2 block'>
-                            First Name
-                        </label>
-                        <input className='block rounded-md px-5 w-full font-serif py-2 outline-none focus:border-[#5252ff] border-[#ddd] border-[1px] rounded-' type="text" placeholder='Phone / E-Mail' />
-                    </div>
-                    <div>
-                        <label htmlFor="" className='font-serif text-[14px] mt-5 mb-2 flex justify-between'>
-                            Last Name
-                        </label>
-                        <input className='block rounded-md px-5 w-full font-serif py-2 outline-none focus:border-[#5252ff] border-[#ddd] border-[1px] rounded-' type="text" placeholder='Password' />
-                    </div>
-                </div>
-                <div>
-                    <label htmlFor="" className='font-serif text-[14px] mt-5 mb-2 block'>E-Mail</label>
-                    <input className='block rounded-md px-5 w-full font-serif py-2 outline-none focus:border-[#5252ff] border-[#ddd] border-[1px] rounded-' type="text" placeholder='Phone / E-Mail' />
-                </div>
-                <div>
-                    <label htmlFor="" className='font-serif text-[14px] mt-5 mb-2 flex justify-between'>
-                    Telephone
-                     
-                    </label>
-                    <input className='block rounded-md px-5 w-full font-serif py-2 outline-none focus:border-[#5252ff] border-[#ddd] border-[1px] rounded-' type="text" placeholder='Password' />
-                </div>
-                <div className='mt-5'>
-                    <button className='btn w-full pt-4 block' type='submit'> Continue</button>
-
-                </div>
-
-
-                <p className="w-full mt-5 mb-2"><span >Already have an account?</span></p>
-
-
-                <Link href="/auth/login" className='btn st-outline w-full'>login page</Link>
-            </form> */}
         </div>
     );
 };
