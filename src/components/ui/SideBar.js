@@ -54,9 +54,11 @@ const Sidebar = ({ open, setOpen }) => {
 
               className="fixed bottom-0 left-0 right-0 top-0 z-40 bg-[rgba(0,0,0,0.1)] backdrop-blur-sm"
             ></motion.div>
+
+            
             <motion.div
               {...framerSidebarPanel}
-              // style={{overflow:"scroll"}}
+              style={{border:"1px solid red"}}
               className="fixed bg-slate-100 overflow-auto top-0 bottom-0 left-0 z-50 w-full h-screen max-w-xs border-r-2"//
               // bg-zinc-900
               ref={ref}
