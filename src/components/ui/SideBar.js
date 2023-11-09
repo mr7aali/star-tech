@@ -45,6 +45,7 @@ const Sidebar = ({ open, setOpen }) => {
   return (
     <div >
       <AnimatePresence mode="wait" initial={false}>
+        
         {open && (
           <>
             <motion.div
@@ -100,6 +101,8 @@ const Sidebar = ({ open, setOpen }) => {
             </motion.div>
           </>
         )}
+
+
       </AnimatePresence>
     </div>
   )

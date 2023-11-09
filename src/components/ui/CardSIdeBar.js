@@ -17,7 +17,7 @@ const CardSIdeBar = () => {
     useClickAway(ref, () => setOpen(!open))
     const toggleSidebar = () => setOpen(prev => !prev)
     return (
-        <motion.div
+        <div
 
 
         >
@@ -35,8 +35,8 @@ const CardSIdeBar = () => {
 
                         initial={{ x: '100%', }}
                         animate={{ x: 0, }}
-                        exit={{ x: '100%', }}
-                        transition={{ duration: 0.2 }}
+                        exit={{ x: '100%' }}                       
+                        transition={{  duration: 0.2 }}
 
                         ref={ref}
                         className="fixed h-screen max-w-[350px] right-0 z-50 bg-[#fff] shadow-2xl ">
@@ -111,7 +111,7 @@ const CardSIdeBar = () => {
 
             </AnimatePresence>
 
-        </motion.div>
+        </div>
     );
 };
 
