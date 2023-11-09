@@ -40,7 +40,7 @@ const Sidebar = ({ open, setOpen }) => {
 
   const ref = useRef(null)
   useClickAway(ref, () => setOpen(false))
-  const toggleSidebar = () => setOpen(prev => !prev)
+  // const toggleSidebar = () => setOpen(prev => !prev)
 
   return (
     <div >
@@ -68,7 +68,7 @@ const Sidebar = ({ open, setOpen }) => {
               <div className="flex items-center justify-between p-5 border-b-2 "> {/* border-zinc-800 */}
                 <span>Welcome</span>
                 <button
-                  onClick={toggleSidebar}
+                  onClick={()=>setOpen(!open)}
                   className="p-3 border-2 rounded-md"
                   // border-zinc-800
                   aria-label="close sidebar"
@@ -82,7 +82,8 @@ const Sidebar = ({ open, setOpen }) => {
                   return (
                     <li key={title}>
                       <a
-                        onClick={toggleSidebar}
+                        // onClick={toggleSidebar}
+                        onClick={()=>setOpen(!open)}
                         href={href}
 
                         className="flex items-center justify-between gap-5 px-5 py-2 transition-all border-b-2 hover:text-[#ef4a23]"
