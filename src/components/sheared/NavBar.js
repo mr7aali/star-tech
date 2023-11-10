@@ -78,7 +78,7 @@ const NavBar = () => {
                         </div>
 
                         <div className="ml-[10px] mr-3">
-                            <Link href={"pc_builder"} className="btn">PC Builder</Link>
+                            <Link href={"builder"} className="btn">PC Builder</Link>
                         </div>
                     </div>
 

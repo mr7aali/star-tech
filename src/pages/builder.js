@@ -1,16 +1,18 @@
 import RootLayouts from "@/components/Layouts/RootLayouts";
 import Image from "next/image";
-import { BsCartPlusFill, BsCurrencyDollar, BsCpu ,BsMotherboard} from "react-icons/bs";
+import { BsCartPlusFill, BsCurrencyDollar, BsCpu, BsMotherboard } from "react-icons/bs";
 import { AiFillSave } from "react-icons/ai";
 import { AiFillPrinter } from "react-icons/ai";
-import { MdScreenShare } from "react-icons/md";
+import { MdScreenShare, MdOutlineSdStorage } from "react-icons/md";
 import DefaultCard from "@/components/card/DefaultCard";
-import {CgSmartphoneRam} from "react-icons/cg"
+import { CgSmartphoneRam } from "react-icons/cg"
+import { PiMonitorDuotone } from "react-icons/pi";
+import { ImPower } from "react-icons/im"
 
 
 const PcBuilderPage = () => {
     return (
-        <div style={{ border: "1px solid #C3C8EB" }} className="max-w-4xl bg-[#F9F9FC] mx-auto mt-11 mb-5">
+        <div style={{ border: "1px solid #C3C8EB" }} className="max-w-4xl bg-[#F9F9FC] mx-auto shadow-lg mt-16 mb-32">
 
             <div className="header flex justify-between">{/** header */}
                 <div className="mx-5 py-5">
@@ -68,33 +70,13 @@ const PcBuilderPage = () => {
                     <h1 className="text-sm font-bold bg-[#808996] text-[#fff] pl-2">Core Components</h1>
 
 
-                    {/* <div className="h-[60px] flex justify-between mt-10">
-                        <div className="flex ">
-                            <div style={{ background: "rgba(55, 73, 187, 0.1)" }} className="rounded-md w-[60px] h-[60px] flex justify-center items-center">
-                                <BsCpu className="text-4xl text-[#3749bb]" />
-                            </div>
-                            <div className="title ml-5">
-                                <div className="text-xm font-bold mb-3">CPU</div>
-                                <div className="pr-2 h-[12px] w-[300px] bg-[#F2F3F4]">
-                                </div>
-                            </div>
-                        </div>
-                        <div className="right-side flex items-center ">
-                            <div className="pr-2 h-[12px] w-[79px] bg-[#F2F3F4] ">
 
-                            </div>
-                            <div style={{ border: "1px solid #F2F3F4" }} className="w-[1px] h-[50px] mx-10"></div>
-                            <div >
-                                <button style={{ border: '2px solid #3749bb' }} className="px-5 py-[10px] rounded-md text-[#3749bb] font-bold text-sm">Choose</button>
-                            </div>
-                        </div>
-                    </div> */}
                     <DefaultCard comName={"CPU"} icon={BsCpu} />
                     <DefaultCard comName={"MotherBoard"} icon={BsMotherboard} />
                     <DefaultCard comName={"RAM"} icon={CgSmartphoneRam} />
-                    <DefaultCard comName={"Storage"} icon={AiFillPrinter} />
-                    <DefaultCard comName={"Power Supply"} icon={AiFillPrinter} />
-                    <DefaultCard comName={"Monitor"} icon={AiFillPrinter} />
+                    <DefaultCard comName={"Storage"} icon={MdOutlineSdStorage} />
+                    <DefaultCard comName={"Power Supply"} icon={ImPower} />
+                    <DefaultCard comName={"Monitor"} icon={PiMonitorDuotone} />
                 </div>
 
             </div>
