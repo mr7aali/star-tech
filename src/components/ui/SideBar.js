@@ -46,20 +46,16 @@ const Sidebar = ({ open, setOpen }) => {
     <div >
       <AnimatePresence mode="wait" initial={false}>
         
-        {open && (
+        {open && 
           <>
             <motion.div
-              // {...framerSidebarBackground}
               aria-hidden="true"
-              // bg-[rgba(0,0,0,0.1)]
-
               className="fixed bottom-0 left-0 right-0 top-0 z-40 bg-[rgba(0,0,0,0.1)] backdrop-blur-sm"
             ></motion.div>
 
-            
+
             <motion.div
-              {...framerSidebarPanel}
-              style={{border:"1px solid red"}}
+              {...framerSidebarPanel}  
               className="fixed bg-slate-100 overflow-auto top-0 bottom-0 left-0 z-50 w-full h-screen max-w-xs border-r-2"//
               // bg-zinc-900
               ref={ref}
@@ -70,7 +66,6 @@ const Sidebar = ({ open, setOpen }) => {
                 <button
                   onClick={()=>setOpen(!open)}
                   className="p-3 border-2 rounded-md"
-                  // border-zinc-800
                   aria-label="close sidebar"
                 >
                   <AiOutlineRollback />
@@ -82,17 +77,19 @@ const Sidebar = ({ open, setOpen }) => {
                   return (
                     <li key={title}>
                       <a
-                        // onClick={toggleSidebar}
                         onClick={()=>setOpen(!open)}
                         href={href}
 
                         className="flex items-center justify-between gap-5 px-5 py-2 transition-all border-b-2 hover:text-[#ef4a23]"
-                      // border-zinc-800
                       >
-                        <motion.span {...framerText(idx)}>{title}</motion.span>
-                        <motion.div {...framerIcon}>
+                        <motion.span 
+                        {...framerText(idx)}
+                        >{title}</motion.span>
+                        <motion.div
+                         {...framerIcon}
+                        >
                           <Icon className="text-2xl" />
-                          {/* {Icon} */}
+
                         </motion.div>
                       </a>
                     </li>
@@ -101,7 +98,7 @@ const Sidebar = ({ open, setOpen }) => {
               </ul>
             </motion.div>
           </>
-        )}
+        }
 
 
       </AnimatePresence>
@@ -115,19 +112,16 @@ export default Sidebar;
 
 
 
-const framerSidebarBackground = {
-  // initial: { opacity: 0 },
-  // animate: { opacity: 1 },
-  // exit: { opacity: 0, transition: { delay: 0.2 } },
-  // transition: { duration: 0.3 },
-}
+
 
 const framerSidebarPanel = {
   initial: { x: '-100%' },
   animate: { x: 0 },
   exit: { x: '-100%' },
-  transition: { duration: 0.3 },
+  transition: { duration: .3 },
 }
+
+
 
 const framerText = delay => {
   return {

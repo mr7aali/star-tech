@@ -25,17 +25,17 @@ const CardSIdeBar = () => {
                     open &&
                     <>
                         <motion.div
-                            initial={{ x: '100%',  }}
-                            animate={{ x: 0,opacity:1  }}
-                            exit={{ x: '100%' ,opacity:0 , transition: { delay: 1 }}}
-                            transition={{ duration: 0.2 }}
+
+                            {...framerSidebarPanel}
+
                             ref={ref}
+                            aria-label="Sidebar"
                             className="fixed h-screen max-w-[350px] right-0 z-50 bg-[#fff] shadow-2xl ">
                             <div className='relat ive h-full overflow-x-scroll'>
 
                                 <div className='bg-[#01132d] absolute w-full p-5 flex justify-between items-center'>
                                     <p className='text-[15px] font-bold font-mono  text-white uppercase '>Your Cart</p>
-                                    <button onClick={() => setOpen(!open)} className='text-white text-[25px] cursor-pointer '><AiOutlineClose /></button>
+                                    <button aria-label="close sidebar" onClick={() => setOpen(!open)} className='text-white text-[25px] cursor-pointer '><AiOutlineClose /></button>
                                 </div>
 
                                 <div>
@@ -103,3 +103,9 @@ const CardSIdeBar = () => {
 export default CardSIdeBar;
 
 
+const framerSidebarPanel = {
+    initial: { x: '100%' },
+    animate: { x: 0 },
+    exit: { x: '100%' },
+    transition: { duration: .3 },
+}

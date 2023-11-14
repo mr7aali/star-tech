@@ -28,7 +28,7 @@ const NavBar = () => {
             <div className="top bg-[#081621] flex justify-center items-center">
                 <div className="mx-auto w-[1290px] flex items-center justify-between">
 
-                    <div  onClick={() => setOpen(!open)} className="pl-5 cursor-pointer lg:hidden">
+                    <div onClick={() => setOpen(!open)} className="pl-5 cursor-pointer lg:hidden">
                         <span className="p-2 text-[#fff] text-[25px] flex justify-center items-center"><BarsOutlined /></span>
                     </div>
 
