@@ -16,17 +16,26 @@ const CardSIdeBar = () => {
 
     return (
         <div>
-            <AnimatePresence mode="wait" initial={false}>
 
-                <div onClick={() => setOpen(!open)}>
-                    <ShopingCardButton />
-                </div>
+
+            <div onClick={() => setOpen(!open)}>
+                <ShopingCardButton />
+            </div>
+
+            <AnimatePresence >
                 {
                     open &&
                     <>
                         <motion.div
 
-                            {...framerSidebarPanel}
+                            // {...framerSidebarPanel}
+                            initial={{ x: "100%", opacity: .3 }}
+                            animate={{ opacity: 1, x: "0" }}
+                            transition={{
+                                duration: .3
+                            }}
+
+                            exit={{ x: "100%", opacity: .3 }}
 
                             ref={ref}
                             aria-label="Sidebar"
