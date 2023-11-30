@@ -6,7 +6,7 @@ import { MdStars } from "react-icons/md";
 
 const ProductDetails = () => {
     return (
-        <div className="bg-white">
+        <div className="bg-white py-5">
             <div className="max-w-[1290px] mx-auto flex pt-10">
 
                 <div className="px-[15px]">
@@ -63,32 +63,41 @@ const ProductDetails = () => {
                             <span className="mx-1 ">Star Points</span>
                         </div>
                     </div>
-
+                    {/* Payment Options */}
                     <div>
                         <h3 className="text-[20px] font-serif my-4">Payment Options</h3>
 
 
-                        <div className="flex" >
-                            <label className="flex" >
-                                <input type="radio" name="enable_emi" value="1" />
-                                <div className="ml-3">
-                                    <span className="">23,800৳</span>
-                                    <div className="">Cash Discount Price</div>
-                                    <span className="">Online / Cash Payment</span>
+                        <div className="grid grid-cols-2 gap-3 font-serif" >
+                            <label className="flex" style={{ border: '2px solid #edf2f5' }}>
+                                <div className="flex px-3 mr-3 bg-[#edf2f5]">
+                                    <input style={{ border: '1px solid red' }} className="scale-[1.7]" type="radio" name="enable_emi" value="1" />
+                                </div>
+                                <div className="py-2 ">
+                                    <span className="text-[22px] font-bold font-mono">23,800৳</span>
+                                    <div className="font-medium">Cash Discount Price</div>
+                                    <small className="opacity-50 font-semibold text-xs">Online / Cash Payment</small>
                                 </div>
                             </label>
-                            <label className="flex" >
-                                <input className="bg-red-950" type="radio" name="enable_emi" value="1" />
-                                <div className="ml-3">
-                                    <span className="">2,143৳/month</span>
-                                    <div className="">Regular Price: 25,720৳</div>
-                                    <div className="">0% EMI for up to 12 Months***</div>
+                            <label className="flex" style={{ border: '2px solid #edf2f5' }}>
+                                <div className="flex px-3 mr-3 bg-[#edf2f5]">
+                                    <input style={{ border: '1px solid red' }} className="scale-[1.7]" type="radio" name="enable_emi" value="1" />
+                                </div>
+                                <div className="py-2">
+                                    <span className="text-[22px] font-bold font-mono">2,143৳/month</span>
+                                    <div className="font-medium">Regular Price: 25,720৳</div>
+                                    <small className="opacity-50 font-semibold text-xs">0% EMI for up to 12 Months***</small>
                                 </div>
                             </label>
                         </div>
 
 
 
+
+                    </div>
+
+                    {/* add quantity */}
+                    <div>
 
                     </div>
 
