@@ -2,11 +2,14 @@
 import RootLayouts from "@/components/Layouts/RootLayouts";
 import Image from "next/image";
 import { MdStars } from "react-icons/md";
-
+import { LuMinus, LuPlus } from "react-icons/lu";
+import QuantityCalculation from "@/components/ProductIDPage/QuantityCalculation";
+import PaymentOptions from "@/components/ProductIDPage/PaymentOptions";
+import KeyFeatures from "@/components/ProductIDPage/KeyFeatures";
 
 const ProductDetails = () => {
     return (
-        <div className="bg-white py-5">
+        <div className="bg-white ">
             <div className="max-w-[1290px] mx-auto flex pt-10">
 
                 <div className="px-[15px]">
@@ -18,7 +21,7 @@ const ProductDetails = () => {
                     />
                 </div>
                 <div className="px-[15px] ml-10">
-                    <h2 className="text-[22px] font-serif text-[#3749bb]">MSI G2412 23.8" FHD 170Hz IPS 1ms FreeSync Premium Gaming Monitor</h2>
+                    {/* <h2 className="text-[22px] font-serif text-[#3749bb]">MSI G2412 23.8" FHD 170Hz IPS 1ms FreeSync Premium Gaming Monitor</h2>
 
                     <aside className="flex my-2">
                         <div className="bg-[rgba(55,73,187,.05)] rounded-full mr-2">
@@ -36,26 +39,11 @@ const ProductDetails = () => {
                         <div className="bg-[rgba(55,73,187,.05)] rounded-full mr-2">
                             <p className="px-5 py-1 text-sm">Brand: <span className="font-semibold">MSI</span></p>
                         </div>
-                    </aside>
+                    </aside> */}
+
                     {/* Key Features */}
-                    <div>
-                        <h3 className="text-[20px] font-serif my-4">Key Features</h3>
-
-                        <p className="my-1 font-serif">Model: iGame GeForce RTX 4060 Ti Ultra W DUO OC 16GB-V</p>
-                        <p className="my-1 font-serif">Core Clock: Base:1830Mhz; Boost:2460Mhz</p>
-                        <p className="my-1 font-serif">Memory Clock: 17Gbps</p>
-                        <p className="my-1 font-serif">Memory Interface: 128bit</p>
-                        <p className="my-1 font-serif">Output: 3x DP+HDMI</p>
-
-                        {/* <a className="text-[#e5330b] cursor-pointer mt-4 font-serif underline underline-offset-2">View More Info</a> */}
-                        <a
-                            className="text-[#e5330b] cursor-pointer mt-[10px] font-serif relative after:content-[''] after:block after:absolute after:w-full after:h-[2px] after:bg-[#e5330b] after:bottom-[-8px] after:transform after:origin-bottom-right after:scale-x-8 after:hover:scale-x-100"
-                        >
-                            View More Info
-                        </a>
-
-                    </div>
-
+                   
+                    <KeyFeatures/>
                     <div className="inline-block">
                         <div className="mt-10 bg-red-100 flex  rounded-full justify-between items-center px-3 py-2">
                             <span className="mx-1 text-[30px]"><MdStars /></span>
@@ -64,42 +52,9 @@ const ProductDetails = () => {
                         </div>
                     </div>
                     {/* Payment Options */}
-                    <div>
-                        <h3 className="text-[20px] font-serif my-4">Payment Options</h3>
+                    <PaymentOptions />
 
-
-                        <div className="grid grid-cols-2 gap-3 font-serif" >
-                            <label className="flex" style={{ border: '2px solid #edf2f5' }}>
-                                <div className="flex px-3 mr-3 bg-[#edf2f5]">
-                                    <input style={{ border: '1px solid red' }} className="scale-[1.7]" type="radio" name="enable_emi" value="1" />
-                                </div>
-                                <div className="py-2 ">
-                                    <span className="text-[22px] font-bold font-mono">23,800৳</span>
-                                    <div className="font-medium">Cash Discount Price</div>
-                                    <small className="opacity-50 font-semibold text-xs">Online / Cash Payment</small>
-                                </div>
-                            </label>
-                            <label className="flex" style={{ border: '2px solid #edf2f5' }}>
-                                <div className="flex px-3 mr-3 bg-[#edf2f5]">
-                                    <input style={{ border: '1px solid red' }} className="scale-[1.7]" type="radio" name="enable_emi" value="1" />
-                                </div>
-                                <div className="py-2">
-                                    <span className="text-[22px] font-bold font-mono">2,143৳/month</span>
-                                    <div className="font-medium">Regular Price: 25,720৳</div>
-                                    <small className="opacity-50 font-semibold text-xs">0% EMI for up to 12 Months***</small>
-                                </div>
-                            </label>
-                        </div>
-
-
-
-
-                    </div>
-
-                    {/* add quantity */}
-                    <div>
-
-                    </div>
+                    <QuantityCalculation />
 
 
                 </div>
@@ -110,6 +65,7 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
+
 
 
 

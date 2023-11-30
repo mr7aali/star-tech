@@ -5,14 +5,6 @@ import NavBar from "../sheared/NavBar";
 const CardSIdeBar = dynamic(() => import('../ui/CardSIdeBar'), { ssr: false });
 const RootLayouts = ({ children }) => {
 
-
-  
-
-
-
-
-
-
     return (
         <div>
             <CardSIdeBar />
