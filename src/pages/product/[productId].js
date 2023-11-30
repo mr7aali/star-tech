@@ -21,27 +21,7 @@ const ProductDetails = () => {
                     />
                 </div>
                 <div className="px-[15px] ml-10">
-                    {/* <h2 className="text-[22px] font-serif text-[#3749bb]">MSI G2412 23.8" FHD 170Hz IPS 1ms FreeSync Premium Gaming Monitor</h2>
-
-                    <aside className="flex my-2">
-                        <div className="bg-[rgba(55,73,187,.05)] rounded-full mr-2">
-                            <p className="px-5 py-1 text-sm">Price: <span className="font-semibold">23,800৳</span></p>
-                        </div>
-                        <div className="bg-[rgba(55,73,187,.05)] rounded-full mr-2">
-                            <p className="px-5 py-1 text-sm">Regular Price: <span className="font-semibold">23,800৳</span></p>
-                        </div>
-                        <div className="bg-[rgba(55,73,187,.05)] rounded-full mr-2">
-                            <p className="px-5 py-1 text-sm">Status: <span className="font-semibold">In Stock</span></p>
-                        </div>
-                        <div className="bg-[rgba(55,73,187,.05)] rounded-full mr-2">
-                            <p className="px-5 py-1 text-sm">Product Code: <span className="font-semibold">26275</span></p>
-                        </div>
-                        <div className="bg-[rgba(55,73,187,.05)] rounded-full mr-2">
-                            <p className="px-5 py-1 text-sm">Brand: <span className="font-semibold">MSI</span></p>
-                        </div>
-                    </aside> */}
-
-                    {/* Key Features */}
+                   
                    
                     <KeyFeatures/>
                     <div className="inline-block">
@@ -51,7 +31,7 @@ const ProductDetails = () => {
                             <span className="mx-1 ">Star Points</span>
                         </div>
                     </div>
-                    {/* Payment Options */}
+                    
                     <PaymentOptions />
 
                     <QuantityCalculation />
