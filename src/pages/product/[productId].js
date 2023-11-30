@@ -37,8 +37,8 @@ const ProductDetails = () => {
                             <p className="px-5 py-1 text-sm">Brand: <span className="font-semibold">MSI</span></p>
                         </div>
                     </aside>
-
-                    <div className="">
+                    {/* Key Features */}
+                    <div>
                         <h3 className="text-[20px] font-serif my-4">Key Features</h3>
 
                         <p className="my-1 font-serif">Model: iGame GeForce RTX 4060 Ti Ultra W DUO OC 16GB-V</p>
@@ -62,6 +62,34 @@ const ProductDetails = () => {
                             <span className="mx-1 text-[25px] font-semibold">450</span>
                             <span className="mx-1 ">Star Points</span>
                         </div>
+                    </div>
+
+                    <div>
+                        <h3 className="text-[20px] font-serif my-4">Payment Options</h3>
+
+
+                        <div className="flex" >
+                            <label className="flex" >
+                                <input type="radio" name="enable_emi" value="1" />
+                                <div className="ml-3">
+                                    <span className="">23,800৳</span>
+                                    <div className="">Cash Discount Price</div>
+                                    <span className="">Online / Cash Payment</span>
+                                </div>
+                            </label>
+                            <label className="flex" >
+                                <input className="bg-red-950" type="radio" name="enable_emi" value="1" />
+                                <div className="ml-3">
+                                    <span className="">2,143৳/month</span>
+                                    <div className="">Regular Price: 25,720৳</div>
+                                    <div className="">0% EMI for up to 12 Months***</div>
+                                </div>
+                            </label>
+                        </div>
+
+
+
+
                     </div>
 
 
