@@ -37,13 +37,13 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </div>
-            {/* Specification */}
+            
             <div className="w-[1290px] mx-auto mt-5 grid grid-cols-12 gap-5">
                 {/* left */}
                 <div className="col-span-9 " >
                     <div className="">
 
-                        <div  className="py-2 px-5 mr-5 rounded bg-[#ef4a23] inline-block cursor-pointer">
+                        <div className="py-2 px-5 mr-5 rounded bg-[#ef4a23] inline-block cursor-pointer">
                             <small className=" text-white font-semibold text-[14px]">Specification</small>
                         </div>
 
@@ -60,7 +60,7 @@ const ProductDetails = () => {
 
                     </div>
 
-                    <div  className="bg-white rounded-md  mt-5 px-5">
+                    <div className="bg-white rounded-md  mt-5 px-5">
                         <h2 className="font-semibold text-[20px] py-5">Specification</h2>
                         <SingleFeatures />
                         <SingleFeatures />
@@ -79,7 +79,7 @@ const ProductDetails = () => {
                         <h2 className="text-[#3749bb] font-bold text-center  py-4 text-[17px]">Recently Viewed</h2>
                         {/* <RelatedProductCard /> */}
                     </div>
-                   
+
 
                 </div>
 
