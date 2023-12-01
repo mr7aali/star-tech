@@ -8,7 +8,7 @@ import KeyFeatures from "@/components/ProductIDPage/KeyFeatures";
 import SingleFeatures from "@/components/ProductIDPage/SingleFeatures";
 import RelatedProductCard from "@/components/ProductIDPage/RelatedProductCard";
 
-const ProductDetails = () => {
+const ProductDetailsPage = () => {
     return (
         <>
 
@@ -87,12 +87,12 @@ const ProductDetails = () => {
         </>
     );
 };
-export default ProductDetails;
+export default ProductDetailsPage;
 
 
 
 
-ProductDetails.getLayout = function getLayout(page) {
+ProductDetailsPage.getLayout = function getLayout(page) {
     return (
         <RootLayouts>
             {page}
