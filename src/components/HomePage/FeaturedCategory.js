@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 
 const FeaturedCategory = () => {
@@ -33,18 +34,14 @@ const FeaturedCategory = () => {
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 mt-10 mx-3">
                 {
                     items.map((item, index) => (
-                        <div key={index} className="bg-white rounded-xl shadow-md cursor-pointer hover:shadow-inner hover:text-[#ef4a23]">
-                            <a
-                                // style={{border:'1px solid red'}}
-                                // href="https://www.startech.com.bd/gimbal"
-                                className="flex gap-5 justify-center items-center flex-col xl:py-5 py-3"
-                            >
+                        <Link href={"/category/id"}  key={index} className="bg-white rounded-xl shadow-md cursor-pointer hover:shadow-inner hover:text-[#ef4a23]">
+                            <div className="flex gap-5 justify-center items-center flex-col xl:py-5 py-3">
                                 <span >
                                     <Image src={item.Image} alt="Gimbal" width="48" height="48" />
                                 </span>
                                 <p className="mt-1 xl:mt-2 text-[11px] sm:text-[12px] xl:text-[15px] px-1">{item.title}</p>
-                            </a>
-                        </div>
+                            </div>
+                        </Link>
                     ))
                 }
 
