@@ -15,6 +15,7 @@ const FilteringOption = () => {
         }
         updateAnimation();
     }, [open, arrowControls]);
+    
     return (
         <div style={{ boxShadow: '0 1px 1px rgba(0,0,0,.1)' }} className="bg-white rounded-md py-3 mb-2" >
             <div onClick={() => setOpen(!open)} className="relative cursor-pointer">

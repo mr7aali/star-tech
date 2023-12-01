@@ -1,4 +1,5 @@
 import FilteringOption from "@/components/CategoryIdPage/FilteringOption";
+import Pagination from "@/components/CategoryIdPage/Pagination";
 import ProductFiltering from "@/components/CategoryIdPage/ProductFiltering";
 import RootLayouts from "@/components/Layouts/RootLayouts";
 import ProductCard from "@/components/card/ProductCard";
@@ -14,10 +15,21 @@ const CategoryIdPage = () => {
                 <FilteringOption />
 
             </div>
-            <div className="col-span-9">
+            <div className="col-span-9 ">
                 <ProductFiltering />
-               <ProductCard/>
+                <div className="flex flex-wrap justify-center gap-3 mt-5"  >
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                </div>
+                <Pagination />
             </div>
+
         </div>
     );
 };
