@@ -6,7 +6,6 @@ import QuantityCalculation from "@/components/ProductIDPage/QuantityCalculation"
 import PaymentOptions from "@/components/ProductIDPage/PaymentOptions";
 import KeyFeatures from "@/components/ProductIDPage/KeyFeatures";
 import SingleFeatures from "@/components/ProductIDPage/SingleFeatures";
-import Link from "next/link";
 import RelatedProductCard from "@/components/ProductIDPage/RelatedProductCard";
 
 const ProductDetails = () => {

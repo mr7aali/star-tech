@@ -7,10 +7,7 @@ import { BarsOutlined, SearchOutlined, ShoppingCartOutlined } from "@ant-design/
 
 import { useState } from "react";
 import dynamic from "next/dynamic";
-// import Sidebar from "../ui/SideBar";
 const Sidebar = dynamic(() => import('../ui/SideBar'), { ssr: true });
-
-// const Sidebar = dynamic(() => import('../ui/Marquee'), { ssr: false });
 
 const NavBar = () => {
     const [open, setOpen] = useState(false);

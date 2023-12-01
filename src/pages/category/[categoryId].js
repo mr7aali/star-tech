@@ -1,9 +1,6 @@
 import FilteringOption from "@/components/CategoryIdPage/FilteringOption";
 import RootLayouts from "@/components/Layouts/RootLayouts";
 
-
-
-
 const CategoryIdPage = () => {
     return (
         <div className="grid grid-cols-12 max-w-[1290px] mx-auto mt-12 gap-5">
