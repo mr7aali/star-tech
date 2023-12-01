@@ -14,7 +14,7 @@ const RelatedProductCard = () => {
                     alt="" srcset="" />
             </div>
             <div className="pl-5">
-                <Link href={"/product/id"} className="font-serif text-[#111] hover:text-[#ef4a23] text-[15px]  hover:underline cursor-pointer">ACER EK220Q H3bi 21.5 inch 1ms 100hz Borderless Full HD Monitor</Link>
+                <Link href={"/product/id"} className="font-serif text-[#111] hover:text-[#ef4a23] text-[13px] xl:text-[15px]  hover:underline cursor-pointer">ACER EK220Q H3bi 21.5 inch 1ms 100hz Borderless Full HD Monitor</Link>
                 {/* <h3>Asus VA249HE 23.8 inch Full HD Eye Care Monitor</h3> */}
                 <p className="my-2 text-[#ef4a23] text-[18px] font-bold font-mono">19,900 ৳</p>
                 <p className="flex items-center opacity-50 cursor-pointer hover:opacity-100">
