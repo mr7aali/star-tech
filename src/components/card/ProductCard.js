@@ -6,9 +6,10 @@ import { LuCopyPlus } from "react-icons/lu";
 
 
 
+
 const ProductCard = ({ data }) => {
     return (
-        <div className="relative lg:max-w-[230px] bg-white rounded-md">
+        <div className="relative lg:max-w-[220px] bg-white rounded-md">
             <div style={{ borderRadius: "0px 15px 15px 0px" }} className="absolute top-2 bg-[#6e2594]">
                 <span className="text-[12px] text-[#fff] p-2">Earn Point: 100</span>
             </div>

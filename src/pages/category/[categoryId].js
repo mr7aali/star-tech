@@ -1,6 +1,7 @@
 import FilteringOption from "@/components/CategoryIdPage/FilteringOption";
 import Pagination from "@/components/CategoryIdPage/Pagination";
 import ProductFiltering from "@/components/CategoryIdPage/ProductFiltering";
+import RangleSlider from "@/components/CategoryIdPage/RangleSlider";
 import RootLayouts from "@/components/Layouts/RootLayouts";
 import ProductCard from "@/components/card/ProductCard";
 
@@ -10,9 +11,10 @@ const CategoryIdPage = () => {
             <div className=" hidden lg:block col-span-3 " >
 
                 <FilteringOption />
+                {/* <FilteringOption />
                 <FilteringOption />
-                <FilteringOption />
-                <FilteringOption />
+                <FilteringOption /> */}
+                <RangleSlider />
 
             </div>
             <div className="col-span-12 lg:col-span-9 ">
