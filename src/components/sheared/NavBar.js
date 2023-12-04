@@ -87,7 +87,10 @@ const NavBar = () => {
                 </div>
                 <Sidebar open={open} setOpen={setOpen} />
             </div>
-            <div style={{ boxShadow: '0px 1px 10px 0px rgba(0,0,0,0.31)', }} className="lg:flex sticky top-0 z-10 bg-white justify-center items-center hidden">
+            <div
+                // style={{ boxShadow: '0px 1px 10px 0px rgba(0,0,0,0.31)', }}
+                style={{boxShadow:"0 2px 2px rgba(0,0,0,.1)"}}
+                className="lg:flex sticky top-0 z-10 bg-white justify-center items-center hidden">
                 <ul className="flex ">
                     {NavMenuList}
                 </ul>
