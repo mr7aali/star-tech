@@ -9,12 +9,13 @@ const CategoryIdPage = () => {
     return (
         <div className="grid grid-cols-12 max-w-[1290px] mx-auto mt-12 gap-5 px-2" >
             <div className=" hidden lg:block col-span-3 " >
-
-                <FilteringOption />
-                {/* <FilteringOption />
-                <FilteringOption />
-                <FilteringOption /> */}
+                
                 <RangleSlider />
+                <FilteringOption />
+                <FilteringOption />
+                <FilteringOption />
+                <FilteringOption />
+
 
             </div>
             <div className="col-span-12 lg:col-span-9 ">

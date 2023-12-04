@@ -186,7 +186,7 @@ html {
   
   .slider {
     position: relative;
-    width: 200px;
+    /* width: 200px; */
   }
   
   .slider__track,
@@ -238,8 +238,10 @@ html {
   .thumb {
     pointer-events: none;
     position: absolute;
+    /* position: fixed; */
     height: 0;
-    width: 200px;
+    /* width: 300px; */
+    /* width: 100%; */
     outline: none;
   }
   

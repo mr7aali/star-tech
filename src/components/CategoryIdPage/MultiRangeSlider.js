@@ -42,7 +42,7 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
     }, [minVal, maxVal, onChange]);
 
     return (
-        <div  className="">
+        <div className="relative">
             <input
                 type="range"
                 min={min}
@@ -53,10 +53,11 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
                     setMinVal(value);
                     minValRef.current = value;
                 }}
-                className="thumb thumb--left"
+                className="thumb thumb--left w-full"
                 style={{ zIndex: minVal > max - 100 && "5" }}
             />
             <input
+                // style={{ border: "1px solid blue" }}
                 type="range"
                 min={min}
                 max={max}
@@ -66,17 +67,24 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
                     setMaxVal(value);
                     maxValRef.current = value;
                 }}
-                className="thumb thumb--right"
+                className="thumb thumb--right w-full"
             />
 
-            <div className="slider relative w-[200px]" >
+            <div className="slider w-full relative " >
                 <div className="slider__track" />
-                <div  ref={range} className="slider__range  bg-[#ef4a23]" />
+                <div ref={range} className="slider__range   bg-[#ef4a23]" />
 
-                <div  className="slider__left-value "><span className="text-black">{minVal}</span></div>
-                <div className="slider__right-value"><span className="text-black">{maxVal}</span></div>
+                {/* <div className="slider__left-value "><span className="text-black">{minVal}</span></div>
+                <div className="slider__right-value"><span className="text-black">{maxVal}</span></div> */}
 
             </div>
+      
+                <div   className="flex pt-6 pb-3 justify-center  " >
+                   
+                    <input className="outline-none w-full text-center mr-8 border border-1"  type="text" value={minVal} />
+                    <input className="outline-none w-full text-center ml-8 border border-1"  type="text" value={maxVal} />
+                </div>
+           
         </div>
     );
 };
