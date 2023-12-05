@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
 import { AnimatePresence, motion, useAnimation } from 'framer-motion';
-const FilteringOption = () => {
+const FilteringOption = ({ title }) => {
     const [open, setOpen] = useState(true)
     const arrowControls = useAnimation();
     const rotateVariants = {
@@ -15,11 +15,11 @@ const FilteringOption = () => {
         }
         updateAnimation();
     }, [open, arrowControls]);
-    
+
     return (
         <div style={{ boxShadow: '0 1px 1px rgba(0,0,0,.1)' }} className="bg-white rounded-md py-3 mb-2" >
             <div onClick={() => setOpen(!open)} className="relative cursor-pointer">
-                <h2 className="text-[18px] ml-5 font-semibold pb-3 ">Availability</h2>
+                <h2 className="text-[18px] ml-5 font-semibold pb-3 ">{title}</h2>
                 <motion.div
                     animate={arrowControls}
                     variants={rotateVariants}

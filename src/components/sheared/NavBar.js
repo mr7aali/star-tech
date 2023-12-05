@@ -21,8 +21,8 @@ const NavBar = () => {
     ))
 
     return (
-        <>
-            <div className="relative" style={{ boxShadow: '0px 1px 10px 0px rgba(0,0,0,0.31)', }}>
+        <header className="" >
+            <main className="relative" style={{ boxShadow: '0px 1px 10px 0px rgba(0,0,0,0.31)', }}>
                 <div className="top bg-[#081621] flex justify-center items-center">
                     <div className="mx-auto w-[1290px] flex items-center justify-between">
                         <div onClick={() => setOpen(!open)} className="pl-5 cursor-pointer lg:hidden">
@@ -86,13 +86,23 @@ const NavBar = () => {
                     </div>
                 </div>
                 <Sidebar open={open} setOpen={setOpen} />
-            </div>
-            <div style={{ boxShadow: '0px 1px 10px 0px rgba(0,0,0,0.31)', }} className="lg:flex sticky top-0 z-10 bg-white justify-center items-center hidden">
+            </main>
+            <nav
+                // style={{ boxShadow: '0px 1px 10px 0px rgba(0,0,0,0.31)', }}
+                style={{ boxShadow: "0 2px 2px rgba(0,0,0,.1)" }}
+                className="lg:flex sticky top-0 z-10 bg-white justify-center items-center hidden">
                 <ul className="flex ">
                     {NavMenuList}
                 </ul>
-            </div>
-        </>
+            </nav>
+            <footer className="h-[100px] z-[1] bg-[#081621] w-full fixed bottom-0">
+                <div>   <HiOutlineInboxIn className="text-[#ef4a23] mr-4 text-2xl" /></div>
+                <div> <MdOutlineElectricBolt className="text-[#ef4a23] mr-4 text-2xl" /></div>
+                <div> <MdOutlineManageAccounts className="text-[#ef4a23] mr-4 text-2xl" /></div>
+                <div></div>
+                <div></div>
+            </footer>
+        </header>
     );
 };
 export default NavBar;

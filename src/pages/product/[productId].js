@@ -41,7 +41,7 @@ const ProductDetailsPage = () => {
             <div className=" max-w-[1290px] mx-auto mt-5 grid grid-cols-12 gap-5 px-3">
                 {/* left */}
                 <div className="col-span-12 lg:col-span-9 " >
-                    <div className="sm:flex sm:justify-center sm:items-center">
+                    <div className="sm:flex justify-center sm:justify-start sm:items-center">
 
 
                         {
