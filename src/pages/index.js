@@ -15,7 +15,7 @@ export default function HomePage({ data }) {
       <Banner />
       <FeaturedCategory />
 
-      <section style={{ border: '1px solid red' }}>
+      <section>
         <FeaturedProducts products={data?.data} />
       </section>
 
@@ -35,8 +35,9 @@ HomePage.getLayout = function getLayout(page) {
 }
 
 
-export async function getServerSideProps() {
-  const res = await fetch("http://localhost:5000/api/v1/product");
+export async function getStaticProps() {
+  const res = await fetch("https://tec-services-backend.vercel.app/api/v1/service/get");
+  // const res = await fetch("http://localhost:5000/api/v1/product");
   const data = await res.json();
 
 
