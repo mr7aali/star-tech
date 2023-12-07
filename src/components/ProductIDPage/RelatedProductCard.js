@@ -11,7 +11,7 @@ const RelatedProductCard = () => {
                     width={90}
                     height={90}
                     src="https://www.startech.com.bd/image/cache/catalog/monitor/msi/g2412/g2412-06-500x500.webp"
-                    alt="" srcset="" />
+                    alt=""  />
             </div>
             <div className="pl-5">
                 <Link href={"/product/id"} className="font-serif text-[#111] hover:text-[#ef4a23] text-[13px] xl:text-[15px]  hover:underline cursor-pointer">ACER EK220Q H3bi 21.5 inch 1ms 100hz Borderless Full HD Monitor</Link>

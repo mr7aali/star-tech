@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
 
-const PaymentOptions = () => {
-
+const PaymentOptions = ({ price }) => {
+  
     return (
         <div>
             <h3 className="text-[20px] font-serif my-4">Payment Options</h3>
             <div className="grid lg:grid-cols-2 gap-3 font-serif">
-                <Options price={"23,800৳"} regularPrice="Cash Discount Price" option="Online / Cash Payment" />
+                <Options price={`${price}৳`} regularPrice="Cash Discount Price" option="Online / Cash Payment" />
                 <Options price={"2,143৳/month"} regularPrice="Regular Price: 25,720৳" option="0% EMI for up to 12 Months***" />
             </div>
         </div>

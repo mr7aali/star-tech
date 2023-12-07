@@ -1,26 +1,30 @@
 /* eslint-disable react/no-unescaped-entities */
 
 
-const KeyFeatures = () => {
+const KeyFeatures = ({ data }) => {
+   
     return (
-        <>
-            <h2 className="text-[18px] sm:text-[22px] font-serif text-[#3749bb]">MSI G2412 23.8" FHD 170Hz IPS 1ms FreeSync Premium Gaming Monitor</h2>
+        <div>
+            <h2 className="text-[18px] sm:text-[22px] font-serif text-[#3749bb]">
+                {/* MSI G2412 23.8" FHD 170Hz IPS 1ms FreeSync Premium Gaming Monitor */}
+                {data?.name}
+            </h2>
 
             <aside className="flex flex-wrap my-2">
                 <div className="bg-[rgba(55,73,187,.05)] my-1 rounded-full mr-2">
-                    <p className="px-3 sm:px-5 py-1 text-xs sm:text-sm">Price: <span className="font-semibold">23,800৳</span></p>
+                    <p className="px-3 sm:px-5 py-1 text-xs sm:text-sm">Price: <span className="font-semibold"> {data?.price} ৳</span></p>
                 </div>
                 <div className="bg-[rgba(55,73,187,.05)] my-1 rounded-full mr-2">
-                    <p className="px-3 sm:px-5 py-1 text-xs sm:text-sm">Regular Price: <span className="font-semibold">23,800৳</span></p>
+                    <p className="px-3 sm:px-5 py-1 text-xs sm:text-sm">Regular Price: <span className="font-semibold">{data?.price} ৳</span></p>
                 </div>
                 <div className="bg-[rgba(55,73,187,.05)] my-1 rounded-full mr-2">
-                    <p className="px-3 sm:px-5 py-1 text-xs sm:text-sm">Status: <span className="font-semibold">In Stock</span></p>
+                    <p className="px-3 sm:px-5 py-1 text-xs sm:text-sm">Status: <span className="font-semibold">{data.status}</span></p>
                 </div>
                 <div className="bg-[rgba(55,73,187,.05)] my-1 rounded-full mr-2">
-                    <p className="px-3 sm:px-5 py-1 text-xs sm:text-sm">Product Code: <span className="font-semibold">26275</span></p>
+                    <p className="px-3 sm:px-5 py-1 text-xs sm:text-sm">Product Code: <span className="font-semibold">{data.product_code}</span></p>
                 </div>
                 <div className="bg-[rgba(55,73,187,.05)] my-1 rounded-full mr-2">
-                    <p className="px-3 sm:px-5 py-1 text-xs sm:text-sm">Brand: <span className="font-semibold">MSI</span></p>
+                    <p className="px-3 sm:px-5 py-1 text-xs sm:text-sm">Brand: <span className="font-semibold">{data.brand}</span></p>
                 </div>
             </aside>
             <div>
@@ -40,7 +44,7 @@ const KeyFeatures = () => {
                 </a>
 
             </div>
-        </>
+        </div>
     );
 };
 

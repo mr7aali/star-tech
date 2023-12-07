@@ -1,44 +1,24 @@
 /* eslint-disable react/no-unescaped-entities */
 import RootLayouts from "@/components/Layouts/RootLayouts";
-import Image from "next/image";
-import { MdStars } from "react-icons/md";
-import QuantityCalculation from "@/components/ProductIDPage/QuantityCalculation";
-import PaymentOptions from "@/components/ProductIDPage/PaymentOptions";
-import KeyFeatures from "@/components/ProductIDPage/KeyFeatures";
 import SingleFeatures from "@/components/ProductIDPage/SingleFeatures";
 import RelatedProductCard from "@/components/ProductIDPage/RelatedProductCard";
+import { convertSpecificationData } from "@/helprs/convertObjectToArray";
+import ProductDetails from "@/components/ProductIDPage/ProductDetails";
 
-const ProductDetailsPage = () => {
+
+const ProductDetailsPage = ({ data }) => {
+
+    const specificationData = convertSpecificationData(data.Specification);
+
+
     return (
         <>
 
-            <div className="bg-white ">
-                <div className="max-w-[1290px] mx-auto flex flex-col justify-center items-center md:items-start md:flex-row sm:pt-10">
-                    <div className="px-[15px]">
-                        <Image
-                            src="https://www.startech.com.bd/image/cache/catalog/monitor/msi/g2412/g2412-06-500x500.webp"
-                            alt=""
-                            className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px]"
-                            width={400}
-                            height={400}
-                        />
-                    </div>
-                    <div className="px-[15px] md:ml-10">
-                        <KeyFeatures />
-                        <div className="inline-block">
-                            <div className="mt-10 bg-red-100 flex  rounded-full justify-between items-center px-3 py-2">
-                                <span className="mx-1 text-[30px]"><MdStars /></span>
-                                <span className="mx-1 text-[25px] font-semibold">450</span>
-                                <span className="mx-1 ">Star Points</span>
-                            </div>
-                        </div>
-                        <PaymentOptions />
-                        <QuantityCalculation />
-                    </div>
-                </div>
-            </div>
-
-            <div className=" max-w-[1290px] mx-auto mt-5 grid grid-cols-12 gap-5 px-3">
+            <section>
+                <ProductDetails data={data} />
+            </section>
+            
+            <section className=" max-w-[1290px] mx-auto mt-5 grid grid-cols-12 gap-5 px-3">
                 {/* left */}
                 <div className="col-span-12 lg:col-span-9 " >
                     <div className="sm:flex justify-center sm:justify-start sm:items-center">
@@ -59,8 +39,16 @@ const ProductDetailsPage = () => {
 
                     <div className="bg-white rounded-md  mt-5 px-3 sm:px-5">
                         <h2 className="font-semibold text-[20px] py-5">Specification</h2>
-                        <SingleFeatures />
-                        <SingleFeatures />
+                        {
+                            specificationData
+                                .map((specification, index) =>
+                                    <SingleFeatures
+                                        key={index}
+                                        data={specification}
+                                    />)
+                        }
+
+
                     </div>
 
                 </div>
@@ -81,11 +69,36 @@ const ProductDetailsPage = () => {
                 </div>
 
 
-            </div>
+            </section>
         </>
     );
 };
 export default ProductDetailsPage;
+
+
+export async function getStaticPaths() {
+    const res = await fetch("http://localhost:5000/api/v1/product/");
+    const data = await res.json();
+
+    const paths = data?.data.map((product) => ({
+        params: { productId: product.id.toString() }
+    }))
+
+
+    return { paths, fallback: true }
+}
+
+
+export async function getStaticProps(context) {
+
+    const { params } = context
+    const res = await fetch(`http://localhost:5000/api/v1/product/${params.productId}`);
+    const data = await res.json();
+
+    return {
+        props: { data: data.data }
+    }
+}
 
 
 
@@ -97,3 +110,4 @@ ProductDetailsPage.getLayout = function getLayout(page) {
         </RootLayouts>
     );
 }
+

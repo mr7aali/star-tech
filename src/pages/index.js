@@ -9,7 +9,7 @@ import FeaturedProducts from '@/components/HomePage/FeaturedProducts';
 
 
 export default function HomePage({ data }) {
-
+ 
   return (
     <div >
       <Banner />
@@ -36,8 +36,8 @@ HomePage.getLayout = function getLayout(page) {
 
 
 export async function getStaticProps() {
-  const res = await fetch("https://tec-services-backend.vercel.app/api/v1/service/get");
-  // const res = await fetch("http://localhost:5000/api/v1/product");
+  // const res = await fetch("https://tec-services-backend.vercel.app/api/v1/service/get");
+  const res = await fetch("http://localhost:5000/api/v1/product");
   const data = await res.json();
 
 
