@@ -35,13 +35,13 @@ const ProductDetails = ({ data }) => {
                                 <p className="px-3 sm:px-5 py-1 text-xs sm:text-sm">Regular Price: <span className="font-semibold">{data?.price} ৳</span></p>
                             </div>
                             <div className="bg-[rgba(55,73,187,.05)] my-1 rounded-full mr-2">
-                                <p className="px-3 sm:px-5 py-1 text-xs sm:text-sm">Status: <span className="font-semibold">{data.status}</span></p>
+                                <p className="px-3 sm:px-5 py-1 text-xs sm:text-sm">Status: <span className="font-semibold">{data?.status}</span></p>
                             </div>
                             <div className="bg-[rgba(55,73,187,.05)] my-1 rounded-full mr-2">
-                                <p className="px-3 sm:px-5 py-1 text-xs sm:text-sm">Product Code: <span className="font-semibold">{data.product_code}</span></p>
+                                <p className="px-3 sm:px-5 py-1 text-xs sm:text-sm">Product Code: <span className="font-semibold">{data?.product_code}</span></p>
                             </div>
                             <div className="bg-[rgba(55,73,187,.05)] my-1 rounded-full mr-2">
-                                <p className="px-3 sm:px-5 py-1 text-xs sm:text-sm">Brand: <span className="font-semibold">{data.brand}</span></p>
+                                <p className="px-3 sm:px-5 py-1 text-xs sm:text-sm">Brand: <span className="font-semibold">{data?.brand}</span></p>
                             </div>
                         </aside>
                         <div>
@@ -74,7 +74,7 @@ const ProductDetails = ({ data }) => {
                             <span className="mx-1 ">Star Points</span>
                         </div>
                     </div>
-                    <PaymentOptions price={data.price} />
+                    <PaymentOptions price={data?.price} />
 
                     <QuantityCalculation />
                 </div>
