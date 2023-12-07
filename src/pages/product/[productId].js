@@ -8,7 +8,21 @@ import KeyFeatures from "@/components/ProductIDPage/KeyFeatures";
 import SingleFeatures from "@/components/ProductIDPage/SingleFeatures";
 import RelatedProductCard from "@/components/ProductIDPage/RelatedProductCard";
 
-const ProductDetailsPage = () => {
+
+const ProductDetailsPage = ({ data }) => {
+
+    // console.log(data.Specification)
+
+    // console.log(Object.values(data.Specification))
+
+    const specificationArray = Object.entries(data.Specification)
+        .map(([specificationName, specification]) => ({
+            specificationName,
+            specification: Object.entries(specification)?.map(([featureName, feature]) => ({
+                featureName, feature
+            })),
+        }));
+    console.log(specificationArray)
     return (
         <>
 
@@ -59,8 +73,14 @@ const ProductDetailsPage = () => {
 
                     <div className="bg-white rounded-md  mt-5 px-3 sm:px-5">
                         <h2 className="font-semibold text-[20px] py-5">Specification</h2>
+
                         <SingleFeatures />
                         <SingleFeatures />
+                        {
+
+                        }
+
+
                     </div>
 
                 </div>
@@ -88,6 +108,31 @@ const ProductDetailsPage = () => {
 export default ProductDetailsPage;
 
 
+export async function getStaticPaths() {
+    const res = await fetch("http://localhost:5000/api/v1/product/");
+    const data = await res.json();
+
+    const paths = data?.data.map((product) => ({
+        params: { productId: product.id.toString() }
+    }))
+
+
+    return { paths, fallback: true }
+}
+
+
+export async function getStaticProps(context) {
+
+    const { params } = context
+    const res = await fetch(`http://localhost:5000/api/v1/product/${params.productId}`);
+    const data = await res.json();
+
+    return {
+        props: { data: data.data }
+    }
+}
+
+
 
 
 ProductDetailsPage.getLayout = function getLayout(page) {
@@ -97,3 +142,4 @@ ProductDetailsPage.getLayout = function getLayout(page) {
         </RootLayouts>
     );
 }
+

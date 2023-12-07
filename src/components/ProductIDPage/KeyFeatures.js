@@ -4,7 +4,10 @@
 const KeyFeatures = () => {
     return (
         <>
-            <h2 className="text-[18px] sm:text-[22px] font-serif text-[#3749bb]">MSI G2412 23.8" FHD 170Hz IPS 1ms FreeSync Premium Gaming Monitor</h2>
+            <h2 className="text-[18px] sm:text-[22px] font-serif text-[#3749bb]">
+                MSI G2412 23.8" FHD 170Hz IPS 1ms FreeSync Premium Gaming Monitor
+                {/* {product?.name} */}
+            </h2>
 
             <aside className="flex flex-wrap my-2">
                 <div className="bg-[rgba(55,73,187,.05)] my-1 rounded-full mr-2">
