@@ -77,7 +77,8 @@ export default ProductDetailsPage;
 
 
 export async function getStaticPaths() {
-    const res = await fetch("http://localhost:5000/api/v1/product/");
+    const baseURL = process.env.BASE_URL;
+    const res = await fetch(`${baseURL}/api/v1/product/`);
     const data = await res.json();
 
     const paths = data?.data.map((product) => ({
@@ -90,9 +91,9 @@ export async function getStaticPaths() {
 
 
 export async function getStaticProps(context) {
-
+    const baseURL = process.env.BASE_URL
     const { params } = context
-    const res = await fetch(`http://localhost:5000/api/v1/product/${params.productId}`);
+    const res = await fetch(`${baseURL}/api/v1/product/${params.productId}`);
     const data = await res.json();
 
     return {

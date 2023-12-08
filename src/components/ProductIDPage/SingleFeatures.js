@@ -8,7 +8,7 @@ const SingleFeatures = ({ data }) => {
 
         <div className="pb-5">
             <h3 className="text-[#3749bb] font-bold px-3 py-2 text-[14px] sm:text-[16px] bg-[rgba(55,73,187,.05)] rounded-md">
-                {data?.specificationName}
+                {data?.specificationName.replace(/_/g,' ')}
             </h3>
 
             {
@@ -18,7 +18,8 @@ const SingleFeatures = ({ data }) => {
                             {Item.featureName.replace(/_/g, ' ')}
 
                         </span>
-                        <span className="font-semibold col-span-2 md:col-span-1 text-[12px] sm:text-[14px]">{Item.feature}
+                        <span className="font-semibold col-span-2 md:col-span-1 text-[12px] sm:text-[14px]">
+                            {Item.feature}
                         </span>
                     </p>
                 ))
