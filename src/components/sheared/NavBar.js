@@ -11,7 +11,7 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 const Sidebar = dynamic(() => import('../ui/SideBar'), { ssr: true });
 
-const NavBar = () => {
+const NavBar = ({ setCartOpen }) => {
     const [open, setOpen] = useState(false);
     const NavMenuList = ["Desktop", "Laptop", "Component", "Monitor", "UPS",
         "Phone", "Tablet", "Office Equipment", "Camera", "Security", "Networking",
@@ -24,8 +24,8 @@ const NavBar = () => {
 
     return (
         <header className="" >
-            <main  className="lg:relative fixed top-0 w-full z-10" style={{ boxShadow: '0px 1px 10px 0px rgba(0,0,0,0.31)', }}>
-                <div  className="top bg-[#081621] flex justify-center items-center">
+            <main className="lg:relative fixed top-0 w-full z-10" style={{ boxShadow: '0px 1px 10px 0px rgba(0,0,0,0.31)', }}>
+                <div className="top bg-[#081621] flex justify-center items-center">
                     <div className="mx-auto w-[1290px] flex items-center justify-between">
                         <div onClick={() => setOpen(!open)} className="pl-5 cursor-pointer lg:hidden">
                             <span className="p-2 text-[#fff] text-[25px] flex justify-center items-center"><BarsOutlined /></span>
@@ -41,14 +41,14 @@ const NavBar = () => {
                             />
                         </Link>
 
-                        <div  className="h-[42px]  hidden lg:block flex-1 rounded-sm ml-5 relative">
+                        <div className="h-[42px]  hidden lg:block flex-1 rounded-sm ml-5 relative">
                             <input className=" w-full rounded-sm h-full p-[15px] outline-none" placeholder="Search" type="text" />
 
                             <AiOutlineSearch className="absolute right-0 top-2 cursor-pointer  text-[black] mr-4 text-2xl" />
 
                         </div>
 
-                        <div  className="lg:flex hidden">
+                        <div className="lg:flex hidden">
                             <div className="ml-[15px] flex items-center cursor-pointer" >
                                 <HiOutlineInboxIn className="text-[#ef4a23] mr-4 text-2xl" />
                                 <div>
@@ -83,7 +83,7 @@ const NavBar = () => {
 
                         <div className="flex mr-2 lg:hidden">
                             <span className="px-3 py-2 cursor-pointer text-[#fff] text-[25px] flex justify-center items-center"><SearchOutlined /></span>
-                            <span className="px-3 py-2 cursor-pointer text-[#fff] text-[25px] flex justify-center items-center"><ShoppingCartOutlined /></span>
+                            <span onClick={() => setCartOpen(true)} className="px-3 py-2 cursor-pointer text-[#fff] text-[25px] flex justify-center items-center"><ShoppingCartOutlined /></span>
                         </div>
                     </div>
                 </div>
