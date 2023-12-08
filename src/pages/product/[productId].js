@@ -8,7 +8,7 @@ import ProductDetails from "@/components/ProductIDPage/ProductDetails";
 
 const ProductDetailsPage = ({ data }) => {
 
-    const specificationData = convertSpecificationData(data.Specification);
+    const specificationData = convertSpecificationData(data?.Specification);
 
 
     return (
@@ -17,7 +17,7 @@ const ProductDetailsPage = ({ data }) => {
             <section>
                 <ProductDetails data={data} />
             </section>
-            
+
             <section className=" max-w-[1290px] mx-auto mt-5 grid grid-cols-12 gap-5 px-3">
                 {/* left */}
                 <div className="col-span-12 lg:col-span-9 " >
@@ -41,7 +41,7 @@ const ProductDetailsPage = ({ data }) => {
                         <h2 className="font-semibold text-[20px] py-5">Specification</h2>
                         {
                             specificationData
-                                .map((specification, index) =>
+                                ?.map((specification, index) =>
                                     <SingleFeatures
                                         key={index}
                                         data={specification}
@@ -77,7 +77,8 @@ export default ProductDetailsPage;
 
 
 export async function getStaticPaths() {
-    const res = await fetch("http://localhost:5000/api/v1/product/");
+    const baseURL = process.env.BASE_URL;
+    const res = await fetch(`${baseURL}/api/v1/product/`);
     const data = await res.json();
 
     const paths = data?.data.map((product) => ({
@@ -90,9 +91,9 @@ export async function getStaticPaths() {
 
 
 export async function getStaticProps(context) {
-
+    const baseURL = process.env.BASE_URL
     const { params } = context
-    const res = await fetch(`http://localhost:5000/api/v1/product/${params.productId}`);
+    const res = await fetch(`${baseURL}/api/v1/product/${params.productId}`);
     const data = await res.json();
 
     return {
