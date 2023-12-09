@@ -15,7 +15,7 @@ const CardSIdeBar = ({open,setOpen}) => {
     useClickAway(ref, () => setOpen(!open))
 
     return (
-        <div >
+        <div>
 
 
             <div className='hidden lg:block' onClick={() => setOpen(!open)}>
