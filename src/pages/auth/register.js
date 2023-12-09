@@ -10,63 +10,64 @@ const RegisterPage = () => {
     const onSubmit = (data) => {
         console.log(data);
     }
-    return (<>
-        <HeadTag descriptionContent={"Star Tech Register page"} title={"Register Account"} />
-        <div className='max-w-[400px] mx-auto mt-16 mb-24'>
+    return (
+        <section className='p-2'>
+            <HeadTag descriptionContent={"Star Tech Register page"} title={"Register Account"} />
+            <div className='max-w-[400px] mx-auto mt-16 mb-24'>
 
-            <div className='bg-red-100 py-4 px-3  rounded-md mb-4 flex  items-center'>
-                <span className='text-[23px] pr-3 text-[red]'> <BiSolidCommentError /> </span>
-                <span className='font-thin font-serif leading-none'>Warning: No match for Phone Number and/or Password.</span>
-            </div>
-            <h1 className='font-serif font-bold text-[20px]'>Register Account</h1>
-            <Forms submitHandler={onSubmit} >
-                <div className='grid grid-cols-2 gap-4'>
-                    <div >
-                        <label htmlFor="" className='font-serif text-[14px] mt-5 mb-2 block'>
-                            First Name
-                        </label>
-                        <FormsInput
-                            name="firstName"
-                            type="text"
-                            // placeholder='Phone / E-Mail' 
-                            placeholder={"First name"}
-                        />
+                <div className='bg-red-100 py-4 px-3  rounded-md mb-4 flex  items-center'>
+                    <span className='text-[23px] pr-3 text-[red]'> <BiSolidCommentError /> </span>
+                    <span className='font-thin font-serif text-[14px] sm:text-[15px] leading-none'>Warning: No match for Phone Number and/or Password.</span>
+                </div>
+                <h1 className='font-serif font-bold text-[20px]'>Register Account</h1>
+                <Forms submitHandler={onSubmit} >
+                    <div className='grid grid-cols-2 gap-4'>
+                        <div >
+                            <label htmlFor="" className='font-serif text-[14px] mt-5 mb-2 block'>
+                                First Name
+                            </label>
+                            <FormsInput
+                                name="firstName"
+                                type="text"
+                                // placeholder='Phone / E-Mail' 
+                                placeholder={"First name"}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="" className='font-serif text-[14px] mt-5 mb-2 flex justify-between'>
+                                Last Name
+                            </label>
+                            <FormsInput name={"lastName"} type="text" placeholder='Last name' />
+                        </div>
+                    </div>
+                    <div>
+                        <label htmlFor="" className='font-serif text-[14px] mt-5 mb-2 block'>E-Mail</label>
+                        <FormsInput name={"email"} type="email" placeholder='E-Mail' />
                     </div>
                     <div>
                         <label htmlFor="" className='font-serif text-[14px] mt-5 mb-2 flex justify-between'>
-                            Last Name
+                            Telephone
+
                         </label>
-                        <FormsInput name={"lastName"} type="text" placeholder='Last name' />
+                        <FormsInput name={"phone"} type="text" placeholder='Phone' />
                     </div>
-                </div>
-                <div>
-                    <label htmlFor="" className='font-serif text-[14px] mt-5 mb-2 block'>E-Mail</label>
-                    <FormsInput name={"email"} type="email" placeholder='E-Mail' />
-                </div>
-                <div>
-                    <label htmlFor="" className='font-serif text-[14px] mt-5 mb-2 flex justify-between'>
-                        Telephone
+                    <div>
+                        <label htmlFor="" className='font-serif text-[14px] mt-5 mb-2 flex justify-between'>
+                            Passwoard
 
-                    </label>
-                    <FormsInput name={"phone"} type="text" placeholder='Phone' />
-                </div>
-                <div>
-                    <label htmlFor="" className='font-serif text-[14px] mt-5 mb-2 flex justify-between'>
-                        Passwoard
+                        </label>
+                        <FormsInput name={"password"} type="passwoard" placeholder='passwoard' />
+                    </div>
+                    <div className='mt-5'>
+                        <button className='btn w-full pt-4 block' type='submit'> Continue</button>
+                    </div>
 
-                    </label>
-                    <FormsInput name={"password"} type="passwoard" placeholder='passwoard' />
-                </div>
-                <div className='mt-5'>
-                    <button className='btn w-full pt-4 block' type='submit'> Continue</button>
-                </div>
+                    <p className="w-full mt-5 mb-2"><span >Already have an account?</span></p>
 
-                <p className="w-full mt-5 mb-2"><span >Already have an account?</span></p>
-
-                <Link href="/auth/login" className='btn st-outline w-full'>login page</Link>
-            </Forms>
-        </div>
-    </>
+                    <Link href="/auth/login" className='btn st-outline w-full'>login page</Link>
+                </Forms>
+            </div>
+        </section>
     );
 };
 
