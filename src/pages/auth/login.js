@@ -2,6 +2,7 @@
 import Forms from '@/components/Forms/Forms';
 import FormsInput from '@/components/Forms/FormsInput';
 import RootLayouts from '@/components/Layouts/RootLayouts';
+import HeadTag from '@/components/sheared/HeaderTag';
 import Link from 'next/link';
 import { useForm } from "react-hook-form"
 import { BiSolidCommentError } from "react-icons/bi"
@@ -14,6 +15,7 @@ const LoginPage = () => {
     }
     return (
         <>
+        <HeadTag descriptionContent={"Star Tech Login page"} title={"Account Login"}/>
             <div className='max-w-[400px] mx-auto mt-16 mb-24'>
                 <div className='bg-red-100 py-4 px-3  rounded-md mb-4 flex  items-center'>
                     <span className='text-[23px] pr-3 text-[red]'> <BiSolidCommentError /> </span>

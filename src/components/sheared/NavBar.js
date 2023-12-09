@@ -23,7 +23,7 @@ const NavBar = ({ setCartOpen }) => {
     ))
 
     return (
-        <header className="" >
+        <header>
             <main className="lg:relative fixed top-0 w-full z-10" style={{ boxShadow: '0px 1px 10px 0px rgba(0,0,0,0.31)', }}>
                 <div className="top bg-[#081621] flex justify-center items-center">
                     <div className="mx-auto w-[1290px] flex items-center justify-between">
@@ -97,27 +97,27 @@ const NavBar = ({ setCartOpen }) => {
                     {NavMenuList}
                 </ul>
             </nav>
-            <footer className="lg:hidden z-[1] bg-[#081621] w-full fixed bottom-0 flex justify-between px-10 py-3">
-                <div className="flex flex-col items-center justify-center">
+            <footer style={{boxShadow:"0 -4px 4px rgba(0,0,0,.2), 0 -1px 0 rgba(255,255,255,.2)",}} className="lg:hidden z-[1] bg-[#081621] w-full fixed bottom-0 grid grid-cols-5 gap-5 px-10 py-3">
+                <div  className="flex flex-col items-center justify-center cursor-pointer">
                     <MdLocalOffer className="text-white text-xl" />
                     <small className="text-white text-[10px] pt-2 opacity-70">Offers</small>
                 </div>
-                <div className="flex flex-col items-center justify-center">
+                <div  className="flex flex-col items-center justify-center cursor-pointer">
                     <MdOutlineElectricBolt className="text-white text-xl" />
                     <small className="text-white text-[10px] pt-2 opacity-70">Winter Fest</small>
                 </div>
-                <div className="flex flex-col items-center justify-center">
+                <div  className="flex flex-col items-center justify-center cursor-pointer">
                     <RiBuilding3Line className="text-white text-xl" />
                     <small className="text-white text-[10px] pt-2 opacity-70">PC Builder</small>
                 </div>
-                <div className="flex flex-col items-center justify-center">
+                <div  className="flex flex-col items-center justify-center cursor-pointer">
                     <PiPlusMinusFill className="text-white text-xl" />
                     <small className="text-white text-[10px] pt-2 opacity-70">Compare (0)</small>
                 </div>
-                <div className="flex flex-col items-center justify-center">
+                <Link href={"/auth/login"}  className="flex flex-col items-center justify-center cursor-pointer">
                     <MdOutlineManageAccounts className="text-white text-xl" />
                     <small className="text-white text-[10px] pt-2 opacity-70">Account</small>
-                </div>
+                </Link>
             </footer>
         </header>
     );

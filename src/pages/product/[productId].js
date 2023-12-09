@@ -91,7 +91,7 @@ export async function getStaticPaths() {
 
 
 export async function getStaticProps(context) {
-    const baseURL = process.env.BASE_URL
+    const baseURL = process.env.BASE_URL;
     const { params } = context
     const res = await fetch(`${baseURL}/api/v1/product/${params.productId}`);
     const data = await res.json();
