@@ -6,9 +6,9 @@ import Image from "next/image";
 import { BarsOutlined, SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { PiPlusMinusFill } from "react-icons/pi";
 import { RiBuilding3Line } from "react-icons/ri";
-
 import { useState } from "react";
 import dynamic from "next/dynamic";
+
 const Sidebar = dynamic(() => import('../ui/SideBar'), { ssr: true });
 
 const NavBar = ({ setCartOpen }) => {
