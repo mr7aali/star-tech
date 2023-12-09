@@ -3,15 +3,17 @@ import RootLayouts from '../components/Layouts/RootLayouts'
 import Banner from '@/components/HomePage/Banner';
 import FeaturedCategory from '@/components/HomePage/FeaturedCategory';
 import FeaturedProducts from '@/components/HomePage/FeaturedProducts';
+import HeadTag from '@/components/sheared/HeaderTag';
 
 
 // const Banner = dynamic(() => import('@/components/HomePage/Banner'), { ssr: false });
 
 
 export default function HomePage({ data }) {
- 
+
   return (
-    <div >
+    < >
+      <HeadTag descriptionContent={"Star Tech HomePage"} title={"Star Tech"}/>
       <Banner />
       <FeaturedCategory />
 
@@ -21,7 +23,7 @@ export default function HomePage({ data }) {
 
 
       <div className='mt-[100px]'></div>
-    </div>
+    </>
   )
 }
 

@@ -8,17 +8,17 @@ import { useClickAway } from 'react-use';
 
 
 
-const CardSIdeBar = () => {
-    const [open, setOpen] = useState(false)
+const CardSIdeBar = ({open,setOpen}) => {
+    
     const cart = [1, 0, 1, 2, 3, 4, 5, 9, 40, 54, 4, 6]
     const ref = useRef(null)
     useClickAway(ref, () => setOpen(!open))
 
     return (
-        <div>
+        <div >
 
 
-            <div onClick={() => setOpen(!open)}>
+            <div className='hidden lg:block' onClick={() => setOpen(!open)}>
                 <ShopingCardButton />
             </div>
 
