@@ -97,26 +97,28 @@ const NavBar = ({ setCartOpen }) => {
                     {NavMenuList}
                 </ul>
             </nav>
-            <footer style={{boxShadow:"0 -4px 4px rgba(0,0,0,.2), 0 -1px 0 rgba(255,255,255,.2)",}} className="lg:hidden z-[1] bg-[#081621] w-full fixed bottom-0 grid grid-cols-5 gap-5 px-10 py-3">
-                <div  className="flex flex-col items-center justify-center cursor-pointer">
-                    <MdLocalOffer className="text-white text-xl" />
-                    <small className="text-white text-[10px] pt-2 opacity-70">Offers</small>
+            <footer 
+            style={{boxShadow:"0 -4px 4px rgba(0,0,0,.2), 0 -1px 0 rgba(255,255,255,.2)",}}
+             className="lg:hidden z-[1] bg-[#081621] w-full fixed bottom-0 grid grid-cols-5 gap- sm:gap-5 sm:px-10 py-3">
+                <div   className="flex flex-col items-center justify-center cursor-pointer">
+                    <MdLocalOffer className="text-white sm:text-xl" />
+                    <small  className="text-white text-[9px] sm:text-[10px] pt-1 sm:pt-2 opacity-70">Offers</small>
                 </div>
-                <div  className="flex flex-col items-center justify-center cursor-pointer">
-                    <MdOutlineElectricBolt className="text-white text-xl" />
-                    <small className="text-white text-[10px] pt-2 opacity-70">Winter Fest</small>
+                <div   className="flex flex-col items-center justify-center cursor-pointer">
+                    <MdOutlineElectricBolt className="text-white sm:text-xl" />
+                    <small  className="text-white text-[9px] sm:text-[10px] pt-1 sm:pt-2 opacity-70">Winter Fest</small>
                 </div>
-                <div  className="flex flex-col items-center justify-center cursor-pointer">
-                    <RiBuilding3Line className="text-white text-xl" />
-                    <small className="text-white text-[10px] pt-2 opacity-70">PC Builder</small>
+                <div   className="flex flex-col items-center justify-center cursor-pointer">
+                    <RiBuilding3Line className="text-white sm:text-xl" />
+                    <small  className="text-white text-[9px] sm:text-[10px] pt-1 sm:pt-2 opacity-70">PC Builder</small>
                 </div>
-                <div  className="flex flex-col items-center justify-center cursor-pointer">
-                    <PiPlusMinusFill className="text-white text-xl" />
-                    <small className="text-white text-[10px] pt-2 opacity-70">Compare (0)</small>
+                <div   className="flex flex-col items-center justify-center cursor-pointer">
+                    <PiPlusMinusFill className="text-white sm:text-xl" />
+                    <small  className="text-white text-[9px] sm:text-[10px] pt-1 sm:pt-2 opacity-70">Compare (0)</small>
                 </div>
                 <Link href={"/auth/login"}  className="flex flex-col items-center justify-center cursor-pointer">
-                    <MdOutlineManageAccounts className="text-white text-xl" />
-                    <small className="text-white text-[10px] pt-2 opacity-70">Account</small>
+                    <MdOutlineManageAccounts className="text-white sm:text-xl" />
+                    <small  className="text-white text-[9px] sm:text-[10px] pt-1 sm:pt-2 opacity-70">Account</small>
                 </Link>
             </footer>
         </header>

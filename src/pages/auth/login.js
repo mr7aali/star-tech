@@ -14,12 +14,12 @@ const LoginPage = () => {
 
     }
     return (
-        <>
+        <section className='p-2'>
         <HeadTag descriptionContent={"Star Tech Login page"} title={"Account Login"}/>
             <div className='max-w-[400px] mx-auto mt-16 mb-24'>
                 <div className='bg-red-100 py-4 px-3  rounded-md mb-4 flex  items-center'>
                     <span className='text-[23px] pr-3 text-[red]'> <BiSolidCommentError /> </span>
-                    <span className='font-thin font-serif leading-none'>Warning: No match for Phone Number and/or Password.</span>
+                    <span className='font-thin font-serif text-[14px] sm:text-[15px] leading-none'>Warning: No match for Phone Number and/or Password.</span>
                 </div>
                 <h1 className='font-serif font-bold text-[20px]'>Account Login</h1>
                 <Forms submitHandler={onSubmit} >
@@ -60,7 +60,7 @@ const LoginPage = () => {
             </div>
 
 
-        </>
+        </section>
     );
 };
 
