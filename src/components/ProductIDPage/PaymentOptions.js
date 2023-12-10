@@ -14,6 +14,7 @@ const PaymentOptions = ({ price }) => {
         }
     }, [active1, active2])
 
+    
     return (
         <div>
             <h3 className="text-[20px] font-serif my-4">Payment Options</h3>

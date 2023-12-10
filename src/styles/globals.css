@@ -186,7 +186,7 @@ html {
   
   .slider {
     position: relative;
-    /* width: 200px; */
+    
   }
   
   .slider__track,
@@ -281,3 +281,4 @@ html {
     position: relative;
   }
   
+ 

@@ -3,19 +3,35 @@ import Forms from '@/components/Forms/Forms';
 import FormsInput from '@/components/Forms/FormsInput';
 import RootLayouts from '@/components/Layouts/RootLayouts';
 import HeadTag from '@/components/sheared/HeaderTag';
+import { RequestHelpers } from '@/helpers/RequestHelpers';
 import Link from 'next/link';
 import { useForm } from "react-hook-form"
 import { BiSolidCommentError } from "react-icons/bi"
 
 const LoginPage = () => {
 
-    const onSubmit = (data) => {
-    //    console.log(data);
+    const onSubmit = async (data) => {
+
+        // const baseURL = process.env.BASE_URL;
+        // const loginData = await RequestHelpers.post(data);
+        // console.log(loginData);
+
+        const baseURL = "https://star-tech-back-end.vercel.app";
+        const res = await fetch(`${baseURL}/api/v1/auth/login`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        
+        const loginData = await res.json()
+        console.log(loginData)
 
     }
     return (
         <section className='p-2'>
-        <HeadTag descriptionContent={"Star Tech Login page"} title={"Account Login"}/>
+            <HeadTag descriptionContent={"Star Tech Login page"} title={"Account Login"} />
             <div className='max-w-[400px] mx-auto mt-16 mb-24'>
                 <div className='bg-red-100 py-4 px-3  rounded-md mb-4 flex  items-center'>
                     <span className='text-[23px] pr-3 text-[red]'> <BiSolidCommentError /> </span>
@@ -29,7 +45,7 @@ const LoginPage = () => {
                             name={"email"}
                             type="email"
                             placeholder='Phone / E-Mail'
-                      
+
                         />
                     </div>
                     <div>
@@ -46,7 +62,7 @@ const LoginPage = () => {
 
                     <div className='mt-5'>
                         <button className='btn w-full pt-4 block' type='submit'
- 
+
                         > Login</button>
 
                     </div>

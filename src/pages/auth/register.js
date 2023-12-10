@@ -7,8 +7,34 @@ import Link from 'next/link';
 import { BiSolidCommentError } from "react-icons/bi"
 
 const RegisterPage = () => {
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async (data) => {
+
+
+
+        console.log(data)
+
+
+        const baseURL = "https://star-tech-back-end.vercel.app";
+        const res = await fetch(`https://star-tech-back-end.vercel.app/api/v1/user/create/`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "first_name": "John",
+                "last_name": "Doe",
+                "phone": "1234df567l890",
+                "email": "a2@gmail.com",
+                "passwoard": "123456"
+
+            })
+        });
+        const result = await res.json();
+
+        console.log(result)
+
+
+
     }
     return (
         <section className='p-2'>
@@ -27,7 +53,7 @@ const RegisterPage = () => {
                                 First Name
                             </label>
                             <FormsInput
-                                name="firstName"
+                                name="first_name"
                                 type="text"
                                 // placeholder='Phone / E-Mail' 
                                 placeholder={"First name"}
@@ -37,7 +63,7 @@ const RegisterPage = () => {
                             <label htmlFor="" className='font-serif text-[14px] mt-5 mb-2 flex justify-between'>
                                 Last Name
                             </label>
-                            <FormsInput name={"lastName"} type="text" placeholder='Last name' />
+                            <FormsInput name={"last_name"} type="text" placeholder='Last name' />
                         </div>
                     </div>
                     <div>
@@ -56,7 +82,7 @@ const RegisterPage = () => {
                             Passwoard
 
                         </label>
-                        <FormsInput name={"password"} type="passwoard" placeholder='passwoard' />
+                        <FormsInput name={"password"} type="password" placeholder='password' />
                     </div>
                     <div className='mt-5'>
                         <button className='btn w-full pt-4 block' type='submit'> Continue</button>

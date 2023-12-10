@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 // import Marquee from "../ui/Marquee"
 
-const SwiperBanner = dynamic(() => import('../ui/SwiperBanner'), { ssr: false });
+const SwiperBanner = dynamic(() => import('../ui/SwiperBanner'), { ssr: true });
 const Marquee = dynamic(() => import('../ui/Marquee'), { ssr: false });
 
 
