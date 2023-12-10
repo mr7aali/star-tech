@@ -5,16 +5,15 @@ import RootLayouts from '@/components/Layouts/RootLayouts';
 import HeadTag from '@/components/sheared/HeaderTag';
 import { RequestHelpers } from '@/helpers/RequestHelpers';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { useForm } from "react-hook-form"
 import { BiSolidCommentError } from "react-icons/bi"
 
 const LoginPage = () => {
-
+    const [error, setError] = useState(false);
+    const router = useRouter()
     const onSubmit = async (data) => {
-
-        // const baseURL = process.env.BASE_URL;
-        // const loginData = await RequestHelpers.post(data);
-        // console.log(loginData);
 
         const baseURL = "https://star-tech-back-end.vercel.app";
         const res = await fetch(`${baseURL}/api/v1/auth/login`, {
@@ -24,19 +23,31 @@ const LoginPage = () => {
             },
             body: JSON.stringify(data)
         });
-        
+
+
         const loginData = await res.json()
-        console.log(loginData)
+        if (loginData.success) {
+            setError(false);
+            router.push("/")
+        } else {
+            setError(true);
+        }
+
 
     }
     return (
         <section className='p-2'>
             <HeadTag descriptionContent={"Star Tech Login page"} title={"Account Login"} />
             <div className='max-w-[400px] mx-auto mt-16 mb-24'>
-                <div className='bg-red-100 py-4 px-3  rounded-md mb-4 flex  items-center'>
-                    <span className='text-[23px] pr-3 text-[red]'> <BiSolidCommentError /> </span>
-                    <span className='font-thin font-serif text-[14px] sm:text-[15px] leading-none'>Warning: No match for Phone Number and/or Password.</span>
-                </div>
+
+                {
+                    error && <div className='bg-red-100 py-4 px-3  rounded-md mb-4 flex  items-center'>
+                        <span className='text-[23px] pr-3 text-[red]'> <BiSolidCommentError /> </span>
+                        <span className='font-thin font-serif text-[14px] sm:text-[15px] leading-none'>Warning: No match for Phone Number and/or Password.</span>
+                    </div>
+                }
+
+
                 <h1 className='font-serif font-bold text-[20px]'>Account Login</h1>
                 <Forms submitHandler={onSubmit} >
                     <div>

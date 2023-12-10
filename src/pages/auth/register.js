@@ -4,47 +4,51 @@ import FormsInput from '@/components/Forms/FormsInput';
 import RootLayouts from '@/components/Layouts/RootLayouts';
 import HeadTag from '@/components/sheared/HeaderTag';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { BiSolidCommentError } from "react-icons/bi"
 
 const RegisterPage = () => {
+
+    const router = useRouter()
+    const [error, setError] = useState(false);
+    const [errorMassge, setErrorMassge] = useState(false);
+
     const onSubmit = async (data) => {
-
-
-
-        console.log(data)
-
-
         const baseURL = "https://star-tech-back-end.vercel.app";
-        const res = await fetch(`https://star-tech-back-end.vercel.app/api/v1/user/create/`, {
+        const res = await fetch(`${baseURL}/api/v1/user/create/`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                "first_name": "John",
-                "last_name": "Doe",
-                "phone": "1234df567l890",
-                "email": "a2@gmail.com",
-                "passwoard": "123456"
-
-            })
+            body: JSON.stringify(data)
         });
         const result = await res.json();
-
-        console.log(result)
-
-
-
+        if (result.success === true) {
+            router.push("/auth/login");
+            setError(false);
+        }
+        else {
+            const Massge = result.errorMessages[0].message;
+            setErrorMassge(Massge);
+            setError(true)
+        } 
     }
     return (
         <section className='p-2'>
             <HeadTag descriptionContent={"Star Tech Register page"} title={"Register Account"} />
             <div className='max-w-[400px] mx-auto mt-16 mb-24'>
 
-                <div className='bg-red-100 py-4 px-3  rounded-md mb-4 flex  items-center'>
-                    <span className='text-[23px] pr-3 text-[red]'> <BiSolidCommentError /> </span>
-                    <span className='font-thin font-serif text-[14px] sm:text-[15px] leading-none'>Warning: No match for Phone Number and/or Password.</span>
-                </div>
+                {
+                    error && <div className='bg-red-100 py-4 px-3  rounded-md mb-4 flex  items-center'>
+                        <span className='text-[23px] pr-3 text-[red]'> <BiSolidCommentError /> </span>
+                        <span className='font-thin font-serif text-[14px] sm:text-[15px] leading-none'>Warning:
+
+                            {/* No match for Phone Number and/or Password. */}
+                            {" " + errorMassge}
+                        </span>
+                    </div>
+                }
                 <h1 className='font-serif font-bold text-[20px]'>Register Account</h1>
                 <Forms submitHandler={onSubmit} >
                     <div className='grid grid-cols-2 gap-4'>
