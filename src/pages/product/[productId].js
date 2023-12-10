@@ -2,7 +2,7 @@
 import RootLayouts from "@/components/Layouts/RootLayouts";
 import SingleFeatures from "@/components/ProductIDPage/SingleFeatures";
 import RelatedProductCard from "@/components/ProductIDPage/RelatedProductCard";
-import { convertSpecificationData } from "@/helprs/convertObjectToArray";
+import { convertSpecificationData } from "@/helpers/convertObjectToArray";
 import ProductDetails from "@/components/ProductIDPage/ProductDetails";
 
 

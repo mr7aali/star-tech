@@ -8,12 +8,13 @@ const PaymentOptions = ({ price }) => {
     useEffect(() => {
         if (active1) {
             setActive2(false);
-        } 
-        if(active2){
+        }
+        if (active2) {
             setActive1(false)
         }
     }, [active1, active2])
 
+    
     return (
         <div>
             <h3 className="text-[20px] font-serif my-4">Payment Options</h3>
@@ -21,8 +22,6 @@ const PaymentOptions = ({ price }) => {
                 <div onClick={() => (setActive1(true))}>
                     <Options
                         active={active1}
-                        // setActive1={setActive}
-
                         price={`${price}৳`}
                         regularPrice="Cash Discount Price"
                         option="Online / Cash Payment"
@@ -31,7 +30,6 @@ const PaymentOptions = ({ price }) => {
                 <div onClick={() => (setActive2(true))}>
                     <Options
                         active={active2}
-                        // setActive2={setActive2}
                         price={"2,143৳/month"}
                         regularPrice="Regular Price: 25,720৳"
                         option="0% EMI for up to 12 Months***" />
@@ -48,21 +46,23 @@ const Options = ({
     price,
     regularPrice,
     option,
-    active
+    active,
+   
 
 }) => {
 
 
 
     return (
-        <label className={`${active?"border-[#3749bb]":""} duration-100 flex cursor-pointer border-2 border-solid hover:border-[#3749bb]`} >
+        <label className={`${active ? "border-[#3749bb]" : ""} duration-100 flex cursor-pointer border-2 border-solid hover:border-[#3749bb]`} >
             <div className="flex px-3 mr-3 bg-[#edf2f5]">
                 <input
-                    // style={{ border: '1px solid red' }}
                     className="scale-[1.7]"
                     type="radio"
                     name="enable_emi"
-                    checked={active}
+                    defaultChecked={active}
+               
+
 
                 />
             </div>

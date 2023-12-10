@@ -4,16 +4,21 @@ import Banner from '@/components/HomePage/Banner';
 import FeaturedCategory from '@/components/HomePage/FeaturedCategory';
 import FeaturedProducts from '@/components/HomePage/FeaturedProducts';
 import HeadTag from '@/components/sheared/HeaderTag';
+import { getUserInfo } from '@/service/auth.service';
+
+
 
 
 // const Banner = dynamic(() => import('@/components/HomePage/Banner'), { ssr: false });
 
 
 export default function HomePage({ data }) {
+ 
+  getUserInfo();
 
   return (
     < >
-      <HeadTag descriptionContent={"Star Tech HomePage"} title={"Star Tech"}/>
+      <HeadTag descriptionContent={"Star Tech HomePage"} title={"Star Tech"} />
       <Banner />
       <FeaturedCategory />
 
@@ -44,5 +49,11 @@ export async function getStaticProps() {
   const data = await res.json();
 
 
-  return { props: { data } }
+  return {
+    props: {
+      data
+    },
+
+
+  }
 }

@@ -4,21 +4,51 @@ import FormsInput from '@/components/Forms/FormsInput';
 import RootLayouts from '@/components/Layouts/RootLayouts';
 import HeadTag from '@/components/sheared/HeaderTag';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { BiSolidCommentError } from "react-icons/bi"
 
 const RegisterPage = () => {
-    const onSubmit = (data) => {
-        console.log(data);
+
+    const router = useRouter()
+    const [error, setError] = useState(false);
+    const [errorMassge, setErrorMassge] = useState(false);
+
+    const onSubmit = async (data) => {
+        const baseURL = "https://star-tech-back-end.vercel.app";
+        const res = await fetch(`${baseURL}/api/v1/user/create/`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        const result = await res.json();
+        if (result.success === true) {
+            router.push("/auth/login");
+            setError(false);
+        }
+        else {
+            const Massge = result.errorMessages[0].message;
+            setErrorMassge(Massge);
+            setError(true)
+        } 
     }
     return (
         <section className='p-2'>
             <HeadTag descriptionContent={"Star Tech Register page"} title={"Register Account"} />
             <div className='max-w-[400px] mx-auto mt-16 mb-24'>
 
-                <div className='bg-red-100 py-4 px-3  rounded-md mb-4 flex  items-center'>
-                    <span className='text-[23px] pr-3 text-[red]'> <BiSolidCommentError /> </span>
-                    <span className='font-thin font-serif text-[14px] sm:text-[15px] leading-none'>Warning: No match for Phone Number and/or Password.</span>
-                </div>
+                {
+                    error && <div className='bg-red-100 py-4 px-3  rounded-md mb-4 flex  items-center'>
+                        <span className='text-[23px] pr-3 text-[red]'> <BiSolidCommentError /> </span>
+                        <span className='font-thin font-serif text-[14px] sm:text-[15px] leading-none'>Warning:
+
+                            {/* No match for Phone Number and/or Password. */}
+                            {" " + errorMassge}
+                        </span>
+                    </div>
+                }
                 <h1 className='font-serif font-bold text-[20px]'>Register Account</h1>
                 <Forms submitHandler={onSubmit} >
                     <div className='grid grid-cols-2 gap-4'>
@@ -27,7 +57,7 @@ const RegisterPage = () => {
                                 First Name
                             </label>
                             <FormsInput
-                                name="firstName"
+                                name="first_name"
                                 type="text"
                                 // placeholder='Phone / E-Mail' 
                                 placeholder={"First name"}
@@ -37,7 +67,7 @@ const RegisterPage = () => {
                             <label htmlFor="" className='font-serif text-[14px] mt-5 mb-2 flex justify-between'>
                                 Last Name
                             </label>
-                            <FormsInput name={"lastName"} type="text" placeholder='Last name' />
+                            <FormsInput name={"last_name"} type="text" placeholder='Last name' />
                         </div>
                     </div>
                     <div>
@@ -56,7 +86,7 @@ const RegisterPage = () => {
                             Passwoard
 
                         </label>
-                        <FormsInput name={"password"} type="passwoard" placeholder='passwoard' />
+                        <FormsInput name={"password"} type="password" placeholder='password' />
                     </div>
                     <div className='mt-5'>
                         <button className='btn w-full pt-4 block' type='submit'> Continue</button>
