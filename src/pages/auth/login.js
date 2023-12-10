@@ -3,11 +3,10 @@ import Forms from '@/components/Forms/Forms';
 import FormsInput from '@/components/Forms/FormsInput';
 import RootLayouts from '@/components/Layouts/RootLayouts';
 import HeadTag from '@/components/sheared/HeaderTag';
-import { RequestHelpers } from '@/helpers/RequestHelpers';
+import { storeInfo } from '@/service/auth.service';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { useForm } from "react-hook-form"
 import { BiSolidCommentError } from "react-icons/bi"
 
 const LoginPage = () => {
@@ -23,8 +22,6 @@ const LoginPage = () => {
             },
             body: JSON.stringify(data)
         });
-
-
         const loginData = await res.json()
         if (loginData.success) {
             setError(false);
@@ -32,7 +29,7 @@ const LoginPage = () => {
         } else {
             setError(true);
         }
-
+        storeInfo(loginData.data.accessToken);
 
     }
     return (
