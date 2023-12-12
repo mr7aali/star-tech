@@ -29,7 +29,7 @@ const LoginPage = () => {
         } else {
             setError(true);
         }
-        storeInfo(loginData.data.accessToken);
+        storeInfo(loginData?.data?.accessToken);
 
     }
     return (

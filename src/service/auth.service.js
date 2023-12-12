@@ -10,4 +10,5 @@ export const getUserInfo = () => {
 
    const userInfo = jwtDecode(token);
     console.log(userInfo.id);
-}
+    return userInfo
+} 

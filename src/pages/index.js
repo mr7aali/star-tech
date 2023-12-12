@@ -4,16 +4,13 @@ import Banner from '@/components/HomePage/Banner';
 import FeaturedCategory from '@/components/HomePage/FeaturedCategory';
 import FeaturedProducts from '@/components/HomePage/FeaturedProducts';
 import HeadTag from '@/components/sheared/HeaderTag';
-
-
-
-
-
-// const Banner = dynamic(() => import('@/components/HomePage/Banner'), { ssr: false });
-
+import { getUserInfo } from '@/service/auth.service';
 
 export default function HomePage({ data }) {
- 
+
+
+ const r= getUserInfo();
+ console.log(r);
 
 
   return (
@@ -43,12 +40,10 @@ HomePage.getLayout = function getLayout(page) {
 
 
 export async function getStaticProps() {
-  const baseURL = process.env.BASE_URL
-  // const res = await fetch("https://tec-services-backend.vercel.app/api/v1/service/get");
+
+  const baseURL = process.env.BASE_URL;
   const res = await fetch(`${baseURL}/api/v1/product`);
   const data = await res.json();
-
-
   return {
     props: {
       data
