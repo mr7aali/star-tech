@@ -22,10 +22,10 @@ const LoginPage = () => {
             },
             body: JSON.stringify(data)
         });
-        const loginData = await res.json()
+        const loginData = await res.json();
         if (loginData.success) {
             setError(false);
-            router.push("/")
+            router.push("/account")
         } else {
             setError(true);
         }

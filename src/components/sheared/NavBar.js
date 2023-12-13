@@ -149,7 +149,7 @@ const AccountLogOut = () => {
             <h3 className="text-[#fff] text-[15px]">Account</h3>
             <div className="text-[#acabab] text-[12px]">
                 <Link
-                    href={"/auth/profile"}
+                    href={"/account"}
                 >
                     <span key={"1"} className="py-1 cursor-pointer hover:text-[#ef4a23]">Profile</span>
 
