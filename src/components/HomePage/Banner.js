@@ -10,7 +10,7 @@ const Marquee = dynamic(() => import('../ui/Marquee'), { ssr: false });
 
 const Banner = () => {
     return (
-        <>
+        <section>
             <div className="max-w-[1290px] lg:mx-auto gap-5  grid grid-cols-1 lg:grid-cols-12 my-8 mx-2">
                 <div className="lg:col-span-9">
 
@@ -54,7 +54,7 @@ const Banner = () => {
 
          
             <Marquee/>
-        </>
+        </section>
     );
 };
 

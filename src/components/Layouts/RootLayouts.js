@@ -8,14 +8,14 @@ const CardSIdeBar = dynamic(() => import('../ui/CardSIdeBar'), { ssr: false });
 const RootLayouts = ({ children }) => {
     const [open, setOpen] = useState(false)
     return (
-        <div>
+        <section>
 
             <CardSIdeBar open={open} setOpen={setOpen} />
 
             <NavBar cartOpen={open} setCartOpen={setOpen} />
             {children}
             <Footer />
-        </div>
+        </section>
     );
 };
 
