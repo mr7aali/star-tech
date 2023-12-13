@@ -1,27 +1,41 @@
-import { getFromLocalStorage, setToLocalStorage } from "@/helpers/localStorage"
+
 import { jwtDecode } from "jwt-decode";
+
 
 export const storeInfo = (accessToken) => {
     if (!accessToken || typeof window === "undefined") {
         return ""
     }
-    localStorage.setItem(key, Token);
+    localStorage.setItem("accessToken", accessToken);
 }
 
 export const getUserInfo = () => {
-    //     const token = getFromLocalStorage("accessToken");
-
-    //    const userInfo = jwtDecode(token);
-    //     console.log(userInfo.id);
-    //     return userInfo
-    if ( typeof window === "undefined" || typeof window.localStorage === "undefined") {
+    if (typeof window === "undefined" || typeof window.localStorage === "undefined") {
         return "";
-      }
+    }
 
     const token = localStorage.getItem("accessToken");
-    
+    if (!token) {
+        return "";
+    }
     const userInfo = jwtDecode(token);
-    console.log(userInfo);
-    return userInfo
-  
-} 
+
+    return {
+        id: userInfo.id,
+        email: userInfo.email,
+        role: userInfo.role
+    }
+
+}
+export const isLoggedIn = () => {
+    if (typeof window === "undefined" || typeof window.localStorage === "undefined") {
+        return "";
+    }
+    const authToken = localStorage.getItem("accessToken");
+    return !!authToken;
+}
+
+
+export const removeUserInfo = () => {
+    return localStorage.removeItem("accessToken");
+}

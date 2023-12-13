@@ -4,13 +4,11 @@ import Banner from '@/components/HomePage/Banner';
 import FeaturedCategory from '@/components/HomePage/FeaturedCategory';
 import FeaturedProducts from '@/components/HomePage/FeaturedProducts';
 import HeadTag from '@/components/sheared/HeaderTag';
-import { getUserInfo } from '@/service/auth.service';
 
 export default function HomePage({ data }) {
 
 
- const r= getUserInfo();
- console.log(r);
+ 
 
 
   return (
