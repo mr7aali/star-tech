@@ -8,10 +8,13 @@ import { PiPlusMinusFill } from "react-icons/pi";
 import { RiBuilding3Line } from "react-icons/ri";
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import { isLoggedIn, removeUserInfo } from "@/service/auth.service";
 
 const Sidebar = dynamic(() => import('../ui/SideBar'), { ssr: true });
 
 const NavBar = ({ setCartOpen }) => {
+
+
     const [open, setOpen] = useState(false);
     const NavMenuList = ["Desktop", "Laptop", "Component", "Monitor", "UPS",
         "Phone", "Tablet", "Office Equipment", "Camera", "Security", "Networking",
@@ -22,10 +25,13 @@ const NavBar = ({ setCartOpen }) => {
         </li>
     ))
 
+    console.log(isLoggedIn())
+
+
     return (
         <>
-            <main className="lg:relative fixed top-0 w-full z-10" style={{ boxShadow: '0px 1px 10px 0px rgba(0,0,0,0.31)', }}>
-                <div className="top bg-[#081621] flex justify-center items-center">
+            <section className="lg:relative fixed top-0 w-full z-10" style={{ boxShadow: '0px 1px 10px 0px rgba(0,0,0,0.31)', }}>
+                <main className="top bg-[#081621] flex justify-center items-center">
                     <div className="mx-auto w-[1290px] flex items-center justify-between">
                         <div onClick={() => setOpen(!open)} className="pl-5 cursor-pointer lg:hidden">
                             <span className="p-2 text-[#fff] text-[25px] flex justify-center items-center"><BarsOutlined /></span>
@@ -63,18 +69,11 @@ const NavBar = ({ setCartOpen }) => {
                                     <small className="text-[#acabab] text-[12px]">Special Deals</small>
                                 </div>
                             </div>
+                            {
+                                isLoggedIn() ? <AccountLogOut /> : <AccoutLogIn />
 
-                            <div className="ml-[15px] flex items-center cursor-pointer" >
-                                <MdOutlineManageAccounts className="text-[#ef4a23] mr-4 text-2xl" />
-                                <div >
-                                    <h3 className="text-[#fff] text-[15px]">Account</h3>
-                                    <small className="text-[#acabab] text-[12px]">
-                                        <Link href={"/auth/register"} className="py-1 cursor-pointer hover:text-[#ef4a23]">Register </Link>
-                                        or
-                                        <Link href={"/auth/login"} className="py-1 cursor-pointer hover:text-[#ef4a23]"> Login</Link>
-                                    </small>
-                                </div>
-                            </div>
+                            }
+
 
                             <div className="ml-[10px] mr-3">
                                 <Link href={"builder"} className="btn">PC Builder</Link>
@@ -86,16 +85,10 @@ const NavBar = ({ setCartOpen }) => {
                             <span onClick={() => setCartOpen(true)} className="px-3 py-2 cursor-pointer text-[#fff] text-[25px] flex justify-center items-center"><ShoppingCartOutlined /></span>
                         </div>
                     </div>
-                </div>
+                </main>
                 <Sidebar open={open} setOpen={setOpen} />
 
-
-
-            </main>
-
-
-
-
+            </section>
 
             <nav
 
@@ -109,7 +102,7 @@ const NavBar = ({ setCartOpen }) => {
 
 
 
-            
+
 
 
             <footer
@@ -142,3 +135,61 @@ const NavBar = ({ setCartOpen }) => {
     );
 };
 export default NavBar;
+
+
+
+
+
+const AccountLogOut = () => {
+
+
+    return (<div className="ml-[15px] flex items-center cursor-pointer" >
+        <MdOutlineManageAccounts className="text-[#ef4a23] mr-4 text-2xl" />
+        <aside>
+            <h3 className="text-[#fff] text-[15px]">Account</h3>
+            <div className="text-[#acabab] text-[12px]">
+                <Link
+                    href={"/auth/profile"}
+                >
+                    <span key={"1"} className="py-1 cursor-pointer hover:text-[#ef4a23]">Profile</span>
+
+
+
+                </Link>
+                <span> or </span>
+                <Link
+                    onClick={() => removeUserInfo()}
+                    href={"/auth/login"}
+                    className="py-1 cursor-pointer hover:text-[#ef4a23]">
+                    Logout
+                </Link>
+            </div>
+        </aside>
+    </div>
+    )
+
+}
+
+const AccoutLogIn = () => {
+    return (
+        <div className="ml-[15px] flex items-center cursor-pointer" >
+            <MdOutlineManageAccounts className="text-[#ef4a23] mr-4 text-2xl" />
+
+            <aside>
+                <h3 className="text-[#fff] text-[15px]">Account</h3>
+                <div className="text-[#acabab] text-[12px]">
+                    <Link
+                        href={"/auth/register"}
+                    ><span key={"1d"} className="py-1 cursor-pointer hover:text-[#ef4a23]">Register</span></Link>
+                    <span> or </span>
+                    <Link
+                        href={"/auth/login"}
+                        className="py-1 cursor-pointer hover:text-[#ef4a23]">
+                        Login
+                    </Link>
+                </div>
+            </aside>
+        </div>
+    )
+
+}

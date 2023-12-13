@@ -4,6 +4,7 @@ import NavBar from "../sheared/NavBar";
 import { useState } from "react";
 // import CardSIdeBar from "../ui/CardSIdeBar";
 const CardSIdeBar = dynamic(() => import('../ui/CardSIdeBar'), { ssr: false });
+
 const RootLayouts = ({ children }) => {
     const [open, setOpen] = useState(false)
     return (
