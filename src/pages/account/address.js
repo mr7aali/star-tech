@@ -1,11 +1,14 @@
-import { ProfileNavItems } from '@/components/AccountPages/constant';
 import Forms from '@/components/Forms/Forms';
 import FormsInput from '@/components/Forms/FormsInput';
 import AccountLayouts from '@/components/Layouts/AccountLayouts';
-import Link from 'next/link';
-import React from 'react';
 
-const AddressPage = () => {
+const AddressPage = ({ countries }) => {
+
+    const countryOption =
+        countries.
+            sort((a, b) => a.name.common.localeCompare(b.name.common))
+            .map(c => c.name.common)
+
     const onSubmit = (data) => {
         console.log(data)
     }
@@ -80,7 +83,6 @@ const AddressPage = () => {
                             />
                         </div>
 
-
                         <div className='grid grid-cols-2 gap-2'>
                             <div>
                                 <label htmlFor="" className='font-serif text-[14px] mt-5 mb-2 flex justify-between'>
@@ -113,7 +115,8 @@ const AddressPage = () => {
                                 </label>
                                 <FormsInput
                                     name="country"
-                                    type="text"
+                                    type="select"
+                                    options={countryOption}
                                     placeholder='Country'
                                 />
                             </div>
@@ -129,8 +132,6 @@ const AddressPage = () => {
                                 />
                             </div>
                         </div>
-
-
 
 
                         <div className='mt-5'>
@@ -153,4 +154,16 @@ AddressPage.getLayout = function getLayout(page) {
             {page}
         </AccountLayouts>
     );
+}
+
+
+export async function getStaticProps() {
+    const URL = "https://restcountries.com/v3.1/all";
+    const res = await fetch(URL);
+    const data = await res.json();
+    return {
+        props: {
+            countries: data
+        },
+    }
 }

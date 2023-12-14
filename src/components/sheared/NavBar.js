@@ -8,9 +8,7 @@ import { PiPlusMinusFill } from "react-icons/pi";
 import { RiBuilding3Line } from "react-icons/ri";
 import { useState } from "react";
 import dynamic from "next/dynamic";
-import { isLoggedIn, removeUserInfo } from "@/service/auth.service";
-// import AccountLogOut from "./AccountLogOut";
-// import AccoutLogIn from "./AccoutLogIn";
+import { isLoggedIn} from "@/service/auth.service";
 
 const Sidebar = dynamic(() => import('../ui/SideBar'), { ssr: true });
 const AccountLogOut = dynamic(() => import('./AccountLogOut'), { ssr: false });
@@ -93,7 +91,6 @@ const NavBar = ({ setCartOpen }) => {
                 <Sidebar open={open} setOpen={setOpen} />
 
             </section>
-
             <nav
 
                 style={{ boxShadow: "0 2px 2px rgba(0,0,0,.1)" }}
@@ -126,8 +123,6 @@ const NavBar = ({ setCartOpen }) => {
                     <small className="text-white text-[9px] sm:text-[10px] pt-1 sm:pt-2 opacity-70">Account</small>
                 </Link>
             </footer>
-
-
         </>
     );
 };

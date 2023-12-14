@@ -9,7 +9,7 @@ const ProfileHeader = () => {
                         <Image
                             width={80} height={80}
                             className='rounded-full'
-                            src="https://www.gravatar.com/avatar/ec0e7bb5ba35678645248631e8e9f41c?s=70&d=mp&r=g" alt="" srcset="" />
+                            src="https://www.gravatar.com/avatar/ec0e7bb5ba35678645248631e8e9f41c?s=70&d=mp&r=g" alt=""  />
                     </aside>
                     <aside className='ml-4 mb-1'>
                         <small className='text-xl'>Hello,</small>
