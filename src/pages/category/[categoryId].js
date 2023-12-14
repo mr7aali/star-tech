@@ -18,7 +18,7 @@ const CategoryIdPage = () => {
 
 
             </div>
-            <div className="col-span-12 lg:col-span-9">
+            <div  className="col-span-12 lg:col-span-9">
                 <ProductFiltering />
                 <div className=" grid sm:grid-cols-2 md:grid-cols-3 px-2 lg:px-0  lg:flex lg:flex-wrap lg:justify-center gap-3 mt-5"  >
                     <ProductCard />
