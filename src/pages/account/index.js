@@ -5,18 +5,19 @@ import { FaHeart } from "react-icons/fa";
 import { PiShootingStarThin } from "react-icons/pi";
 import AccountLayouts from '@/components/Layouts/AccountLayouts';
 import ProfileOptionCard from '@/components/AccountPages/ProfileOptionCard';
+import Link from "next/link";
 
 
 const AccountHomePage = () => {
     const Items = [
-        { title: "Orders", Icon: FaRegNewspaper },
-        { title: "Edit Profile", Icon: FaUserLock },
-        { title: "Change Password", Icon: MdPassword },
-        { title: "Addresses", Icon: MdEditLocationAlt },
-        { title: "Wish List", Icon: FaHeart },
-        { title: "Saved PC", Icon: FaComputer },
-        { title: "Star Points", Icon: PiShootingStarThin },
-        { title: "Your Transactions", Icon: TbDatabaseDollar },
+        { path: "/account/order", title: "Orders", Icon: FaRegNewspaper },
+        { path: "/account/edit", title: "Edit Profile", Icon: FaUserLock },
+        { path: "/account/password", title: "Change Password", Icon: MdPassword },
+        { path: "/account/address", title: "Addresses", Icon: MdEditLocationAlt },
+        { path: "/account/wishlist", title: "Wish List", Icon: FaHeart },
+        { path: "/account/pc", title: "Saved PC", Icon: FaComputer },
+        { path: "/account/reward", title: "Star Points", Icon: PiShootingStarThin },
+        { path: "/account/transaction", title: "Your Transactions", Icon: TbDatabaseDollar },
 
     ]
     return (
@@ -24,11 +25,16 @@ const AccountHomePage = () => {
             <main className='max-w-[970px] mx-auto grid grid-cols-4 gap-3'>
                 {
                     Items.map((item, i) =>
-                        <ProfileOptionCard
+                        <Link
                             key={i}
-                            title={item.title}
-                            Icon={item.Icon}
-                        />)
+                            href={item.path}
+                        >
+                            <ProfileOptionCard
+
+                                title={item.title}
+                                Icon={item.Icon}
+                            />
+                        </Link>)
                 }
             </main>
         </section>

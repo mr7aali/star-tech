@@ -25,7 +25,7 @@ const NavBar = ({ setCartOpen }) => {
         </li>
     ))
 
-    console.log(isLoggedIn())
+  
 
 
     return (
