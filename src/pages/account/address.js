@@ -13,12 +13,12 @@ const AddressPage = ({ countries }) => {
         console.log(data)
     }
     return (
-        <div className='max-w-[970px] mx-auto pb-10'>
+        <div className='max-w-[970px] mx-auto pb-10 px-5 lg:px-0'>
             <h1 className='text-[#3749bb] text-2xl font-semibold font-sans'> Add New Address</h1>
             <p className='my-3 text-[18px] font-sans opacity-70'>Please enter the required details to add a new address.</p>
 
             <Forms submitHandler={onSubmit} >
-                <div className='grid grid-cols-2'>
+                <div className='grid md:grid-cols-2'>
                     <div>
 
 
