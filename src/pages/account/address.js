@@ -1,6 +1,8 @@
-import Forms from '@/components/Forms/Forms';
-import FormsInput from '@/components/Forms/FormsInput';
-import AccountLayouts from '@/components/Layouts/AccountLayouts';
+import dynamic from 'next/dynamic';
+const FormsInput = dynamic(() => import('@/components/Forms/FormsInput'));
+const Forms = dynamic(() => import('@/components/Forms/Forms'));
+const AccountLayouts = dynamic(() => import('@/components/Layouts/AccountLayouts'));
+const ProfileNavbar = dynamic(() => import('@/components/AccountPages/AccountProfileNavbar'));
 
 const AddressPage = ({ countries }) => {
 
@@ -13,6 +15,8 @@ const AddressPage = ({ countries }) => {
         console.log(data)
     }
     return (
+        <>
+         <ProfileNavbar />
         <div className='max-w-[970px] mx-auto pb-10 px-5 lg:px-0'>
             <h1 className='text-[#3749bb] text-2xl font-semibold font-sans'> Add New Address</h1>
             <p className='my-3 text-[18px] font-sans opacity-70'>Please enter the required details to add a new address.</p>
@@ -143,6 +147,7 @@ const AddressPage = ({ countries }) => {
                 </div>
             </Forms>
         </div>
+        </>
     );
 };
 
@@ -157,7 +162,7 @@ AddressPage.getLayout = function getLayout(page) {
 }
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const URL = "https://restcountries.com/v3.1/all";
     const res = await fetch(URL);
     const data = await res.json();

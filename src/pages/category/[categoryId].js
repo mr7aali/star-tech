@@ -1,9 +1,13 @@
-import FilteringOption from "@/components/CategoryIdPage/FilteringOption";
-import Pagination from "@/components/CategoryIdPage/Pagination";
-import ProductFiltering from "@/components/CategoryIdPage/ProductFiltering";
-import RangleSlider from "@/components/CategoryIdPage/RangleSlider";
-import RootLayouts from "@/components/Layouts/RootLayouts";
-import ProductCard from "@/components/card/ProductCard";
+import dynamic from "next/dynamic";
+
+const Pagination = dynamic(() => import("@/components/CategoryIdPage/Pagination"));
+const ProductFiltering = dynamic(() => import("@/components/CategoryIdPage/ProductFiltering"));
+const RangleSlider = dynamic(() => import("@/components/CategoryIdPage/RangleSlider"));
+const RootLayouts = dynamic(() => import("@/components/Layouts/RootLayouts"));
+const ProductCard = dynamic(() => import("@/components/card/ProductCard"));
+const FilteringOption = dynamic(() => import('@/components/CategoryIdPage/FilteringOption'));
+
+
 
 const CategoryIdPage = () => {
     return (
@@ -11,14 +15,14 @@ const CategoryIdPage = () => {
             <div className=" hidden lg:block col-span-3 " >
 
                 <RangleSlider />
-                <FilteringOption title="Availability"/>
-                <FilteringOption title="Processor"/>
-                <FilteringOption title="RAM"/>
-                <FilteringOption title="SSD"/>
+                <FilteringOption title="Availability" />
+                <FilteringOption title="Processor" />
+                <FilteringOption title="RAM" />
+                <FilteringOption title="SSD" />
 
 
             </div>
-            <div  className="col-span-12 lg:col-span-9">
+            <div className="col-span-12 lg:col-span-9">
                 <ProductFiltering />
                 <div className=" grid sm:grid-cols-2 md:grid-cols-3 px-2 lg:px-0  lg:flex lg:flex-wrap lg:justify-center gap-3 mt-5"  >
                     <ProductCard />
