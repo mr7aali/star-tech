@@ -1,8 +1,9 @@
-import AccountLayouts from '@/components/Layouts/AccountLayouts';
-import ProfileOptionCard from '@/components/AccountPages/ProfileOptionCard';
 import Link from "next/link";
-import {  ProfileNavItems } from "@/components/AccountPages/constant";
+import { ProfileNavItems } from "@/components/AccountPages/constant";
 
+import dynamic from 'next/dynamic';
+const AccountLayouts = dynamic(() => import('@/components/Layouts/AccountLayouts'));
+const ProfileOptionCard = dynamic(() => import('@/components/AccountPages/ProfileOptionCard'));
 
 const AccountHomePage = () => {
     return (

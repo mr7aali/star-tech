@@ -12,7 +12,7 @@ const ProfileNavbar = () => {
                             key={item.title}
                             className='flex py-5 pr-3 cursor-pointer hover:text-[#ef4a23] justify-center border-b-[3px] items-center hover:border-red-500 hover:border-b-[3px]'
                         >
-                            <span className='text-xl '><item.Icon /></span>
+                            <span className='text-xl text-[#666]'><item.Icon /></span>
                             <small className='text-sm ml-2 '>{item.title}</small>
                         </Link>
 

@@ -14,7 +14,7 @@ const AccountLayouts = ({ children }) => {
             <NavBar />
             <main className="bg-white pt-14">
                 <ProfileHeader />
-                <ProfileNavbar />
+                {/* <ProfileNavbar /> */}
                 {children}
             </main>
             <Footer />

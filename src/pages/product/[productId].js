@@ -75,29 +75,15 @@ const ProductDetailsPage = ({ data }) => {
 };
 export default ProductDetailsPage;
 
-
-export async function getStaticPaths() {
-    const baseURL = process.env.BASE_URL;
-    const res = await fetch(`${baseURL}/api/v1/product/`);
-    const data = await res.json();
-
-    const paths = data?.data.map((product) => ({
-        params: { productId: product.id.toString() }
-    }))
-
-
-    return { paths, fallback: true }
-}
-
-
-export async function getStaticProps(context) {
+export async function getServerSideProps (context) {
+ 
     const baseURL = process.env.BASE_URL;
     const { params } = context
     const res = await fetch(`${baseURL}/api/v1/product/${params.productId}`);
-    const data = await res.json();
+    const data = await res?.json();
 
     return {
-        props: { data: data.data }
+        props: { data: data?.data }
     }
 }
 
