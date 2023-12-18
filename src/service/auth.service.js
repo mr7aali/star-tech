@@ -37,5 +37,5 @@ export const isLoggedIn = () => {
 
 
 export const removeUserInfo = () => {
-    return localStorage.removeItem("accessToken");
+    localStorage.removeItem("accessToken");
 }

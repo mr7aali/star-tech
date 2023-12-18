@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react';
 const AccountLayouts = dynamic(() => import('@/components/Layouts/AccountLayouts'));
 const ProfileNavbar = dynamic(() => import('@/components/AccountPages/AccountProfileNavbar'));
 
-const AddAddressInitButton = dynamic(() => import('@/components/AccountPages/AddAddressInitButton'),{ssr:false});
-const AddAdressFroms = dynamic(() => import('@/components/AccountPages/AddAdressFroms'),{ssr:false});
+const AddAddressInitButton = dynamic(() => import('@/components/AccountPages/AddAddressInitButton'), { ssr: false });
+const AddAdressFroms = dynamic(() => import('@/components/AccountPages/AddAdressFroms'), { ssr: false });
 
-const AddressPage = ({ countries }) => {
+const AddressPage = () => {
     const [open, setOpen] = useState(true)
 
 
@@ -43,16 +43,4 @@ AddressPage.getLayout = function getLayout(page) {
             {page}
         </AccountLayouts>
     );
-}
-
-
-export async function getServerSideProps() {
-    // const URL = "https://restcountries.com/v3.1/all";
-    // const res = await fetch(URL);
-    // const data = await res.json();
-    return {
-        props: {
-            countries: []
-        },
-    }
 }
