@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const ProfileHeader = () => {
     return (
-        <header className='max-w-[970px] mx-auto flex justify-between items-center'>
+        <header className='max-w-[970px] mx-auto hidden lg:flex justify-between items-center'>
                 <div className='flex items-end'>
                     <aside>
                         <Image

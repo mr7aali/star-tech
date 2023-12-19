@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { ProfileNavItems } from './constant';
 
-const ProfileNavbar = () => {
+const AccountProfileNavbar = () => {
     return (
-        <div className='max-w-[970px] mx-auto py-5'>
+        <div className='max-w-[970px] hidden lg:block mx-auto py-5'>
             <div className='flex'>
                 {
                     ProfileNavItems.map(item => (
@@ -25,4 +25,4 @@ const ProfileNavbar = () => {
     );
 };
 
-export default ProfileNavbar;
+export default AccountProfileNavbar;
