@@ -9,13 +9,6 @@ const AddAdressFroms = dynamic(() => import('@/components/AccountPages/AddAdress
 
 const AddressPage = () => {
     const [open, setOpen] = useState(true)
-
-
-
-
-
-
-
     return (
         <>
             <ProfileNavbar />
@@ -25,7 +18,6 @@ const AddressPage = () => {
                         <AddAddressInitButton />
                     </div>
                     :
-
                     <AddAdressFroms />
             }
 
