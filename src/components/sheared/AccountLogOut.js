@@ -1,3 +1,4 @@
+import { removeUserInfo } from "@/service/auth.service";
 import Link from "next/link";
 import { MdOutlineManageAccounts } from "react-icons/md";
 const AccountLogOut = () => {
@@ -18,7 +19,7 @@ const AccountLogOut = () => {
                 </Link>
                 <span> or </span>
                 <Link
-                    onClick={() => removeUserInfo()}
+                    onClick={removeUserInfo}
                     href={"/auth/login"}
                     className="py-1 cursor-pointer hover:text-[#ef4a23]">
                     Logout
