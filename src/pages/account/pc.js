@@ -5,8 +5,15 @@ const ProfileNavbar = dynamic(() => import('@/components/AccountPages/AccountPro
 const PcPage = () => {
     return (
         <div>
-             <ProfileNavbar />
-            <h1>Saved Pc page</h1>
+            <ProfileNavbar />
+            <div className='max-w-[970px] mx-auto'>
+                <h1 className='text-[#3749bb] text-2xl px-2 py-5'>
+                Saved PC
+
+                </h1>
+
+                <p className='py-10 px-2'>You have not save any PC</p>
+            </div>
         </div>
     );
 };

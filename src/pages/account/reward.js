@@ -5,8 +5,15 @@ const ProfileNavbar = dynamic(() => import('@/components/AccountPages/AccountPro
 const RewardPage = () => {
     return (
         <div>
-             <ProfileNavbar />
-            <h1>Reward page</h1>
+            <ProfileNavbar />
+            <div className='max-w-[970px] mx-auto'>
+                <h1 className='text-[#3749bb] text-2xl px-2 py-5'>
+                    Your Reward Points
+
+                </h1>
+
+                <p className='py-10 px-2'>Your Reward Points is empty.</p>
+            </div>
         </div>
     );
 };

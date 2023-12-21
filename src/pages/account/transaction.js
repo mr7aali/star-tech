@@ -5,8 +5,17 @@ const ProfileNavbar = dynamic(() => import('@/components/AccountPages/AccountPro
 const TransactionPage = () => {
     return (
         <div>
-             <ProfileNavbar />
-            <h1>Transaction page</h1>
+            <ProfileNavbar />
+            <div className='max-w-[970px] mx-auto'>
+                <h1 className='text-[#3749bb] text-2xl px-2 py-5'>
+                Your Transactions
+
+
+                </h1>
+
+                <p className='py-10 px-2'>Your Transactions
+is empty.</p>
+            </div>
         </div>
     );
 };
