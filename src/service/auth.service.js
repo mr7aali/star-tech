@@ -1,4 +1,5 @@
 
+import { AxiosService } from "@/shared/Axios";
 import { jwtDecode } from "jwt-decode";
 
 
@@ -19,12 +20,21 @@ export const getUserInfo = () => {
         return "";
     }
     const userInfo = jwtDecode(token);
-
-    return {
-        id: userInfo.id,
-        email: userInfo.email,
-        role: userInfo.role
+    if (!userInfo.id) {
+        return {}
     }
+
+    const userInfoFromLocalStore = localStorage.getItem("userProfile");
+
+    if (userInfoFromLocalStore && userInfoFromLocalStore !== 'undefined') {
+
+        return JSON.parse(userInfoFromLocalStore)
+    }
+    AxiosService.get(`/api/v1/user/profile/${userInfo.id}`)
+        .then(res => {
+            localStorage.setItem("userProfile", JSON.stringify(res.data));
+            return res;
+        });
 
 }
 export const isLoggedIn = () => {

@@ -1,3 +1,4 @@
+import { getUserInfo } from '@/service/auth.service';
 import dynamic from 'next/dynamic';
 const AccountLayouts = dynamic(() => import('@/components/Layouts/AccountLayouts'));
 const ProfileNavbar = dynamic(() => import('@/components/AccountPages/AccountProfileNavbar'));
@@ -5,6 +6,9 @@ const FormsInput = dynamic(() => import('@/components/Forms/FormsInput'));
 const Forms = dynamic(() => import('@/components/Forms/Forms'));
 
 const EditPage = () => {
+
+
+
     const onSubmit = () => {
 
     }
@@ -15,7 +19,7 @@ const EditPage = () => {
                 <h1 className='text-[#3749bb] text-2xl font-semibold font-sans'>
                     My Account Information
                 </h1>
-                <Forms submitHandler={onSubmit} >
+                <Forms submitHandler={onSubmit} defaultValues={getUserInfo()}>
 
                     <div className='grid md:grid-cols-2'>
 
@@ -32,6 +36,8 @@ const EditPage = () => {
                                         name="first_name"
                                         type="text"
                                         // placeholder='Phone / E-Mail' 
+                                        // value="ali"
+                                        // defaultValues="ali"
                                         placeholder={"First name"}
                                     />
                                 </div>
@@ -76,7 +82,7 @@ const EditPage = () => {
 
 
                 </Forms>
-            </div>
+            </div >
         </>
     );
 };

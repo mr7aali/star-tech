@@ -6,12 +6,10 @@ import { useState } from "react";
 const CardSIdeBar = dynamic(() => import('../ui/CardSIdeBar'), { ssr: false });
 
 const RootLayouts = ({ children }) => {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
     return (
         <section>
-
             <CardSIdeBar open={open} setOpen={setOpen} />
-
             <NavBar cartOpen={open} setCartOpen={setOpen} />
             {children}
             <Footer />

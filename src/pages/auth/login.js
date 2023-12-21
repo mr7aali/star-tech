@@ -1,9 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import Forms from '@/components/Forms/Forms';
 import FormsInput from '@/components/Forms/FormsInput';
-import RootLayouts from '@/components/Layouts/RootLayouts';
+const RootLayouts = dynamic(() => import("@/components/Layouts/RootLayouts"))
 import HeadTag from '@/components/sheared/HeaderTag';
 import { storeInfo } from '@/service/auth.service';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -89,12 +90,6 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
-
-
-
-
-
 
 
 LoginPage.getLayout = function getLayout(page) {

@@ -3,6 +3,15 @@ const MinLengthCalculator = (name) => {
     if (name === "password") {
         minLength = 6
     }
+   else if (name === "old_password") {
+        minLength = 6
+    }
+   else if (name === "new_password") {
+        minLength = 6
+    }
+   else if (name === "confirm_password") {
+        minLength = 6
+    }
     else if (name === "email") {
         minLength = 7
     }

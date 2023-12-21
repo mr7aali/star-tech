@@ -6,7 +6,11 @@ const FormsInput = (
     { name, type, value, id, placeholder, validation, options }
 ) => {
     const { control, formState: { errors } } = useFormContext();
-    const capitalizedFieldName = name.charAt(0).toUpperCase() + name.slice(1);
+    let capitalizedFieldName = name.charAt(0).toUpperCase() + name.slice(1);
+
+    if (capitalizedFieldName.includes("_")) {
+        capitalizedFieldName = capitalizedFieldName.replace(/_/g, ' ');
+    }
 
 
     const minLength = FormHelper.MinLengthCalculator(name);
@@ -63,11 +67,13 @@ const FormsInput = (
                             }
                         }}
                         name={name}
-
+                        
                         render={({ field }) => (
+                          
                             <input {...field}
                                 type={type}
                                 placeholder={placeholder}
+                                // defaultValue={value ? value : field.value || ""}
                                 value={value ? value : field.value || ""}
                                 style={{ style: '1px solid red' }}
 
@@ -77,12 +83,12 @@ const FormsInput = (
                         )}
                     />
             }
-                    
-
-                 
 
 
-            
+
+
+
+
 
 
 

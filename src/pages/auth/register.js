@@ -1,12 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 import Forms from '@/components/Forms/Forms';
 import FormsInput from '@/components/Forms/FormsInput';
-import RootLayouts from '@/components/Layouts/RootLayouts';
 import HeadTag from '@/components/sheared/HeaderTag';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { BiSolidCommentError } from "react-icons/bi"
+const RootLayouts = dynamic(() => import("@/components/Layouts/RootLayouts"))
 
 const RegisterPage = () => {
 

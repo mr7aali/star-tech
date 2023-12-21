@@ -1,16 +1,17 @@
+import dynamic from 'next/dynamic';
 const FormsInput = dynamic(() => import('@/components/Forms/FormsInput'));
 const Forms = dynamic(() => import('@/components/Forms/Forms'));
-import dynamic from 'next/dynamic';
 const AccountLayouts = dynamic(() => import('@/components/Layouts/AccountLayouts'));
-const ProfileNavbar = dynamic(() => import('@/components/AccountPages/AccountProfileNavbar'));
+const AccountProfileNavbar = dynamic(() => import('@/components/AccountPages/AccountProfileNavbar'));
+
 
 const PasswordPage = () => {
     const onSubmit = (data) => {
-        console.log(data)
+
     }
     return (
         <>
-         <ProfileNavbar />
+            <AccountProfileNavbar />
             <div className='max-w-[970px] mx-auto pb-10 px-5 lg:px-0'>
                 <h1 className='text-[#3749bb] text-2xl font-semibold font-sans'>
                     Change Password</h1>
@@ -30,6 +31,7 @@ const PasswordPage = () => {
                                     name="old_password"
                                     type="text"
                                     placeholder='Old Password'
+
                                 />
                             </div>
                             <div>

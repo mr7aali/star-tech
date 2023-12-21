@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ProfileNavItems } from "@/components/AccountPages/constant";
-
 import dynamic from 'next/dynamic';
+// import AccountLayouts from "@/components/Layouts/AccountLayouts";
 const AccountLayouts = dynamic(() => import('@/components/Layouts/AccountLayouts'));
 const ProfileOptionCard = dynamic(() => import('@/components/AccountPages/ProfileOptionCard'));
 
@@ -27,6 +27,8 @@ const AccountHomePage = () => {
 };
 
 export default AccountHomePage;
+
+
 
 
 AccountHomePage.getLayout = function getLayout(page) {
