@@ -1,3 +1,4 @@
+import { getUserInfo } from '@/service/auth.service';
 import dynamic from 'next/dynamic';
 const AccountLayouts = dynamic(() => import('@/components/Layouts/AccountLayouts'));
 const ProfileNavbar = dynamic(() => import('@/components/AccountPages/AccountProfileNavbar'));
@@ -5,6 +6,17 @@ const FormsInput = dynamic(() => import('@/components/Forms/FormsInput'));
 const Forms = dynamic(() => import('@/components/Forms/Forms'));
 
 const EditPage = () => {
+
+
+
+
+    const user=  getUserInfo();
+
+   console.log(user)
+
+
+
+
     const onSubmit = () => {
 
     }

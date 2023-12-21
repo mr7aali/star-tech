@@ -1,5 +1,5 @@
-const FormsInput = dynamic(() => import('@/components/Forms/FormsInput'));
-const Forms = dynamic(() => import('@/components/Forms/Forms'));
+const FormsInput = dynamic(() => import('@/components/Forms/FormsInput'), { ssr: false });
+const Forms = dynamic(() => import('@/components/Forms/Forms'), { ssr: false });
 import dynamic from 'next/dynamic';
 const AccountLayouts = dynamic(() => import('@/components/Layouts/AccountLayouts'));
 const ProfileNavbar = dynamic(() => import('@/components/AccountPages/AccountProfileNavbar'));
@@ -10,7 +10,7 @@ const PasswordPage = () => {
     }
     return (
         <>
-         <ProfileNavbar />
+            <ProfileNavbar />
             <div className='max-w-[970px] mx-auto pb-10 px-5 lg:px-0'>
                 <h1 className='text-[#3749bb] text-2xl font-semibold font-sans'>
                     Change Password</h1>
@@ -30,6 +30,7 @@ const PasswordPage = () => {
                                     name="old_password"
                                     type="text"
                                     placeholder='Old Password'
+
                                 />
                             </div>
                             <div>
