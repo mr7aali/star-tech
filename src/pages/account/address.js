@@ -1,10 +1,9 @@
-
 import dynamic from 'next/dynamic';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 const AccountLayouts = dynamic(() => import('@/components/Layouts/AccountLayouts'));
 const ProfileNavbar = dynamic(() => import('@/components/AccountPages/AccountProfileNavbar'));
 
-const AddAddressInitButton = dynamic(() => import('@/components/AccountPages/AddAddressInitButton'), { ssr:true});
+const AddAddressInitButton = dynamic(() => import('@/components/AccountPages/AddAddressInitButton'), { ssr: false});
 const AddAdressFroms = dynamic(() => import('@/components/AccountPages/AddAdressFroms'), { ssr: true });
 
 const AddressPage = () => {
@@ -12,8 +11,6 @@ const AddressPage = () => {
     return (
         <>
             <ProfileNavbar />
-
-
             <div className={`${open ? "" : "hidden"} `} onClick={() => setOpen(false)}>
                 <AddAddressInitButton />
             </div>
@@ -21,10 +18,6 @@ const AddressPage = () => {
             <div className={`${open ? "hidden" : ""} `}>
                 <AddAdressFroms />
             </div>
-
-
-
-
         </>
     );
 };

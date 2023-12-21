@@ -1,3 +1,5 @@
+const RootLayouts = dynamic(() => import('@/components/Layouts/RootLayouts'));
+const ProfileHeader = dynamic(() => import('@/components/AccountPages/ProfileHeader'));
 import dynamic from 'next/dynamic';
 const AccountLayouts = dynamic(() => import('@/components/Layouts/AccountLayouts'));
 const ProfileNavbar = dynamic(() => import('@/components/AccountPages/AccountProfileNavbar'));

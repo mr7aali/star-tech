@@ -5,7 +5,7 @@ import { countries } from './constant';
 
 const AddAdressFroms = () => {
     const onSubmit = (data) => {
-        console.log(data)
+        
     }
    
 

@@ -14,9 +14,9 @@ const OrderPage = () => {
                     Order History
                 </h1>
 
-                <OrderHistoryCard/>
-                <OrderHistoryCard/>
-                <OrderHistoryCard/>
+                <OrderHistoryCard />
+                <OrderHistoryCard />
+                <OrderHistoryCard />
             </div>
         </div>
     );
@@ -26,7 +26,7 @@ export default OrderPage;
 
 OrderPage.getLayout = function getLayout(page) {
     return (
-        <AccountLayouts>
+        <AccountLayouts >
             {page}
         </AccountLayouts>
     );

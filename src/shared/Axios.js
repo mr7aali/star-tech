@@ -5,7 +5,7 @@ import axios from "axios";
 const HttpService =async () => {
 
     const baseURL = process.env.BASE_URL;
-    console.log(baseURL);
+   
 
     const inistance = axios.create({
         baseURL: "https://star-tech-back-end.vercel.app",
@@ -24,7 +24,7 @@ const HttpService =async () => {
     )
     inistance.interceptors.response.use(
         (response) => {
-            // console.log();
+          
             return response?.data
         },
         (error) => {

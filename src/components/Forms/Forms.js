@@ -3,7 +3,7 @@ import { useForm, FormProvider } from "react-hook-form"
 const Forms = ({ children, submitHandler, defaultValues }) => {
   
 
-    console.log(children.props);
+    
     const formConfig = {}
     if (!!defaultValues) {
         formConfig['defaultValues'] = defaultValues;
