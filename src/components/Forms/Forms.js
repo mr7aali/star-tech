@@ -1,12 +1,14 @@
 import { useForm, FormProvider } from "react-hook-form"
 
 const Forms = ({ children, submitHandler, defaultValues }) => {
+  
 
+    console.log(children.props);
     const formConfig = {}
     if (!!defaultValues) {
         formConfig['defaultValues'] = defaultValues;
     }
-
+    
 
     const methods = useForm(formConfig);
     const { handleSubmit, setError, reset, formState: { errors } } = methods

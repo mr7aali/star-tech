@@ -67,11 +67,13 @@ const FormsInput = (
                             }
                         }}
                         name={name}
-
+                        
                         render={({ field }) => (
+                          
                             <input {...field}
                                 type={type}
                                 placeholder={placeholder}
+                                // defaultValue={value ? value : field.value || ""}
                                 value={value ? value : field.value || ""}
                                 style={{ style: '1px solid red' }}
 
