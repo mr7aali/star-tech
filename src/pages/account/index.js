@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { ProfileNavItems } from "@/components/AccountPages/constant";
 import dynamic from 'next/dynamic';
+import { getUserInfo } from "@/service/auth.service";
 // import AccountLayouts from "@/components/Layouts/AccountLayouts";
 const AccountLayouts = dynamic(() => import('@/components/Layouts/AccountLayouts'));
 const ProfileOptionCard = dynamic(() => import('@/components/AccountPages/ProfileOptionCard'));
 
 const AccountHomePage = () => {
+    
     return (
         <section className='bg-white py-16'>
             <main className='max-w-[970px] mx-auto grid grid-cols-4 gap-3'>

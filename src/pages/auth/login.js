@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 import Forms from '@/components/Forms/Forms';
 import FormsInput from '@/components/Forms/FormsInput';
-const RootLayouts = dynamic(() => import("@/components/Layouts/RootLayouts"))
+const RootLayouts = dynamic(() => import("@/components/Layouts/RootLayouts"), { ssr: false })
 import HeadTag from '@/components/sheared/HeaderTag';
-import { storeInfo } from '@/service/auth.service';
+import { getUserInfo, storeInfo } from '@/service/auth.service';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -26,11 +26,14 @@ const LoginPage = () => {
         const loginData = await res.json();
         if (loginData.success) {
             setError(false);
+            storeInfo(loginData?.data?.accessToken);
+            const r = getUserInfo()
+            console.log(r)
             router.push("/account")
         } else {
             setError(true);
         }
-        storeInfo(loginData?.data?.accessToken);
+        
 
     }
     return (
@@ -64,7 +67,7 @@ const LoginPage = () => {
                         </label>
                         <FormsInput
                             name={"password"}
-                            type="text"
+                            type="password"
                             placeholder='Password'
                         />
                     </div>

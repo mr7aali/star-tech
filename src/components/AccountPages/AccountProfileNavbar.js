@@ -3,7 +3,7 @@ import { ProfileNavItems } from './constant';
 
 const AccountProfileNavbar = () => {
     return (
-        <div className='max-w-[970px] hidden lg:block mx-auto py-5'>
+        <div className='max-w-[970px] hidden lg:block mx-auto py-5 font-serif'>
             <div className='flex'>
                 {
                     ProfileNavItems.map(item => (

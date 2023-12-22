@@ -7,7 +7,7 @@ const AccountLayouts = dynamic(() => import('@/components/Layouts/AccountLayouts
 
 const OrderPage = () => {
     return (
-        <div className='py-2 font-serif'>
+        <div className='py -2 font-serif'>
             <ProfileNavbar />
             <div className='max-w-[970px] mx-auto '>
                 <h1 className='text-[#3749bb] text-2xl px-2 py-5'>
