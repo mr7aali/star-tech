@@ -1,4 +1,5 @@
 
+import Blog from '@/components/HomePage/Blog';
 import RootLayouts from '../components/Layouts/RootLayouts'
 import Banner from '@/components/HomePage/Banner';
 import FeaturedCategory from '@/components/HomePage/FeaturedCategory';
@@ -8,7 +9,7 @@ import HeadTag from '@/components/sheared/HeaderTag';
 export default function HomePage({ data }) {
 
 
- 
+
 
 
   return (
@@ -16,10 +17,10 @@ export default function HomePage({ data }) {
       <HeadTag descriptionContent={"Star Tech HomePage"} title={"Star Tech"} />
       <Banner />
       <FeaturedCategory />
+      <Blog />
 
-      <section>
-        <FeaturedProducts products={data?.data} />
-      </section>
+      {/* <FeaturedProducts products={data?.data} /> */}
+
 
 
       <div className='mt-[100px]'></div>
