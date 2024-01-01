@@ -8,7 +8,7 @@ import { PiPlusMinusFill } from "react-icons/pi";
 import { RiBuilding3Line } from "react-icons/ri";
 import { useState } from "react";
 import dynamic from "next/dynamic";
-import { isLoggedIn} from "@/service/auth.service";
+import { isLoggedIn } from "@/service/auth.service";
 
 const Sidebar = dynamic(() => import('../ui/SideBar'), { ssr: true });
 const AccountLogOut = dynamic(() => import('./AccountLogOut'), { ssr: false });
@@ -57,13 +57,13 @@ const NavBar = ({ setCartOpen }) => {
                         </div>
 
                         <div className="lg:flex hidden">
-                            <div className="ml-[15px] flex items-center cursor-pointer" >
+                            <Link href={"/admin-dashboard"} className="ml-[15px] flex items-center cursor-pointer" >
                                 <HiOutlineInboxIn className="text-[#ef4a23] mr-4 text-2xl" />
                                 <div>
                                     <h3 className="text-[#fff] text-[15px]">Offers</h3>
                                     <small className="text-[#acabab] text-[12px]">Latest Offers</small>
                                 </div>
-                            </div>
+                            </Link>
                             <div className="ml-[15px] flex items-center cursor-pointer" >
                                 <MdOutlineElectricBolt className="text-[#ef4a23] mr-4 text-2xl" />
                                 <div>

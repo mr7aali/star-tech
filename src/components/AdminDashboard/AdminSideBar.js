@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const AdminSideBar = () => {
@@ -9,7 +10,12 @@ const AdminSideBar = () => {
                 <div className="flex h-screen flex-col justify-between pt-2 pb-6">
                     <div >
                         <div className="w-max p-2.5">
-                            <img src="https://tailus.io/images/logo.svg" className="w-32" alt=""/>
+                            <Image
+                            //  src="https://tailus.io/images/logo.svg" 
+                            src="https://www.startech.com.bd/image/catalog/logo.png"
+                            width={120}
+                            height={30}
+                             className="w-10 " alt=""/>
                         </div>
                         <ul className="mt-6 space-y-2 tracking-wide" >
                             <li className="min-w-max">
