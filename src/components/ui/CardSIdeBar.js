@@ -1,4 +1,3 @@
-
 import React, { useRef, useState } from 'react';
 import ShopingCardButton from './ShopingCardButton';
 import { AiOutlineClose } from "react-icons/ai"
@@ -8,16 +7,14 @@ import { useClickAway } from 'react-use';
 
 
 
-const CardSIdeBar = ({open,setOpen}) => {
-    
+const CardSIdeBar = ({ open, setOpen }) => {
+
     const cart = [1, 0, 1, 2, 3, 4, 5, 9, 40, 54, 4, 6]
     const ref = useRef(null)
     useClickAway(ref, () => setOpen(!open))
 
     return (
         <div>
-
-
             <div className='hidden lg:block' onClick={() => setOpen(!open)}>
                 <ShopingCardButton />
             </div>
@@ -27,19 +24,16 @@ const CardSIdeBar = ({open,setOpen}) => {
                     open &&
                     <>
                         <motion.div
-
                             // {...framerSidebarPanel}
                             initial={{ x: "100%", opacity: .3 }}
                             animate={{ opacity: 1, x: "0" }}
                             transition={{
                                 duration: .3
                             }}
-
                             exit={{ x: "100%", opacity: .3 }}
-
                             ref={ref}
                             aria-label="Sidebar"
-                            className="fixed h-screen max-w-[350px] right-0 z-50 bg-[#fff] shadow-2xl ">
+                            className="fixed h-screen max-w-[350px] right-0 top-0 z-50 bg-[#fff] shadow-2xl ">
                             <div className='relat ive h-full overflow-x-scroll'>
 
                                 <div className='bg-[#01132d] absolute w-full p-5 flex justify-between items-center'>
