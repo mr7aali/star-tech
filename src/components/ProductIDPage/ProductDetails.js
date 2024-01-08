@@ -76,7 +76,7 @@ const ProductDetails = ({ data }) => {
                     </div>
                     <PaymentOptions price={data?.price} />
 
-                    <QuantityCalculation />
+                    <QuantityCalculation product={data}/>
                 </div>
             </div>
         </div>
