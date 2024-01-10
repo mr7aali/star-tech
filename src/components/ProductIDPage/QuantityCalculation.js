@@ -3,6 +3,7 @@ import { LuMinus, LuPlus } from "react-icons/lu";
 import ShoppingCardModal from "../ui/ShoppingCardModal";
 import { getCartDataToLocalStorage, setCartDataToLocalStorage } from "@/helpers/localStorage";
 import { CgLayoutGrid } from "react-icons/cg";
+import { CartData, KeyCartData } from "@/shared/type";
 
 const QuantityCalculation = ({ product }) => {
     const [count, setCount] = useState(1);
@@ -16,7 +17,7 @@ const QuantityCalculation = ({ product }) => {
             image: product.image,
             quantity: count
         }
-        const getPreviousDataArray = getCartDataToLocalStorage("CartData").cart;
+        const getPreviousDataArray = getCartDataToLocalStorage(KeyCartData).cart;
 
         if (getPreviousDataArray.length > 0) {
             const needToquantityChange = getPreviousDataArray.find((item) => item.id === productData.id);
@@ -25,17 +26,17 @@ const QuantityCalculation = ({ product }) => {
                 console.log(NotneedToquantityChange);
                 needToquantityChange.quantity += count;
                 NotneedToquantityChange.push(needToquantityChange);
-                setCartDataToLocalStorage("CartData", { cart: NotneedToquantityChange })
+                setCartDataToLocalStorage(KeyCartData, { cart: NotneedToquantityChange })
 
             }
             else {
                 getPreviousDataArray.push(productData);
-                setCartDataToLocalStorage("CartData", { cart: getPreviousDataArray })
+                setCartDataToLocalStorage(KeyCartData, { cart: getPreviousDataArray })
             }
 
         }
         else if (getPreviousDataArray.length === 0) {
-            setCartDataToLocalStorage("CartData", { cart: [productData] })
+            setCartDataToLocalStorage(KeyCartData, { cart: [productData] })
         }
         setCount(1);
     }
@@ -72,14 +73,3 @@ const QuantityCalculation = ({ product }) => {
 };
 
 export default QuantityCalculation;
-
-
-// id: 21,
-//     name: 'POCO X5 Pro 5G Smartphone (8/256GB) 10',
-//     price: '1000',
-//     status: 'available',
-//     product_code: 'PRD001',
-//     brand: 'Sample Brand',
-//     key_features: 'Feature 1',
-//     image: 'image_url_1',
-//     warranty: 'No Warranty',

@@ -4,19 +4,39 @@ import { AiOutlineClose } from "react-icons/ai"
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useClickAway } from 'react-use';
+import { getCartDataToLocalStorage, setCartDataToLocalStorage } from '@/helpers/localStorage';
+import { KeyCartData } from '@/shared/type';
 
 
 
-const CardSIdeBar = ({ open, setOpen }) => {
+const CardSIdeBar = ({ open, setOpen, card, setCard }) => {
+    // const [card, setCard] = useState(getCartDataToLocalStorage(KeyCartData).cart)
 
-    const cart = [1, 0, 1, 2, 3, 4, 5, 9, 40, 54, 4, 6]
     const ref = useRef(null)
-    useClickAway(ref, () => setOpen(!open))
+    useClickAway(ref, () => setOpen(!open));
+
+    const removeFromCard = (CardId) => {
+        const findCard = card.find(c => c.id === CardId);
+        const filteredCard = card.filter(Item => Item.id !== CardId);
+
+
+        if (findCard.quantity > 1) {
+            findCard.quantity = Number(findCard.quantity) - 1;
+            const AllCard = [...filteredCard, findCard]
+
+            setCartDataToLocalStorage(KeyCartData, { cart: AllCard })
+            setCard(AllCard);
+        }
+        else {
+            setCartDataToLocalStorage(KeyCartData, { cart: filteredCard })
+            setCard(filteredCard)
+        }
+    }
 
     return (
-        <div>
+        <div >
             <div className='hidden lg:block' onClick={() => setOpen(!open)}>
-                <ShopingCardButton />
+                <ShopingCardButton length={card?.length} />
             </div>
 
             <AnimatePresence >
@@ -25,6 +45,7 @@ const CardSIdeBar = ({ open, setOpen }) => {
                     <>
                         <motion.div
                             // {...framerSidebarPanel}
+
                             initial={{ x: "100%", opacity: .3 }}
                             animate={{ opacity: 1, x: "0" }}
                             transition={{
@@ -45,9 +66,9 @@ const CardSIdeBar = ({ open, setOpen }) => {
                                     <h1 className='text-center mt-5 font-sans font-semibold text-red-400'>Your shopping cart is empty!</h1>
                                 </div>
                                 {/* //! cart container */}
-                                <div  >
+                                <div className='mt-5' >
                                     {
-                                        cart.map((item, index) => (
+                                        card.map((item, index) => (
                                             <div key={index} style={{ borderBottom: "1px solid #eee" }} className='p-5 flex items- center'>
                                                 <div className='px-1'>
                                                     <Image
@@ -56,17 +77,32 @@ const CardSIdeBar = ({ open, setOpen }) => {
                                                         src="https://www.startech.com.bd/image/cache/catalog/monitor/msi/g2412/g2412-06-47x47.webp" alt="" />
                                                 </div>
                                                 <div className='px-1'>
-                                                    <p className='text-[14px]'> Dahua Imou IPC-S6DP-3MOWEB 3MP Wi-Fi Bulb IP Camera</p>
-                                                    <p className='pt-1 font-bold font-mono'>3,600৳ x 1 = 3,600৳</p>
+                                                    <p className='text-[14px]'>{item.name}</p>
+                                                    <p className='pt-1 font-bold font-mono'>{item.price}৳ x {item.quantity} = 3,600৳</p>
 
                                                 </div>
-                                                <div className='flex justify-center items-center cursor-pointer'>
+                                                <div onClick={() => removeFromCard(item.id)} className='flex justify-center items-center cursor-pointer'>
                                                     <span className='p-1 font-extrabold'>< AiOutlineClose /></span>
                                                 </div>
                                             </div>
                                         ))
                                     }
+                                    {/* <div  style={{ borderBottom: "1px solid #eee" }} className='p-5 flex items- center'>
+                                        <div className='px-1'>
+                                            <Image
+                                                width={60}
+                                                height={60}
+                                                src="https://www.startech.com.bd/image/cache/catalog/monitor/msi/g2412/g2412-06-47x47.webp" alt="" />
+                                        </div>
+                                        <div className='px-1'>
+                                            <p className='text-[14px]'> Dahua Imou IPC-S6DP-3MOWEB 3MP Wi-Fi Bulb IP Camera</p>
+                                            <p className='pt-1 font-bold font-mono'>3,600৳ x 1 = 3,600৳</p>
 
+                                        </div>
+                                        <div className='flex justify-center items-center cursor-pointer'>
+                                            <span className='p-1 font-extrabold'>< AiOutlineClose /></span>
+                                        </div>
+                                    </div> */}
                                 </div>
 
 

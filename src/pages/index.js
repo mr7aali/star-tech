@@ -5,9 +5,11 @@ import FeaturedProducts from '@/components/HomePage/FeaturedProducts';
 import HeadTag from '@/components/sheared/HeaderTag';
 import MainBlog from '@/components/HomePage/MainBlog';
 import Blog from '@/components/HomePage/Blog';
+import CardSIdeBar from '@/components/ui/CardSIdeBar';
+import { useState } from 'react';
 
 export default function HomePage({ data }) {
-
+  const [open, setOpen] = useState(false);
   return (
     < >
       <HeadTag descriptionContent={"Star Tech HomePage"} title={"Star Tech"} />
@@ -17,6 +19,7 @@ export default function HomePage({ data }) {
       <MainBlog />
       <Blog/>
       <div className='mt-[100px]'></div>
+      <CardSIdeBar open={open} setOpen={setOpen} /> 
     </>
   )
 }

@@ -2,6 +2,7 @@ import Image from "next/image";
 import PaymentOptions from "./PaymentOptions";
 import QuantityCalculation from "./QuantityCalculation";
 import { MdStars } from "react-icons/md";
+import { LsKey } from "@/shared/type";
 
 const ProductDetails = ({ data }) => {
    
