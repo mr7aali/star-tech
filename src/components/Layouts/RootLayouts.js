@@ -11,7 +11,7 @@ const RootLayouts = ({ children }) => {
     const [card, setCard] = useState(getCartDataToLocalStorage(KeyCartData).cart)
     const [open, setOpen] = useState(false);
     return (
-        <section>
+        <section >
             <CardSIdeBar
                 card={card}
                 setCard={setCard}

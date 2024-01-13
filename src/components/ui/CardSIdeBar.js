@@ -18,7 +18,7 @@ const CardSIdeBar = ({ open, setOpen, card, setCard }) => {
     const removeFromCard = (CardId) => {
         const findCard = card.find(c => c.id === CardId);
         const filteredCard = card.filter(Item => Item.id !== CardId);
-
+        
 
         if (findCard.quantity > 1) {
             findCard.quantity = Number(findCard.quantity) - 1;
@@ -45,7 +45,7 @@ const CardSIdeBar = ({ open, setOpen, card, setCard }) => {
                     <>
                         <motion.div
                             // {...framerSidebarPanel}
-
+                            style={{border:"1px solid red"}}
                             initial={{ x: "100%", opacity: .3 }}
                             animate={{ opacity: 1, x: "0" }}
                             transition={{
@@ -68,7 +68,7 @@ const CardSIdeBar = ({ open, setOpen, card, setCard }) => {
                                 {/* //! cart container */}
                                 <div className='mt-5' >
                                     {
-                                        card.map((item, index) => (
+                                        card?.map((item, index) => (
                                             <div key={index} style={{ borderBottom: "1px solid #eee" }} className='p-5 flex items- center'>
                                                 <div className='px-1'>
                                                     <Image
