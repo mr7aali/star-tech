@@ -1,13 +1,19 @@
+
 import { useState } from "react";
 import { LuMinus, LuPlus } from "react-icons/lu";
 import ShoppingCardModal from "../ui/ShoppingCardModal";
 import { getCartDataToLocalStorage, setCartDataToLocalStorage } from "@/helpers/localStorage";
-import { CgLayoutGrid } from "react-icons/cg";
 import { CartData, KeyCartData } from "@/shared/type";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/redux/features/cart/cartSlice";
+
 
 const QuantityCalculation = ({ product }) => {
+    console.log(product);
     const [count, setCount] = useState(1);
     const [modelOpen, setModelOpen] = useState(false);
+
+    const dispatch = useDispatch();
 
     const setToCart = () => {
         const productData = {
@@ -17,27 +23,31 @@ const QuantityCalculation = ({ product }) => {
             image: product.image,
             quantity: count
         }
-        const getPreviousDataArray = getCartDataToLocalStorage(KeyCartData).cart;
 
-        if (getPreviousDataArray.length > 0) {
-            const needToquantityChange = getPreviousDataArray.find((item) => item.id === productData.id);
-            if (needToquantityChange) {
-                const NotneedToquantityChange = getPreviousDataArray.filter((item) => item.id !== productData.id);
-                console.log(NotneedToquantityChange);
-                needToquantityChange.quantity += count;
-                NotneedToquantityChange.push(needToquantityChange);
-                setCartDataToLocalStorage(KeyCartData, { cart: NotneedToquantityChange })
+        dispatch(addToCart(productData))
 
-            }
-            else {
-                getPreviousDataArray.push(productData);
-                setCartDataToLocalStorage(KeyCartData, { cart: getPreviousDataArray })
-            }
+        // const getPreviousDataArray = getCartDataToLocalStorage(KeyCartData).cart;
+        // if (getPreviousDataArray.length > 0) {
+        //     const needToquantityChange = getPreviousDataArray.find((item) => item.id === productData.id);
+        //     if (needToquantityChange) {
+        //         const NotneedToquantityChange = getPreviousDataArray.filter((item) => item.id !== productData.id);
+        //         console.log(NotneedToquantityChange);
+        //         needToquantityChange.quantity += count;
+        //         NotneedToquantityChange.push(needToquantityChange);
+        //         setCartDataToLocalStorage(KeyCartData, { cart: NotneedToquantityChange })
 
-        }
-        else if (getPreviousDataArray.length === 0) {
-            setCartDataToLocalStorage(KeyCartData, { cart: [productData] })
-        }
+        //     }
+        //     else {
+        //         getPreviousDataArray.push(productData);
+        //         setCartDataToLocalStorage(KeyCartData, { cart: getPreviousDataArray })
+        //     }
+
+        // }
+        // else if (getPreviousDataArray.length === 0) {
+        //     setCartDataToLocalStorage(KeyCartData, { cart: [productData] })
+        // }
+
+
         setCount(1);
     }
 
