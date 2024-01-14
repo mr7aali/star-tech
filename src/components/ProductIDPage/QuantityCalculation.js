@@ -4,7 +4,7 @@ import { LuMinus, LuPlus } from "react-icons/lu";
 import ShoppingCardModal from "../ui/ShoppingCardModal";
 import { getCartDataToLocalStorage, setCartDataToLocalStorage } from "@/helpers/localStorage";
 import { CartData, KeyCartData } from "@/shared/type";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "@/redux/features/cart/cartSlice";
 
 
@@ -13,6 +13,9 @@ const QuantityCalculation = ({ product }) => {
     const [count, setCount] = useState(1);
     const [modelOpen, setModelOpen] = useState(false);
 
+    const state = useSelector((state) => state)
+    console.log(state);
+    
     const dispatch = useDispatch();
 
     const setToCart = () => {
