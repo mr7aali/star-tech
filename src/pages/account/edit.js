@@ -1,6 +1,5 @@
 import { getUserInfo } from '@/service/auth.service';
 import dynamic from 'next/dynamic';
-import { useEffect, useState } from 'react';
 const AccountLayouts = dynamic(() => import('@/components/Layouts/AccountLayouts'));
 const ProfileNavbar = dynamic(() => import('@/components/AccountPages/AccountProfileNavbar'));
 const FormsInput = dynamic(() => import('@/components/Forms/FormsInput'));

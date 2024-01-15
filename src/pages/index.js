@@ -40,7 +40,7 @@ HomePage.getLayout = function getLayout(page) {
 }
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 
   const baseURL = process.env.BASE_URL;
   const res = await fetch(`${baseURL}/api/v1/product`);
