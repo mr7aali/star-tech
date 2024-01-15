@@ -1,25 +1,16 @@
-import React, { useRef} from 'react';
+import React, { useRef } from 'react';
 import ShopingCardButton from './ShopingCardButton';
 import { AiOutlineClose } from "react-icons/ai"
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useClickAway } from 'react-use';
-
 import { removeFromCart } from '@/redux/features/cart/cartSlice';
 
-
-
-
-
-const CardSIdeBar = ({cart, open, setOpen,dispatch }) => {
-
-   
+const CardSIdeBar = ({ cart, open, setOpen, dispatch }) => {
     const ref = useRef(null)
     useClickAway(ref, () => setOpen(!open));
-
-
     return (
-        <div >
+        <div>
             <div className='hidden lg:block' onClick={() => setOpen(!open)}>
                 <ShopingCardButton length={cart?.length} />
             </div>
@@ -65,14 +56,18 @@ const CardSIdeBar = ({cart, open, setOpen,dispatch }) => {
 
                                                 </div>
                                                 <div
-                                                    onClick={()=>dispatch(removeFromCart({id:item.id}))}
+                                                    onClick={() => dispatch(removeFromCart({ id: item.id }))}
                                                     className='flex justify-center items-center cursor-pointer'>
                                                     <span className='p-1 font-extrabold'>< AiOutlineClose /></span>
                                                 </div>
                                             </div>
                                         ))
                                     }
-                                   
+                                    {
+                                      !(cart.length > 0) &&   <div className='max-w-[350px]'>
+                                            <p className='mx-12  py-7'>Your shopping cart is empty!</p>
+                                        </div>
+                                    }
                                 </div>
 
 
