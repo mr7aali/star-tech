@@ -7,12 +7,8 @@ const FormsInput = dynamic(() => import('@/components/Forms/FormsInput'));
 const Forms = dynamic(() => import('@/components/Forms/Forms'));
 
 const EditPage = () => {
-
     const user = getUserInfo();
-
-console.log(user)
     const onSubmit = () => {
-
     }
     return (
         <>
@@ -22,13 +18,8 @@ console.log(user)
                     My Account Information
                 </h1>
                 <Forms submitHandler={onSubmit} defaultValues={user}>
-
                     <div className='grid md:grid-cols-2'>
-
                         <div>
-
-
-
                             <div className='grid grid-cols-2 gap-4'>
                                 <div >
                                     <label htmlFor="" className='font-serif text-[14px] mt-5 mb-2 block'>
@@ -75,14 +66,6 @@ console.log(user)
 
                         </div>
                     </div>
-
-
-
-
-
-
-
-
                 </Forms>
             </div >
         </>

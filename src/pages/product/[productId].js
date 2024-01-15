@@ -4,20 +4,20 @@ import SingleFeatures from "@/components/ProductIDPage/SingleFeatures";
 import RelatedProductCard from "@/components/ProductIDPage/RelatedProductCard";
 import { convertSpecificationData } from "@/helpers/convertObjectToArray";
 import ProductDetails from "@/components/ProductIDPage/ProductDetails";
+import CardSIdeBar from "@/components/ui/CardSIdeBar";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 
 const ProductDetailsPage = ({ data }) => {
-
+    const cart = useSelector((state) => state.cart.cart);
+    const dispatch = useDispatch();
     const specificationData = convertSpecificationData(data?.Specification);
-
+    const [open, setOpen] = useState(false);
 
     return (
         <>
-
-            <section>
-                <ProductDetails data={data} />
-            </section>
-
+            <ProductDetails data={data} />
             <section className=" max-w-[1290px] mx-auto mt-5 grid grid-cols-12 gap-5 px-3">
                 {/* left */}
                 <div className="col-span-12 lg:col-span-9 " >
@@ -70,13 +70,19 @@ const ProductDetailsPage = ({ data }) => {
 
 
             </section>
+            <CardSIdeBar
+                open={open}
+                setOpen={setOpen}
+                cart={cart}
+                dispatch={dispatch}
+            />
         </>
     );
 };
 export default ProductDetailsPage;
 
-export async function getServerSideProps (context) {
- 
+export async function getServerSideProps(context) {
+
     const baseURL = process.env.BASE_URL;
     const { params } = context
     const res = await fetch(`${baseURL}/api/v1/product/${params.productId}`);
@@ -86,10 +92,6 @@ export async function getServerSideProps (context) {
         props: { data: data?.data }
     }
 }
-
-
-
-
 ProductDetailsPage.getLayout = function getLayout(page) {
     return (
         <RootLayouts>
@@ -97,4 +99,3 @@ ProductDetailsPage.getLayout = function getLayout(page) {
         </RootLayouts>
     );
 }
-

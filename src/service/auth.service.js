@@ -34,13 +34,10 @@ export const getUserInfo = () => {
     AxiosService.get(`/api/v1/user/profile/${userInfo.id}`)
         .then(res => {
             localStorage.setItem(ENM_localStorage.userProfile, JSON.stringify(res.data));
-            console.log(res.data);
+           
             return res;
         });
-    // const result = await AxiosService.get(`/api/v1/user/profile/${userInfo.id}`);
-    // const userProfile = result?.data
-    // localStorage.setItem(ENM_localStorage.userProfile, JSON.stringify(userProfile));
-    // return result?.data
+   
 
 }
 export const isLoggedIn = () => {

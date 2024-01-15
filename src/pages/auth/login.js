@@ -28,7 +28,7 @@ const LoginPage = () => {
             setError(false);
             storeInfo(loginData?.data?.accessToken);
             const r = getUserInfo()
-            console.log(r)
+          
             router.push("/account")
         } else {
             setError(true);
