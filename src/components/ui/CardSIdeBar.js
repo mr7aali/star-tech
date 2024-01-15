@@ -1,42 +1,27 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef} from 'react';
 import ShopingCardButton from './ShopingCardButton';
 import { AiOutlineClose } from "react-icons/ai"
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useClickAway } from 'react-use';
-import { getCartDataToLocalStorage, setCartDataToLocalStorage } from '@/helpers/localStorage';
-import { KeyCartData } from '@/shared/type';
+
+import { removeFromCart } from '@/redux/features/cart/cartSlice';
 
 
 
-const CardSIdeBar = ({ open, setOpen, card, setCard }) => {
-    // const [card, setCard] = useState(getCartDataToLocalStorage(KeyCartData).cart)
 
+
+const CardSIdeBar = ({cart, open, setOpen,dispatch }) => {
+
+   
     const ref = useRef(null)
     useClickAway(ref, () => setOpen(!open));
 
-    const removeFromCard = (CardId) => {
-        const findCard = card.find(c => c.id === CardId);
-        const filteredCard = card.filter(Item => Item.id !== CardId);
-        
-
-        if (findCard.quantity > 1) {
-            findCard.quantity = Number(findCard.quantity) - 1;
-            const AllCard = [...filteredCard, findCard]
-
-            setCartDataToLocalStorage(KeyCartData, { cart: AllCard })
-            setCard(AllCard);
-        }
-        else {
-            setCartDataToLocalStorage(KeyCartData, { cart: filteredCard })
-            setCard(filteredCard)
-        }
-    }
 
     return (
         <div >
             <div className='hidden lg:block' onClick={() => setOpen(!open)}>
-                <ShopingCardButton length={card?.length} />
+                <ShopingCardButton length={cart?.length} />
             </div>
 
             <AnimatePresence >
@@ -44,8 +29,6 @@ const CardSIdeBar = ({ open, setOpen, card, setCard }) => {
                     open &&
                     <>
                         <motion.div
-                            // {...framerSidebarPanel}
-                            style={{border:"1px solid red"}}
                             initial={{ x: "100%", opacity: .3 }}
                             animate={{ opacity: 1, x: "0" }}
                             transition={{
@@ -68,7 +51,7 @@ const CardSIdeBar = ({ open, setOpen, card, setCard }) => {
                                 {/* //! cart container */}
                                 <div className='mt-5' >
                                     {
-                                        card?.map((item, index) => (
+                                        cart?.map((item, index) => (
                                             <div key={index} style={{ borderBottom: "1px solid #eee" }} className='p-5 flex items- center'>
                                                 <div className='px-1'>
                                                     <Image
@@ -81,28 +64,15 @@ const CardSIdeBar = ({ open, setOpen, card, setCard }) => {
                                                     <p className='pt-1 font-bold font-mono'>{item.price}৳ x {item.quantity} = 3,600৳</p>
 
                                                 </div>
-                                                <div onClick={() => removeFromCard(item.id)} className='flex justify-center items-center cursor-pointer'>
+                                                <div
+                                                    onClick={()=>dispatch(removeFromCart({id:item.id}))}
+                                                    className='flex justify-center items-center cursor-pointer'>
                                                     <span className='p-1 font-extrabold'>< AiOutlineClose /></span>
                                                 </div>
                                             </div>
                                         ))
                                     }
-                                    {/* <div  style={{ borderBottom: "1px solid #eee" }} className='p-5 flex items- center'>
-                                        <div className='px-1'>
-                                            <Image
-                                                width={60}
-                                                height={60}
-                                                src="https://www.startech.com.bd/image/cache/catalog/monitor/msi/g2412/g2412-06-47x47.webp" alt="" />
-                                        </div>
-                                        <div className='px-1'>
-                                            <p className='text-[14px]'> Dahua Imou IPC-S6DP-3MOWEB 3MP Wi-Fi Bulb IP Camera</p>
-                                            <p className='pt-1 font-bold font-mono'>3,600৳ x 1 = 3,600৳</p>
-
-                                        </div>
-                                        <div className='flex justify-center items-center cursor-pointer'>
-                                            <span className='p-1 font-extrabold'>< AiOutlineClose /></span>
-                                        </div>
-                                    </div> */}
+                                   
                                 </div>
 
 
@@ -142,9 +112,3 @@ const CardSIdeBar = ({ open, setOpen, card, setCard }) => {
 export default CardSIdeBar;
 
 
-const framerSidebarPanel = {
-    initial: { x: '100%' },
-    animate: { x: 0 },
-    exit: { x: '100%' },
-    transition: { duration: .3 },
-}
