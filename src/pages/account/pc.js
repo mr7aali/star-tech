@@ -1,9 +1,15 @@
 const ProfileHeader = dynamic(() => import('@/components/AccountPages/ProfileHeader'));
+import CardSIdeBar from '@/components/ui/CardSIdeBar';
 import dynamic from 'next/dynamic';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 const AccountLayouts = dynamic(() => import('@/components/Layouts/AccountLayouts'));
 const ProfileNavbar = dynamic(() => import('@/components/AccountPages/AccountProfileNavbar'));
 
 const PcPage = () => {
+    const cart = useSelector((state) => state.cart.cart);
+    const dispatch = useDispatch();
+    const [open, setOpen] = useState(false);
     return (
         <div>
             <ProfileNavbar />
@@ -15,6 +21,12 @@ const PcPage = () => {
 
                 <p className='py-10 px-2'>You have not save any PC</p>
             </div>
+            <CardSIdeBar
+                open={open}
+                setOpen={setOpen}
+                cart={cart}
+                dispatch={dispatch}
+            />
         </div>
     );
 };
