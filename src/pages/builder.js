@@ -1,4 +1,5 @@
-import RootLayouts from "@/components/Layouts/RootLayouts";
+const RootLayouts = dynamic(() => import("@/components/Layouts/RootLayouts"));
+import dynamic from 'next/dynamic';
 import Image from "next/image";
 import { BsCartPlusFill, BsCurrencyDollar, BsCpu, BsMotherboard } from "react-icons/bs";
 import { AiFillSave } from "react-icons/ai";

@@ -4,13 +4,15 @@ import NavBar from "../sheared/NavBar";
 import CardSIdeBar from "../ui/CardSIdeBar";
 import ProfileHeader from "../AccountPages/ProfileHeader";
 import ProfileNavbar from "../AccountPages/AccountProfileNavbar";
+import { useDispatch, useSelector } from "react-redux";
+import Providers from "@/lib/Providers";
 
 
 const AccountLayouts = ({ children }) => {
-    const [open, setOpen] = useState(false);
+
+
     return (
-        <>
-            <CardSIdeBar open={open} setOpen={setOpen} />
+        <Providers>
             <NavBar />
             <main className="bg-white pt-14">
                 <ProfileHeader />
@@ -18,7 +20,7 @@ const AccountLayouts = ({ children }) => {
                 {children}
             </main>
             <Footer />
-        </>
+        </Providers>
     );
 };
 

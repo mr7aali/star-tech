@@ -1,5 +1,8 @@
+import CardSIdeBar from '@/components/ui/CardSIdeBar';
 import { getUserInfo } from '@/service/auth.service';
 import dynamic from 'next/dynamic';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 const AccountLayouts = dynamic(() => import('@/components/Layouts/AccountLayouts'));
 const ProfileNavbar = dynamic(() => import('@/components/AccountPages/AccountProfileNavbar'));
 const FormsInput = dynamic(() => import('@/components/Forms/FormsInput'));
@@ -9,6 +12,9 @@ const EditPage = () => {
     const user = getUserInfo();
     const onSubmit = () => {
     }
+    const cart = useSelector((state) => state.cart.cart);
+    const dispatch = useDispatch();
+    const [open, setOpen] = useState(false);
     return (
         <>
             <ProfileNavbar />
@@ -67,6 +73,12 @@ const EditPage = () => {
                     </div>
                 </Forms>
             </div >
+            <CardSIdeBar
+                open={open}
+                setOpen={setOpen}
+                cart={cart}
+                dispatch={dispatch}
+            />
         </>
     );
 };

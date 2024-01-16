@@ -1,12 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
-import RootLayouts from "@/components/Layouts/RootLayouts";
-import SingleFeatures from "@/components/ProductIDPage/SingleFeatures";
-import RelatedProductCard from "@/components/ProductIDPage/RelatedProductCard";
-import { convertSpecificationData } from "@/helpers/convertObjectToArray";
-import ProductDetails from "@/components/ProductIDPage/ProductDetails";
-import CardSIdeBar from "@/components/ui/CardSIdeBar";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { convertSpecificationData } from "@/helpers/convertObjectToArray";
+
+import dynamic from 'next/dynamic';
+const RootLayouts = dynamic(() => import("@/components/Layouts/RootLayouts"));
+const SingleFeatures = dynamic(() => import("@/components/ProductIDPage/SingleFeatures"));
+const RelatedProductCard = dynamic(() => import("@/components/ProductIDPage/RelatedProductCard"));
+const ProductDetails = dynamic(() => import("@/components/ProductIDPage/ProductDetails"));
+const CardSIdeBar = dynamic(() => import("@/components/ui/CardSIdeBar"));
+
 
 
 const ProductDetailsPage = ({ data }) => {
