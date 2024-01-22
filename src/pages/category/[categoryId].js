@@ -10,6 +10,8 @@ const FilteringOption = dynamic(() => import('@/components/CategoryIdPage/Filter
 
 
 const CategoryIdPage = () => {
+
+    
     return (
         <div className="grid grid-cols-12 max-w-[1290px] mx-auto mt-12 gap-5 px-2" >
             <div className=" hidden lg:block col-span-3 " >
