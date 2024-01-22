@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import UseCameraForCapture from '@/components/AuthPage/UseCameraForCapture';
 import Forms from '@/components/Forms/Forms';
 import FormsInput from '@/components/Forms/FormsInput';
 import HeadTag from '@/components/sheared/HeaderTag';
@@ -33,7 +34,7 @@ const RegisterPage = () => {
             const Massge = result.errorMessages[0].message;
             setErrorMassge(Massge);
             setError(true)
-        } 
+        }
     }
     return (
         <section className='p-2'>
@@ -51,6 +52,9 @@ const RegisterPage = () => {
                     </div>
                 }
                 <h1 className='font-serif font-bold text-[20px]'>Register Account</h1>
+                <div className='flex justify-center' style={{border:"1px solid red"}}>
+                    <UseCameraForCapture />
+                </div>
                 <Forms submitHandler={onSubmit} >
                     <div className='grid grid-cols-2 gap-4'>
                         <div >
