@@ -10,7 +10,7 @@ const ProductFiltering = dynamic(() =>
 const RangleSlider = dynamic(() =>
   import("@/components/CategoryIdPage/RangleSlider")
 );
-const RootLayouts = dynamic(() => import("@/components/Layouts/RootLayouts"));
+
 const ProductCard = dynamic(() => import("@/components/card/ProductCard"));
 const FilteringOption = dynamic(() =>
   import("@/components/CategoryIdPage/FilteringOption")
@@ -45,7 +45,3 @@ const CategoryIdPage = () => {
 };
 
 export default CategoryIdPage;
-
-CategoryIdPage.getLayout = function getLayout(page) {
-  return <RootLayouts>{page}</RootLayouts>;
-};

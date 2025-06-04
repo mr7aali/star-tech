@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 // import { useRouter } from "next/router";
 import { useState } from "react";
 import { BiSolidCommentError } from "react-icons/bi";
-const RootLayouts = dynamic(() => import("@/components/Layouts/RootLayouts"));
+// const RootLayouts = dynamic(() => import("@/components/Layouts/RootLayouts"));
 
 const RegisterPage = () => {
   const router = useRouter();
@@ -145,7 +145,3 @@ const RegisterPage = () => {
 };
 
 export default RegisterPage;
-
-RegisterPage.getLayout = function getLayout(page) {
-  return <RootLayouts>{page}</RootLayouts>;
-};
