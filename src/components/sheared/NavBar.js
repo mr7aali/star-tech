@@ -1,129 +1,165 @@
 import Link from "next/link";
 import Image from "next/image";
 import { HiOutlineInboxIn } from "react-icons/hi";
-import { AiOutlineSearch } from "react-icons/ai"
-import { MdOutlineElectricBolt, MdOutlineManageAccounts, MdLocalOffer } from "react-icons/md";
-import { BarsOutlined, SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import { AiOutlineSearch } from "react-icons/ai";
+import {
+  MdOutlineElectricBolt,
+  MdOutlineManageAccounts,
+  MdLocalOffer,
+} from "react-icons/md";
+import {
+  BarsOutlined,
+  SearchOutlined,
+  ShoppingCartOutlined,
+} from "@ant-design/icons";
 import { PiPlusMinusFill } from "react-icons/pi";
 import { RiBuilding3Line } from "react-icons/ri";
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import { isLoggedIn } from "@/service/auth.service";
 
-const Sidebar = dynamic(() => import('../ui/SideBar'), { ssr: true });
-const AccountLogOut = dynamic(() => import('./AccountLogOut'), { ssr: false });
-const AccoutLogIn = dynamic(() => import('./AccoutLogIn'), { ssr: false });
+const Sidebar = dynamic(() => import("../ui/SideBar"), { ssr: true });
+const AccountLogOut = dynamic(() => import("./AccountLogOut"), { ssr: false });
+const AccoutLogIn = dynamic(() => import("./AccoutLogIn"), { ssr: false });
 
 const NavBar = ({ setCartOpen }) => {
+  const [open, setOpen] = useState(false);
+  const NavMenuList = [
+    "Desktop",
+    "Laptop",
+    "Component",
+    "Monitor",
+    "UPS",
+    "Phone",
+    "Tablet",
+    "Office Equipment",
+    "Camera",
+    "Security",
+    "Networking",
+    "Software",
+    "Server & Storage",
+    "Accessories",
+    "Gadget",
+    "Gaming",
+    "TV",
+    "AC",
+  ].map((li) => (
+    <li
+      key={li}
+      className="px-3 py-2 text-sm font-medium text-gray-700 transition-colors duration-200 hover:text-orange-500"
+    >
+      {li}
+    </li>
+  ));
 
+  return (
+    <>
+      <section className="fixed top-0 z-20 w-full bg-white shadow-lg lg:relative">
+        <main className="flex items-center justify-center py-3 bg-gradient-to-r from-gray-900 to-gray-800">
+          <div className="flex items-center justify-between w-full px-4 max-w-7xl">
+            <div
+              onClick={() => setOpen(!open)}
+              className="p-2 text-white cursor-pointer lg:hidden"
+            >
+              <BarsOutlined className="text-2xl" />
+            </div>
 
-    const [open, setOpen] = useState(false);
-    const NavMenuList = ["Desktop", "Laptop", "Component", "Monitor", "UPS",
-        "Phone", "Tablet", "Office Equipment", "Camera", "Security", "Networking",
-        "Software", "Server & Storage", "Accessories", "Gadget", "Gaming", "TV", "AC"
-    ].map(li => (
-        <li key={li} className="xl:mx-2 mx-1 py-4 text-[10px] xl:text-[12px] xl:font-serif font-bold  cursor-pointer hover:text-[#ef4a23]">
-            {li}
-        </li>
-    ))
+            <Link href="/" className="py-2">
+              <Image
+                src="https://www.startech.com.bd/image/catalog/logo.png"
+                width={120}
+                height={60}
+                alt="Logo"
+                className="object-contain"
+              />
+            </Link>
 
+            <div className="relative flex-1 hidden mx-6 lg:flex">
+              <input
+                className="w-full h-10 px-4 text-gray-700 transition duration-200 bg-gray-100 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500"
+                placeholder="Search products..."
+                type="text"
+              />
+              <AiOutlineSearch className="absolute right-3 top-2.5 text-gray-500 text-xl cursor-pointer" />
+            </div>
 
-
-
-    return (
-        <>
-            <section className="lg:relative fixed top-0 w-full z-10" style={{ boxShadow: '0px 1px 10px 0px rgba(0,0,0,0.31)', }}>
-                <main className="top bg-[#081621] flex justify-center items-center">
-                    <div className="mx-auto w-[1290px] flex items-center justify-between">
-                        <div onClick={() => setOpen(!open)} className="pl-5 cursor-pointer lg:hidden">
-                            <span className="p-2 text-[#fff] text-[25px] flex justify-center items-center"><BarsOutlined /></span>
-                        </div>
-
-                        <Link href={"/"} className="lg:mx-4 lg:py-3 py-2">
-
-                            <Image
-                                src="https://www.startech.com.bd/image/catalog/logo.png"
-                                width={117}
-                                height={92}
-                                alt=""
-                            />
-                        </Link>
-
-                        <div className="h-[42px]  hidden lg:block flex-1 rounded-sm ml-5 relative">
-                            <input className=" w-full rounded-sm h-full p-[15px] outline-none" placeholder="Search" type="text" />
-
-                            <AiOutlineSearch className="absolute right-0 top-2 cursor-pointer  text-[black] mr-4 text-2xl" />
-
-                        </div>
-
-                        <div className="lg:flex hidden">
-                            <Link href={"/admin-dashboard"} className="ml-[15px] flex items-center cursor-pointer" >
-                                <HiOutlineInboxIn className="text-[#ef4a23] mr-4 text-2xl" />
-                                <div>
-                                    <h3 className="text-[#fff] text-[15px]">Offers</h3>
-                                    <small className="text-[#acabab] text-[12px]">Latest Offers</small>
-                                </div>
-                            </Link>
-                            <div className="ml-[15px] flex items-center cursor-pointer" >
-                                <MdOutlineElectricBolt className="text-[#ef4a23] mr-4 text-2xl" />
-                                <div>
-                                    <h3 className="text-[#fff] text-[15px]">Gadget Fest</h3>
-                                    <small className="text-[#acabab] text-[12px]">Special Deals</small>
-                                </div>
-                            </div>
-                            {
-                                isLoggedIn() ? <AccountLogOut /> : <AccoutLogIn />
-
-                            }
-
-
-                            <div className="ml-[10px] mr-3">
-                                <Link href={"builder"} className="btn">PC Builder</Link>
-                            </div>
-                        </div>
-
-                        <div className="flex mr-2 lg:hidden">
-                            <span className="px-3 py-2 cursor-pointer text-[#fff] text-[25px] flex justify-center items-center"><SearchOutlined /></span>
-                            <span onClick={() => setCartOpen(true)} className="px-3 py-2 cursor-pointer text-[#fff] text-[25px] flex justify-center items-center"><ShoppingCartOutlined /></span>
-                        </div>
-                    </div>
-                </main>
-                <Sidebar open={open} setOpen={setOpen} />
-
-            </section>
-            <nav
-
-                style={{ boxShadow: "0 2px 2px rgba(0,0,0,.1)" }}
-                className="lg:flex  sticky top-0 z-10 h-full bg-white justify-center items-center hidden">
-                <ul className="flex ">
-                    {NavMenuList}
-                </ul>
-            </nav>
-            <footer
-                style={{ boxShadow: "0 -4px 4px rgba(0,0,0,.2), 0 -1px 0 rgba(255,255,255,.2)", }}
-                className="lg:hidden z-[1] bg-[#081621] w-full fixed bottom-0 grid grid-cols-5 gap- sm:gap-5 sm:px-10 py-3">
-                <div className="flex flex-col items-center justify-center cursor-pointer">
-                    <MdLocalOffer className="text-white sm:text-xl" />
-                    <small className="text-white text-[9px] sm:text-[10px] pt-1 sm:pt-2 opacity-70">Offers</small>
+            <div className="items-center hidden space-x-6 lg:flex">
+              <Link href="/admin-dashboard" className="flex items-center group">
+                <HiOutlineInboxIn className="mr-2 text-xl text-orange-500 transition-transform group-hover:scale-110" />
+                <div>
+                  <h3 className="font-medium text-white">Offers</h3>
+                  <small className="text-xs text-gray-400">Latest Offers</small>
                 </div>
-                <div className="flex flex-col items-center justify-center cursor-pointer">
-                    <MdOutlineElectricBolt className="text-white sm:text-xl" />
-                    <small className="text-white text-[9px] sm:text-[10px] pt-1 sm:pt-2 opacity-70">Winter Fest</small>
+              </Link>
+              <div className="flex items-center cursor-pointer group">
+                <MdOutlineElectricBolt className="mr-2 text-xl text-orange-500 transition-transform group-hover:scale-110" />
+                <div>
+                  <h3 className="font-medium text-white">Gadget Fest</h3>
+                  <small className="text-xs text-gray-400">Special Deals</small>
                 </div>
-                <div className="flex flex-col items-center justify-center cursor-pointer">
-                    <RiBuilding3Line className="text-white sm:text-xl" />
-                    <small className="text-white text-[9px] sm:text-[10px] pt-1 sm:pt-2 opacity-70">PC Builder</small>
-                </div>
-                <div className="flex flex-col items-center justify-center cursor-pointer">
-                    <PiPlusMinusFill className="text-white sm:text-xl" />
-                    <small className="text-white text-[9px] sm:text-[10px] pt-1 sm:pt-2 opacity-70">Compare (0)</small>
-                </div>
-                <Link href={"/auth/login"} className="flex flex-col items-center justify-center cursor-pointer">
-                    <MdOutlineManageAccounts className="text-white sm:text-xl" />
-                    <small className="text-white text-[9px] sm:text-[10px] pt-1 sm:pt-2 opacity-70">Account</small>
-                </Link>
-            </footer>
-        </>
-    );
+              </div>
+              {isLoggedIn() ? <AccountLogOut /> : <AccoutLogIn />}
+              <Link
+                href="/builder"
+                className="px-4 py-2 text-white transition duration-200 bg-orange-500 rounded-full hover:bg-orange-600"
+              >
+                PC Builder
+              </Link>
+            </div>
+
+            <div className="flex space-x-2 lg:hidden">
+              <SearchOutlined className="p-2 text-2xl text-white cursor-pointer" />
+              <ShoppingCartOutlined
+                onClick={() => setCartOpen(true)}
+                className="p-2 text-2xl text-white cursor-pointer"
+              />
+            </div>
+          </div>
+        </main>
+        <Sidebar open={open} setOpen={setOpen} />
+      </section>
+
+      <nav className="sticky top-0 z-10 items-center justify-center hidden bg-white shadow-md lg:flex">
+        <ul className="flex flex-wrap justify-center py-3">{NavMenuList}</ul>
+      </nav>
+
+      <footer className="fixed bottom-0 z-10 grid w-full grid-cols-5 gap-2 px-4 py-2 bg-gray-900 lg:hidden">
+        <div className="flex flex-col items-center justify-center cursor-pointer">
+          <MdLocalOffer className="text-lg text-white" />
+          <small className="text-white text-[10px] pt-1 opacity-80">
+            Offers
+          </small>
+        </div>
+        <div className="flex flex-col items-center justify-center cursor-pointer">
+          <MdOutlineElectricBolt className="text-lg text-white" />
+          <small className="text-white text-[10px] pt-1 opacity-80">
+            Winter Fest
+          </small>
+        </div>
+        <div className="flex flex-col items-center justify-center cursor-pointer">
+          <RiBuilding3Line className="text-lg text-white" />
+          <small className="text-white text-[10px] pt-1 opacity-80">
+            PC Builder
+          </small>
+        </div>
+        <div className="flex flex-col items-center justify-center cursor-pointer">
+          <PiPlusMinusFill className="text-lg text-white" />
+          <small className="text-white text-[10px] pt-1 opacity-80">
+            Compare (0)
+          </small>
+        </div>
+        <Link
+          href="/auth/login"
+          className="flex flex-col items-center justify-center cursor-pointer"
+        >
+          <MdOutlineManageAccounts className="text-lg text-white" />
+          <small className="text-white text-[10px] pt-1 opacity-80">
+            Account
+          </small>
+        </Link>
+      </footer>
+    </>
+  );
 };
+
 export default NavBar;

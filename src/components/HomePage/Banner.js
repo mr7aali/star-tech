@@ -1,61 +1,73 @@
 import { SearchOutlined } from "@ant-design/icons";
 import dynamic from "next/dynamic";
-// import SwiperBanner from "../ui/SwiperBanner";
 import Image from "next/image";
-// import Marquee from "../ui/Marquee"
+import Marquee from "../ui/Marquee";
 
-const SwiperBanner = dynamic(() => import('../ui/SwiperBanner'), { ssr: true });
-const Marquee = dynamic(() => import('../ui/Marquee'), { ssr: false });
-
+const SwiperBanner = dynamic(() => import("../ui/SwiperBanner"), { ssr: true });
+// const Marquee = dynamic(() => import("../ui/Marquee"), { ssr: false });
 
 const Banner = () => {
-    return (
-        <section>
-            <div className="max-w-[1290px] lg:mx-auto gap-5  grid grid-cols-1 lg:grid-cols-12 my-8 mx-2">
-                <div className="lg:col-span-9">
+  return (
+    <section className="py-8 bg-gray-50">
+      <div className="grid grid-cols-1 gap-6 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 lg:grid-cols-12">
+        {/* Main Banner Section */}
+        <div className="lg:col-span-9">
+          <SwiperBanner />
+        </div>
 
-                    <SwiperBanner  />
+        {/* Sidebar Section */}
+        <div className="grid grid-cols-1 gap-6 lg:col-span-3 sm:grid-cols-2 lg:grid-cols-1">
+          {/* Compare Products Card */}
+          <div className="p-4 bg-white rounded-lg shadow-md">
+            <h3 className="text-lg font-semibold text-center text-gray-800">
+              Compare Products
+            </h3>
+            <p className="mt-1 mb-4 text-sm text-center text-gray-500">
+              Choose Two Products to Compare
+            </p>
 
-                </div>
+            <div className="space-y-3">
+              <div className="relative">
+                <input
+                  className="w-full p-2.5 text-sm bg-gray-100 rounded-md outline-none focus:ring-2 focus:ring-orange-500 placeholder:text-gray-400"
+                  placeholder="Search & Select Product"
+                  type="text"
+                />
+                <SearchOutlined className="absolute text-gray-400 transform -translate-y-1/2 right-3 top-1/2" />
+              </div>
 
-                <div className="gap-5 col-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 lg:grid-rows-2 lg:col-start-10 lg:col-end-13">
+              <div className="relative">
+                <input
+                  className="w-full p-2.5 text-sm bg-gray-100 rounded-md outline-none focus:ring-2 focus:ring-orange-500 placeholder:text-gray-400"
+                  placeholder="Search & Select Product"
+                  type="text"
+                />
+                <SearchOutlined className="absolute text-gray-400 transform -translate-y-1/2 right-3 top-1/2" />
+              </div>
 
-
-
-                    <div  className="bg-[#ffe8a1] px-2 xl:px-5">
-                        <h3 className="lg:text-[14px] text-[22px] text-center font-semibold mt-5 lg:mt-3 xl:mt-5">Compare Products</h3>
-                        <small className="opacity-50 my-2 block text-center">Choose Two Products to Compare</small>
-
-                        <div  className="my-3">
-                            <div className="relative">
-                                <input className="w-full mt-2 lg:mt-1 outline-none py-2 pl-2 placeholder:text-[13px] xl:placeholder:text-[14px] before rounded-sm" placeholder="Search & Select Product" type="text" name="" id="" />
-                                <span className="absolute top-3 right-3 opacity-50"><SearchOutlined /></span>
-                            </div>
-
-                            <div className="relative">
-                                <input className="w-full my-3 lg:my-2 outline-none py-2 pl-2 placeholder:text-[13px] xl:placeholder:text-[14px] before rounded-sm" placeholder="Search & Select Product" type="text" name="" id="" />
-                                <span className="absolute top-3 right-3 opacity-50"><SearchOutlined /></span>
-                            </div>
-
-                            <div className="xl:py-2">
-                                <button className="btn  st-outline w-full ">View Comparison</button>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className="bg-[black]">
-
-                        <Image width={300} height={190} className="w-[100%] h-[100%]" src="https://www.startech.com.bd/image/catalog/home/banner/small/budget-desktop-pc-27k-2.webp" alt="" />
-                    </div>
-                </div>
-                
-
+              <button className="w-full py-2.5 bg-orange-500 text-white text-sm font-medium rounded-md hover:bg-orange-600 transition duration-200">
+                View Comparison
+              </button>
             </div>
+          </div>
 
-         
-            <Marquee/>
-        </section>
-    );
+          {/* Promo Image Card */}
+          <div className="relative overflow-hidden rounded-lg shadow-md">
+            <Image
+              width={300}
+              height={190}
+              src="https://www.startech.com.bd/image/catalog/ads/2025/complain-mini-banner.webp"
+              alt="Promotional Banner"
+              className="object-cover w-full h-full"
+              priority
+            />
+          </div>
+        </div>
+      </div>
+
+      <Marquee />
+    </section>
+  );
 };
 
 export default Banner;
