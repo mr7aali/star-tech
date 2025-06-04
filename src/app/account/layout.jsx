@@ -1,0 +1,20 @@
+"use client";
+import Providers from "@/lib/Providers";
+import Footer from "@/components/sheared/Footer";
+import ProfileHeader from "@/components/AccountPages/ProfileHeader";
+
+const AccountLayouts = ({ children }) => {
+  return (
+    <Providers>
+      {/* <NavBar /> */}
+      <main className="bg-white pt-14">
+        <ProfileHeader />
+        {/* <ProfileNavbar /> */}
+        {children}
+      </main>
+      <Footer />
+    </Providers>
+  );
+};
+
+export default AccountLayouts;
