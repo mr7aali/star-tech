@@ -5,9 +5,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 const FormsInput = dynamic(() => import("@/components/Forms/FormsInput"));
 const Forms = dynamic(() => import("@/components/Forms/Forms"));
-const AccountLayouts = dynamic(() =>
-  import("@/components/Layouts/AccountLayouts")
-);
+
 const AccountProfileNavbar = dynamic(() =>
   import("@/components/AccountPages/AccountProfileNavbar")
 );
