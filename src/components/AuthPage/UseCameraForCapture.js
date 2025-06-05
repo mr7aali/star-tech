@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { FaCamera, FaSave, FaRedo, FaSync } from "react-icons/fa";
 
@@ -111,7 +112,7 @@ const UseCameraForCapture = ({ onSavePhoto }) => {
     <div className="flex flex-col items-center w-full">
       {cameraError ? (
         <div
-          className="w-full max-w-[240px] aspect-video rounded-md p-4 flex flex-col items-center justify-center text-center gap-2"
+          className="flex flex-col h-[300px] items-center justify-center w-full gap-2 p-4 text-center rounded-md aspect-video"
           style={{
             backgroundColor: "rgba(55, 73, 187, 0.1)",
             borderColor: "#ef4a23",
@@ -136,11 +137,13 @@ const UseCameraForCapture = ({ onSavePhoto }) => {
           </button>
         </div>
       ) : capturedPhotoDataUrl ? (
-        <div className="w-full max-w-[240px] flex flex-col items-center gap-3">
-          <img
+        <div className="w-full h-[300px] flex flex-col items-center gap-3">
+          <Image
+            width={"auto"}
+            height={300}
             src={capturedPhotoDataUrl}
             alt="Captured profile photo"
-            className="w-full max-w-[240px] aspect-video object-cover rounded-md shadow-sm"
+            className="w-full h-[300px] aspect-video object-cover rounded-md shadow-sm"
           />
           <div className="flex justify-center w-full gap-2">
             <button

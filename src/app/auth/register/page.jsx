@@ -53,7 +53,9 @@ const RegisterPage = () => {
             </span>
           </div>
         )}
-        <h1 className="font-serif font-bold text-[20px]">Register Account</h1>
+        <h1 className="font-serif font-bold text-[20px] text-center">
+          Register Account
+        </h1>
         <div className="mt-4">
           <label
             htmlFor="camera-capture"
@@ -63,14 +65,14 @@ const RegisterPage = () => {
             Capture Profile Photo
           </label>
           <div
-            className="flex flex-col items-center w-full max-w-[200px] mx-auto border rounded-md p-3 shadow-sm"
+            className="flex flex-col items-center w-full p-3 mx-auto border rounded-md shadow-sm"
             style={{ borderColor: "#3749bb" }}
           >
             {showCamera ? (
               <UseCameraForCapture />
             ) : (
               <div
-                className="flex items-center justify-center w-full h-32 bg-gray-100 rounded-md"
+                className="flex items-center justify-center w-full h-[300px] bg-gray-100 rounded-md"
                 style={{ backgroundColor: "rgba(55, 73, 187, 0.1)" }}
               >
                 <FaCamera className="text-3xl" style={{ color: "#666" }} />

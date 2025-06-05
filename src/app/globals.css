@@ -12,7 +12,7 @@ html {
 }
 .drop-down-container {
   position: relative;
-  /* border: 1px solid red; */
+
   transition: all 5s ease;
 }
 
@@ -32,7 +32,6 @@ html {
 }
 
 .drop-down-child li:hover {
-  /* border: 1px solid red; */
   background-color: rgb(239, 74, 35);
   color: white;
 }
@@ -51,7 +50,7 @@ html {
 .drop-down-child:hover {
   opacity: 1;
   display: block;
-  /* border: 1px solid red; */
+
   border-top: 5px solid rgb(239, 74, 35);
 }
 
