@@ -88,8 +88,8 @@ const OrderHistoryCard = ({
               className="
                 flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2
                 text-xs sm:text-sm font-semibold text-white
-                bg-gradient-to-r from-[#ef4a23] to-[#3749bb]
-                hover:from-[#3749bb] hover:to-[#ef4a23]
+                bg-gradient-to-r from-[#3749bb] to-[#263ccf]
+                hover:from-[#4a5ed1] hover:to-[#3749bb]
                 rounded-full transform hover:scale-105
                 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-[#ef4a23]
               "

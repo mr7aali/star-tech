@@ -2,6 +2,7 @@ import React from "react";
 import { useFormContext, Controller } from "react-hook-form";
 import { BiErrorCircle } from "react-icons/bi";
 import { FormHelper } from "./FormHelper";
+
 const FormsInput = ({
   name,
   type,
@@ -10,6 +11,7 @@ const FormsInput = ({
   placeholder,
   validation,
   options,
+  icon, // Add icon prop
 }) => {
   const {
     control,
@@ -22,59 +24,78 @@ const FormsInput = ({
   }
 
   const minLength = FormHelper.MinLengthCalculator(name);
+
   return (
     <>
       {type === "select" ? (
-        <Controller
-          control={control}
-          rules={{
-            required: `${capitalizedFieldName} field cannot be empty!`,
-            minLength: {
-              value: minLength,
-              message: `${capitalizedFieldName} must be at least ${minLength} characters long.`,
-            },
-          }}
-          name={name}
-          render={({ field }) => (
-            <select
-              {...field}
-              type={type}
-              placeholder={placeholder}
-              value={value ? value : field.value || ""}
-              className="block rounded-md px-5 w-full font-serif py-2 outline-none focus:border-[#5252ff] border-[#ddd] border-[1px] rounded-"
-            >
-              <option value="d"> --- Please Select --- </option>
-              {options?.map((op) => (
-                <option key={op} value={op}>
-                  {" "}
-                  {op}{" "}
-                </option>
-              ))}
-            </select>
-          )}
-        />
+        <div className="relative flex items-center border border-[#ddd] rounded-md focus-within:border-[#5252ff]">
+          {icon && <span className="flex items-center pl-3">{icon}</span>}
+          <Controller
+            control={control}
+            rules={{
+              required: `${capitalizedFieldName} field cannot be empty!`,
+              minLength: {
+                value: minLength,
+                message: `${capitalizedFieldName} must be at least ${minLength} characters long.`,
+              },
+            }}
+            name={name}
+            render={({ field }) => (
+              <select
+                {...field}
+                type={type}
+                placeholder={placeholder}
+                value={value ? value : field.value || ""}
+                className={`block w-full font-serif py-2 outline-none rounded-md ${
+                  icon ? "pl-10" : "px-5"
+                }`} // Adjust padding if icon is present
+              >
+                <option value="d"> --- Please Select --- </option>
+                {options?.map((op) => (
+                  <option key={op} value={op}>
+                    {op}
+                  </option>
+                ))}
+              </select>
+            )}
+          />
+        </div>
       ) : (
-        <Controller
-          control={control}
-          rules={{
-            required: `${capitalizedFieldName} field cannot be empty!`,
-            minLength: {
-              value: minLength,
-              message: `${capitalizedFieldName} must be at least ${minLength} characters long.`,
-            },
-          }}
-          name={name}
-          render={({ field }) => (
-            <input
-              {...field}
-              type={type}
-              placeholder={placeholder}
-              // defaultValue={value ? value : field.value || ""}
-              value={value ? value : field.value || ""}
-              className="block rounded-md px-5 w-full font-serif py-2 outline-none focus:border-[#5252ff] border-[#ddd] border-[1px] rounded-"
-            />
+        <div
+          // style={{ border: "1px solid red" }}
+          className="relative flex bg-white items-center border border-[#ddd] rounded-md focus-within:border-[#5252ff]"
+        >
+          {icon && (
+            <span
+              className="flex items-center pl-3"
+              // style={{ border: "1px solid red" }}
+            >
+              {icon}
+            </span>
           )}
-        />
+          <Controller
+            control={control}
+            rules={{
+              required: `${capitalizedFieldName} field cannot be empty!`,
+              minLength: {
+                value: minLength,
+                message: `${capitalizedFieldName} must be at least ${minLength} characters long.`,
+              },
+            }}
+            name={name}
+            render={({ field }) => (
+              <input
+                {...field}
+                type={type}
+                placeholder={placeholder}
+                value={value ? value : field.value || ""}
+                className={`block w-full font-serif py-2 outline-none rounded-md ${
+                  icon ? "px-5" : "px-5"
+                }`} // Adjust padding if icon is present
+              />
+            )}
+          />
+        </div>
       )}
 
       {errors[name] && (

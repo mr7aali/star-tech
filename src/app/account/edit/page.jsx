@@ -4,11 +4,13 @@ import { getUserInfo } from "@/service/auth.service";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { FaUser, FaEnvelope, FaPhone, FaFax } from "react-icons/fa"; // Import icons
+import FormsInput from "@/components/Forms/FormsInput";
 
 const ProfileNavbar = dynamic(() =>
   import("@/components/AccountPages/AccountProfileNavbar")
 );
-const FormsInput = dynamic(() => import("@/components/Forms/FormsInput"));
+// const FormsInput = dynamic(() => import("@/components/Forms/FormsInput"));
 const Forms = dynamic(() => import("@/components/Forms/Forms"));
 
 const EditPage = () => {
@@ -17,6 +19,7 @@ const EditPage = () => {
   const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
+
   return (
     <>
       <ProfileNavbar />
@@ -30,7 +33,7 @@ const EditPage = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label
-                    htmlFor=""
+                    htmlFor="first_name"
                     className="font-serif text-[14px] mt-5 mb-2 block"
                   >
                     First Name
@@ -38,52 +41,66 @@ const EditPage = () => {
                   <FormsInput
                     name="first_name"
                     type="text"
-                    // placeholder='Phone / E-Mail'
-                    // value="ali"
-                    // defaultValues="ali"
-                    placeholder={"First name"}
+                    placeholder="First name"
+                    icon={<FaUser className="text-gray-400" />} // Add user icon
                   />
                 </div>
                 <div>
                   <label
-                    htmlFor=""
+                    htmlFor="last_name"
                     className="font-serif text-[14px] mt-5 mb-2 flex justify-between"
                   >
                     Last Name
                   </label>
                   <FormsInput
-                    name={"last_name"}
+                    name="last_name"
                     type="text"
                     placeholder="Last name"
+                    icon={<FaUser className="text-gray-400" />} // Add user icon
                   />
                 </div>
               </div>
               <div>
                 <label
-                  htmlFor=""
+                  htmlFor="email"
                   className="font-serif text-[14px] mt-5 mb-2 block"
                 >
                   E-Mail
                 </label>
-                <FormsInput name={"email"} type="email" placeholder="E-Mail" />
+                <FormsInput
+                  name="email"
+                  type="email"
+                  placeholder="E-Mail"
+                  icon={<FaEnvelope className="text-gray-400" />} // Add email icon
+                />
               </div>
               <div>
                 <label
-                  htmlFor=""
+                  htmlFor="phone"
                   className="font-serif text-[14px] mt-5 mb-2 flex justify-between"
                 >
                   Telephone
                 </label>
-                <FormsInput name={"phone"} type="text" placeholder="Phone" />
+                <FormsInput
+                  name="phone"
+                  type="text"
+                  placeholder="Phone"
+                  icon={<FaPhone className="text-gray-400" />} // Add phone icon
+                />
               </div>
               <div>
                 <label
-                  htmlFor=""
+                  htmlFor="fax"
                   className="font-serif text-[14px] mt-5 mb-2 flex justify-between"
                 >
                   Fax
                 </label>
-                <FormsInput name={"fax"} type="text" placeholder="Fax" />
+                <FormsInput
+                  name="fax"
+                  type="text"
+                  placeholder="Fax"
+                  icon={<FaFax className="text-gray-400" />} // Add fax icon
+                />
               </div>
 
               <div className="mt-5">
