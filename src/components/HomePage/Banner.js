@@ -8,7 +8,7 @@ const SwiperBanner = dynamic(() => import("../ui/SwiperBanner"), { ssr: true });
 
 const Banner = () => {
   return (
-    <section className="py-8 bg-gray-50">
+    <section className="py-8 bg -gray-50">
       <div className="grid grid-cols-1 gap-6 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 lg:grid-cols-12">
         {/* Main Banner Section */}
         <div className="lg:col-span-9">
