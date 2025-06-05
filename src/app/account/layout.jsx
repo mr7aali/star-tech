@@ -7,7 +7,7 @@ const AccountLayouts = ({ children }) => {
   return (
     <Providers>
       {/* <NavBar /> */}
-      <main className="bg-white pt-14">
+      <main className="bg- white pt-14 bg-[rgba(55,73,187,0.05)]">
         <ProfileHeader />
         {/* <ProfileNavbar /> */}
         {children}

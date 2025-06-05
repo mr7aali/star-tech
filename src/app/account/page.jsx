@@ -1,12 +1,14 @@
 "use client";
+
 import Link from "next/link";
-import { ProfileNavItems } from "@/components/AccountPages/constant";
 import dynamic from "next/dynamic";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useState } from "react";
+import { ProfileNavItems } from "@/components/AccountPages/constant";
+import ProfileHeader from "@/components/AccountPages/ProfileHeader";
+// import ProfileHeader from "@/components/ProfileHeader";
 
 const CardSIdeBar = dynamic(() => import("@/components/ui/CardSIdeBar"));
-
 const ProfileOptionCard = dynamic(() =>
   import("@/components/AccountPages/ProfileOptionCard")
 );
@@ -14,23 +16,30 @@ const ProfileOptionCard = dynamic(() =>
 const AccountHomePage = () => {
   const [open, setOpen] = useState(false);
   const cart = useSelector((state) => state.cart.cart);
-  const dispatch = useDispatch();
 
   return (
-    <section className="py-16 bg-white">
-      <main className="max-w-[970px] mx-auto grid grid-cols-4 gap-3">
-        {ProfileNavItems.map((item, i) => (
-          <Link key={i} href={item.path}>
-            <ProfileOptionCard title={item.title} Icon={item.Icon} />
-          </Link>
-        ))}
-      </main>
-      <CardSIdeBar
-        open={open}
-        setOpen={setOpen}
-        cart={cart}
-        dispatch={dispatch}
-      />
+    <section className="py-8 sm:py-12">
+      <div className="max-w-[970px] mx-auto px-4 sm:px-6">
+        {/* Options Grid */}
+        <main className="">
+          <nav
+            className="grid grid-cols-1 gap-4 mt-6 sm:gap-6 sm:mt-8 xs:grid-cols-2 lg:grid-cols-4"
+            aria-label="Profile navigation"
+          >
+            {ProfileNavItems.map((item, i) => (
+              <Link
+                key={i}
+                href={item.path}
+                className="group focus:ring-2 focus:ring-[#ef4a23] rounded-lg"
+                aria-label={`Navigate to ${item.title}`}
+              >
+                <ProfileOptionCard title={item.title} Icon={item.Icon} />
+              </Link>
+            ))}
+          </nav>
+        </main>
+      </div>
+      <CardSIdeBar open={open} setOpen={setOpen} cart={cart} />
     </section>
   );
 };
