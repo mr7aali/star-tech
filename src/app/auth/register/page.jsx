@@ -17,20 +17,22 @@ const RegisterPage = () => {
   const [showCamera, setShowCamera] = useState(false); // Added for camera toggle
 
   const onSubmit = async (data) => {
-    const baseURL = "https://star-tech-back-end.vercel.app";
-    const res = await fetch(`${baseURL}/api/v1/user/create/`, {
+    // console.log("Base url", process.env.BASE_UR);
+    const res = await fetch(`http://localhost:5000/api/v1/user/create/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
+    // const res = await postRegister(data);
     const result = await res.json();
+    console.log("Result", result);
     if (result.success === true) {
       router.push("/auth/login");
       setError(false);
     } else {
-      const message = result.errorMessages[0].message; // Fixed typo
+      const [{ message }] = result.errorMessages; // Prefer object destructuring
       setErrorMessage(message);
       setError(true);
     }
@@ -43,7 +45,7 @@ const RegisterPage = () => {
         title="Register Account"
       />
       <div className="max-w-[400px] mx-auto mt-16 mb-24">
-        {error && (
+        {/* {error && (
           <div className="flex items-center px-3 py-4 mb-4 bg-red-100 rounded-md">
             <span className="text-[23px] pr-3 text-[red]">
               <BiSolidCommentError />
@@ -52,7 +54,7 @@ const RegisterPage = () => {
               Warning: {errorMessage}
             </span>
           </div>
-        )}
+        )} */}
         <h1 className="font-serif font-bold text-[20px] text-center">
           Register Account
         </h1>
@@ -92,6 +94,16 @@ const RegisterPage = () => {
             </button>
           </div>
         </div>
+        {error && (
+          <div className="flex items-center px-3 py-4 mt-4 mb-4 bg-red-100 rounded-md">
+            <span className="text-[23px] pr-3 text-[red]">
+              <BiSolidCommentError />
+            </span>
+            <span className="font-thin font-serif text-[14px] sm:text-[15px] leading-none">
+              Warning: {errorMessage}
+            </span>
+          </div>
+        )}
         <Forms submitHandler={onSubmit}>
           <div className="grid grid-cols-2 gap-4">
             <div>

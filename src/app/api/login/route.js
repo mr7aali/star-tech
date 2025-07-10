@@ -4,10 +4,10 @@ import { NextRequest, NextResponse } from "next/server";
 // export async function POST(req: NextRequest) {
 //   return NextResponse.json({ message: "Login successful" }, { status: 200 });
 // }
-export async function POST(req: Request) {
+export async function POST(req) {
   const body = await req.json();
 
-  const response = await fetch("http://localhost:5000/api/v1/auth/login", {
+  const response = await fetch(`${process.env.BASE_URL}/api/v1/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
@@ -27,6 +27,6 @@ export async function POST(req: Request) {
   });
   return NextResponse.json(result, { status: 200 });
 }
-export async function GET(req: NextRequest) {
+export async function GET(req) {
   return NextResponse.json({ message: "Method Not Allowed" }, { status: 405 });
 }

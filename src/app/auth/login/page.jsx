@@ -28,7 +28,7 @@ const LoginPage = () => {
     });
     if (res.ok) {
       alert("Login success");
-      // window.location.href = "/account";
+      window.location.href = "/user-ac";
     } else {
       setError(true);
       // alert("Login failed");

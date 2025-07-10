@@ -2,7 +2,10 @@ import { ProfileNavItems } from "./constant";
 
 const AccountProfileNavbar = ({ setComponentName, componentName }) => {
   return (
-    <div className="max-w-[970px] hidden lg:block mx-auto py-5 font-serif">
+    <div
+      className="max-w-[970px] hidden lg:block mx-auto  font-serif "
+      // style={{ border: "1px solid red" }}
+    >
       <div className="flex">
         {ProfileNavItems.map((item) => (
           <div
