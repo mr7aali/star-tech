@@ -58,7 +58,10 @@ const TestPage = () => {
 
         <section className="">
           {componentName !== "AccountMenu" && (
-            <AccountProfileNavbar setComponentName={setComponentName} />
+            <AccountProfileNavbar
+              setComponentName={setComponentName}
+              componentName={componentName}
+            />
           )}
 
           {content}

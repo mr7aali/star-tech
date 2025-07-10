@@ -2,13 +2,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import Forms from "@/components/Forms/Forms";
 import FormsInput from "@/components/Forms/FormsInput";
-
 import HeadTag from "@/components/sheared/HeaderTag";
-import { getUserInfo, storeInfo } from "@/service/auth.service";
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-// import { useRouter } from "next/router";
+
 import { useState } from "react";
 import { BiSolidCommentError } from "react-icons/bi";
 
@@ -16,24 +13,28 @@ const LoginPage = () => {
   const [error, setError] = useState(false);
   const router = useRouter();
   const onSubmit = async (data) => {
-    const baseURL = "https://star-tech-back-end.vercel.app";
-    const res = await fetch(`${baseURL}/api/v1/auth/login`, {
+    console.log(data);
+
+    setError(false);
+    const res = await fetch("/api/login", {
       method: "POST",
+      body: JSON.stringify({
+        email: data.email,
+        password: data.password,
+      }),
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
     });
-    const loginData = await res.json();
-    if (loginData.success) {
-      setError(false);
-      storeInfo(loginData?.data?.accessToken);
-      const r = getUserInfo();
-
-      router.push("/account");
+    if (res.ok) {
+      alert("Login success");
+      // window.location.href = "/account";
     } else {
       setError(true);
+      // alert("Login failed");
     }
+
+    console.log(res);
   };
   return (
     <section className="p-2">

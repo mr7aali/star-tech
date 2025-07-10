@@ -1,6 +1,6 @@
 import { ProfileNavItems } from "./constant";
 
-const AccountProfileNavbar = ({ setComponentName }) => {
+const AccountProfileNavbar = ({ setComponentName, componentName }) => {
   return (
     <div className="max-w-[970px] hidden lg:block mx-auto py-5 font-serif">
       <div className="flex">
@@ -8,10 +8,18 @@ const AccountProfileNavbar = ({ setComponentName }) => {
           <div
             key={item.title}
             onClick={() => setComponentName(item.path)}
-            className="flex py-5 pr-3 cursor-pointer hover:text-[#ef4a23] justify-center border-b-[3px] items-center hover:border-red-500 hover:border-b-[3px]"
+            className={`flex py-5 pr-3 cursor-pointer hover:text-[#ef4a23] justify-center border-b-[3px] ${
+              componentName === item.path ? "border-red-500 text-[#ef4a23]" : ""
+            } items-center hover:border-red-500 hover:border-b-[3px]`}
           >
-            <span className="text-xl text-[#666]">
-              <item.Icon />
+            {/* <span className="text-xl transition-all duration-200 group-hover:text-[#ef4a23]"> */}
+
+            <span
+              className={`text-xl ${
+                componentName === item.path ? "text-red-500" : "text-[#666] "
+              }  `}
+            >
+              <item.Icon className="group-hover:text-[#ef4a23]" />
             </span>
             <small className="ml-2 text-sm">{item.title}</small>
           </div>
