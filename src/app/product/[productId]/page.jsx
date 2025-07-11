@@ -17,7 +17,7 @@ const ProductDetails = dynamic(() =>
 );
 const CardSIdeBar = dynamic(() => import("@/components/ui/CardSIdeBar"));
 
-const ProductDetailsPage = ({ data }) => {
+const ProductDetailsPage = () => {
   const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
   const specificationData = convertSpecificationData(data?.Specification);

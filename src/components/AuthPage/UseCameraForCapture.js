@@ -21,7 +21,7 @@ const UseCameraForCapture = ({ onSavePhoto }) => {
         tracks.forEach((track) => track.stop());
       }
     };
-  }, [capturedPhotoDataUrl, hasCamera]);
+  }, [capturedPhotoDataUrl, hasCamera, stream]);
 
   const checkCameraAvailability = async () => {
     try {

@@ -9,7 +9,7 @@ import CardSIdeBar from "@/components/ui/CardSIdeBar";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function HomePage({ data }) {
+export default function HomePage() {
   const [open, setOpen] = useState(false);
   const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ export default function HomePage({ data }) {
       <HeadTag descriptionContent={"Star Tech HomePage"} title={"Star Tech"} />
       <Banner />
       <FeaturedCategory />
-      <FeaturedProducts products={data?.data} />
+      {/* <FeaturedProducts products={data?.data} /> */}
       <MainBlog />
       <Blog />
       <div className="mt-[100px]"></div>
@@ -31,14 +31,3 @@ export default function HomePage({ data }) {
     </>
   );
 }
-
-// export async function getServerSideProps() {
-//   const baseURL = process.env.BASE_URL;
-//   const res = await fetch(`${baseURL}/api/v1/product`);
-//   const data = await res.json();
-//   return {
-//     props: {
-//       data,
-//     },
-//   };
-// }
