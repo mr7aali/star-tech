@@ -12,8 +12,12 @@ const ProductDetails = ({ data }) => {
       <div className="max-w-[1290px] mx-auto flex flex-col justify-center items-center md:items-start md:flex-row sm:pt-10">
         <div className="px-[15px]">
           <Image
-            src={productData?.image}
-            alt=""
+            src={
+              productData?.image
+                ? productData?.image
+                : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl-BraBWVGZSIUOFvGUTJUuPQXTLeNEyWYEg&s"
+            }
+            alt={productData?.title || "Product image"}
             className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px]"
             width={400}
             height={400}
@@ -82,7 +86,7 @@ const ProductDetails = ({ data }) => {
           </div>
 
           <div className="inline-block">
-            <div className="flex items-center justify-between px-3 py-2 mt-10 bg-red-100 rounded-full">
+            <div className="flex justify-between items-center px-3 py-2 mt-10 bg-red-100 rounded-full">
               <span className="mx-1 text-[30px]">
                 <MdStars />
               </span>
@@ -90,9 +94,9 @@ const ProductDetails = ({ data }) => {
               <span className="mx-1">Star Points</span>
             </div>
           </div>
-          <PaymentOptions price={data?.price} />
+          <PaymentOptions price={productData?.price} />
 
-          <QuantityCalculation product={data} />
+          <QuantityCalculation product={productData} />
         </div>
       </div>
     </div>
