@@ -1,11 +1,9 @@
 "use client";
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { use, useState } from "react";
 import { convertSpecificationData } from "@/helpers/convertObjectToArray";
-
 import dynamic from "next/dynamic";
-
+import { useGetProductByIdQuery } from "@/redux/api/baseApi";
 const SingleFeatures = dynamic(() =>
   import("@/components/ProductIDPage/SingleFeatures")
 );
@@ -15,14 +13,11 @@ const RelatedProductCard = dynamic(() =>
 const ProductDetails = dynamic(() =>
   import("@/components/ProductIDPage/ProductDetails")
 );
-const CardSIdeBar = dynamic(() => import("@/components/ui/CardSIdeBar"));
 
-const ProductDetailsPage = () => {
-  const cart = useSelector((state) => state.cart.cart);
-  const dispatch = useDispatch();
-  const specificationData = convertSpecificationData(data?.Specification);
-  const [open, setOpen] = useState(false);
-
+const ProductDetailsPage = ({ params }) => {
+  const { productId } = use(params);
+  const { data } = useGetProductByIdQuery(productId);
+  const specificationData = convertSpecificationData(data?.data.Specification);
   return (
     <>
       <ProductDetails data={data} />
@@ -76,16 +71,10 @@ const ProductDetailsPage = () => {
             <h2 className="text-[#3749bb] font-bold text-center  py-4 text-[15px] xl:text-[17px]">
               Recently Viewed
             </h2>
-            {/* <RelatedProductCard /> */}
+            <RelatedProductCard />
           </div>
         </div>
       </section>
-      <CardSIdeBar
-        open={open}
-        setOpen={setOpen}
-        cart={cart}
-        dispatch={dispatch}
-      />
     </>
   );
 };
