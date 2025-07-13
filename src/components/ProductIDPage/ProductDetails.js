@@ -12,7 +12,7 @@ const ProductDetails = ({ data }) => {
       <div className="max-w-[1290px] mx-auto flex flex-col justify-center items-center md:items-start md:flex-row sm:pt-10">
         <div className="px-[15px]">
           <Image
-            src="https://www.startech.com.bd/image/cache/catalog/monitor/msi/g2412/g2412-06-500x500.webp"
+            src={productData?.image}
             alt=""
             className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px]"
             width={400}
@@ -66,23 +66,15 @@ const ProductDetails = ({ data }) => {
                 Key Features
               </h3>
 
-              <p className="my-1 text-[15px] sm:text-[16px] font-serif">
-                Model: iGame GeForce RTX 4060 Ti Ultra W DUO OC 16GB-V
-              </p>
-              <p className="my-1 text-[15px] sm:text-[16px] font-serif">
-                Core Clock: Base:1830Mhz; Boost:2460Mhz
-              </p>
-              <p className="my-1 text-[15px] sm:text-[16px] font-serif">
-                Memory Clock: 17Gbps
-              </p>
-              <p className="my-1 text-[15px] sm:text-[16px] font-serif">
-                Memory Interface: 128bit
-              </p>
-              <p className="my-1 text-[15px] sm:text-[16px] font-serif">
-                Output: 3x DP+HDMI
-              </p>
+              {productData?.key_features.split(";").map((feature, index) => (
+                <p
+                  key={index}
+                  className="my-1 text-[15px] sm:text-[16px] font-serif"
+                >
+                  {feature.trim()}
+                </p>
+              ))}
 
-              {/* <a className="text-[#e5330b] cursor-pointer mt-4 font-serif underline underline-offset-2">View More Info</a> */}
               <a className="text-[#e5330b] cursor-pointer mt-[10px] font-serif relative after:content-[''] after:block after:absolute after:w-full after:h-[2px] after:bg-[#e5330b] after:bottom-[-8px] after:transform after:origin-bottom-right after:scale-x-8 after:hover:scale-x-100">
                 View More Info
               </a>

@@ -10,9 +10,10 @@ const SingleFeatures = dynamic(() =>
 const RelatedProductCard = dynamic(() =>
   import("@/components/ProductIDPage/RelatedProductCard")
 );
-const ProductDetails = dynamic(() =>
-  import("@/components/ProductIDPage/ProductDetails")
-);
+// const ProductDetails = dynamic(() =>
+//   import("@/components/ProductIDPage/ProductDetails")
+// );
+import ProductDetails from "@/components/ProductIDPage/ProductDetails";
 
 const ProductDetailsPage = ({ params }) => {
   const { productId } = use(params);
