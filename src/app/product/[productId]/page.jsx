@@ -1,18 +1,9 @@
 "use client";
-/* eslint-disable react/no-unescaped-entities */
-import { use, useState } from "react";
+import { use } from "react";
 import { convertSpecificationData } from "@/helpers/convertObjectToArray";
-import dynamic from "next/dynamic";
 import { useGetProductByIdQuery } from "@/redux/api/baseApi";
-const SingleFeatures = dynamic(() =>
-  import("@/components/ProductIDPage/SingleFeatures")
-);
-const RelatedProductCard = dynamic(() =>
-  import("@/components/ProductIDPage/RelatedProductCard")
-);
-// const ProductDetails = dynamic(() =>
-//   import("@/components/ProductIDPage/ProductDetails")
-// );
+import SingleFeatures from "@/components/ProductIDPage/SingleFeatures";
+import RelatedProductCard from "@/components/ProductIDPage/RelatedProductCard";
 import ProductDetails from "@/components/ProductIDPage/ProductDetails";
 
 const ProductDetailsPage = ({ params }) => {
@@ -20,7 +11,7 @@ const ProductDetailsPage = ({ params }) => {
   const { data } = useGetProductByIdQuery(productId);
   const specificationData = convertSpecificationData(data?.data.Specification);
   return (
-    <>
+    <div className="pb-12">
       <ProductDetails data={data} />
       <section className=" max-w-[1290px] mx-auto mt-5 grid grid-cols-12 gap-5 px-3">
         {/* left */}
@@ -76,7 +67,7 @@ const ProductDetailsPage = ({ params }) => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 export default ProductDetailsPage;
