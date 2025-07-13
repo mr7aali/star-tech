@@ -12,7 +12,7 @@ const QuantityCalculation = ({ product }) => {
   const setToCart = () => {
     const productData = {
       id: product.id,
-      name: product.name,
+      name: product.title,
       price: product.price,
       image: product.image,
       quantity: count,
@@ -23,36 +23,36 @@ const QuantityCalculation = ({ product }) => {
 
   return (
     <>
-      <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-        <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-          <span className="w-2 h-8 bg-gradient-to-b from-red-500 to-pink-600 rounded-full mr-3"></span>
+      <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-lg">
+        <h3 className="flex items-center mb-6 text-2xl font-bold text-gray-900">
+          <span className="mr-3 w-2 h-8 bg-gradient-to-b from-red-500 to-pink-600 rounded-full"></span>
           Purchase Options
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {/* Quantity Selector */}
           <div className="space-y-4">
             <label className="block text-sm font-semibold text-gray-700">
               Quantity
             </label>
-            <div className="flex items-center bg-gray-50 rounded-xl p-2 border border-gray-200">
+            <div className="flex items-center p-2 bg-gray-50 rounded-xl border border-gray-200">
               <button
                 onClick={() => setCount((c) => (count > 1 ? c - 1 : c))}
-                className="w-12 h-12 flex items-center justify-center rounded-lg bg-white shadow-sm border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex justify-center items-center w-12 h-12 bg-white rounded-lg border border-gray-200 shadow-sm transition-all duration-200 hover:bg-gray-50 hover:border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={count <= 1}
               >
                 <LuMinus className="w-5 h-5 text-gray-600" />
               </button>
 
               <div className="flex-1 text-center">
-                <span className="text-2xl font-bold text-gray-900 px-4">
+                <span className="px-4 text-2xl font-bold text-gray-900">
                   {count}
                 </span>
               </div>
 
               <button
                 onClick={() => setCount((c) => c + 1)}
-                className="w-12 h-12 flex items-center justify-center rounded-lg bg-white shadow-sm border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200"
+                className="flex justify-center items-center w-12 h-12 bg-white rounded-lg border border-gray-200 shadow-sm transition-all duration-200 hover:bg-gray-50 hover:border-gray-300"
               >
                 <LuPlus className="w-5 h-5 text-gray-600" />
               </button>
@@ -69,7 +69,7 @@ const QuantityCalculation = ({ product }) => {
             <label className="block text-sm font-semibold text-gray-700">
               Total Price
             </label>
-            <div className="text-3xl font-bold text-gray-900 mb-4">
+            <div className="mb-4 text-3xl font-bold text-gray-900">
               {(product?.price * count).toLocaleString()} ৳
             </div>
 
@@ -96,22 +96,22 @@ const QuantityCalculation = ({ product }) => {
         </div>
 
         {/* Additional Info */}
-        <div className="mt-6 pt-6 border-t border-gray-200">
+        <div className="pt-6 mt-6 border-t border-gray-200">
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div className="flex items-center text-gray-600">
-              <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+              <div className="mr-2 w-2 h-2 bg-green-500 rounded-full"></div>
               Free Shipping
             </div>
             <div className="flex items-center text-gray-600">
-              <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+              <div className="mr-2 w-2 h-2 bg-blue-500 rounded-full"></div>
               Secure Payment
             </div>
             <div className="flex items-center text-gray-600">
-              <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
+              <div className="mr-2 w-2 h-2 bg-purple-500 rounded-full"></div>
               Easy Returns
             </div>
             <div className="flex items-center text-gray-600">
-              <div className="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
+              <div className="mr-2 w-2 h-2 bg-orange-500 rounded-full"></div>
               24/7 Support
             </div>
           </div>
