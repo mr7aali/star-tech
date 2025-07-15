@@ -4,7 +4,7 @@ import { get } from "http";
 export const baseApi = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api/v1", //!base URL+/api/v1
+    baseUrl: "https://star-tech-back-end.vercel.app/api/v1", //!base URL+/api/v1
   }),
   endpoints: (builder) => ({
     getProducts: builder.query({

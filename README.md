@@ -14,4 +14,4 @@ Backend Api
 
 ## all product
 
-http://localhost:5000/api/v1/product
+https://star-tech-back-end.vercel.app/api/v1/product
