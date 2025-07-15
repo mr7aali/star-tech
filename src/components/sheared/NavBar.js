@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { HiOutlineInboxIn } from "react-icons/hi";
@@ -14,16 +15,20 @@ import {
 } from "@ant-design/icons";
 import { PiPlusMinusFill } from "react-icons/pi";
 import { RiBuilding3Line } from "react-icons/ri";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import { isLoggedIn } from "@/service/auth.service";
 
 const Sidebar = dynamic(() => import("../ui/SideBar"), { ssr: true });
 const AccountLogOut = dynamic(() => import("./AccountLogOut"), { ssr: false });
 const AccoutLogIn = dynamic(() => import("./AccoutLogIn"), { ssr: false });
 
-const NavBar = ({ setCartOpen }) => {
+const NavBar = ({ user }) => {
   const [open, setOpen] = useState(false);
+  const [loginStatus, setLoginStatus] = useState(!!user);
+  useEffect(() => {
+    setLoginStatus(!!user);
+  }, [user]);
+
   const NavMenuList = [
     "Desktop",
     "Laptop",
@@ -98,7 +103,8 @@ const NavBar = ({ setCartOpen }) => {
                   <small className="text-xs text-gray-400">Special Deals</small>
                 </div>
               </div>
-              {isLoggedIn() ? <AccountLogOut /> : <AccoutLogIn />}
+              {loginStatus ? <AccountLogOut /> : <AccoutLogIn />}
+
               <Link
                 href="/builder"
                 className="px-4 py-2 text-white transition duration-200 bg-orange-500 rounded-full hover:bg-orange-600"
@@ -109,10 +115,10 @@ const NavBar = ({ setCartOpen }) => {
 
             <div className="flex space-x-2 lg:hidden">
               <SearchOutlined className="p-2 text-2xl text-white cursor-pointer" />
-              <ShoppingCartOutlined
+              {/* <ShoppingCartOutlined
                 onClick={() => setCartOpen(true)}
                 className="p-2 text-2xl text-white cursor-pointer"
-              />
+              /> */}
             </div>
           </div>
         </main>

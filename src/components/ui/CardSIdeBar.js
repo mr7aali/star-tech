@@ -7,11 +7,13 @@ import Image from "next/image";
 import { useClickAway } from "react-use";
 import { removeFromCart } from "@/redux/features/cart/cartSlice";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
-const CardSIdeBar = ({ cart, open, setOpen, dispatch }) => {
+const CardSIdeBar = ({ open, setOpen, dispatch }) => {
   const ref = useRef(null);
   useClickAway(ref, () => setOpen(false));
-  console.log(cart);
+  const cart = useSelector((state) => state.cart.cart);
+
   return (
     <div>
       <div className="hidden lg:block" onClick={() => setOpen(!open)}>
@@ -25,9 +27,9 @@ const CardSIdeBar = ({ cart, open, setOpen, dispatch }) => {
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="overflow-y-auto relative h-full">
+        <div className="relative h-full overflow-y-auto">
           {/* Header */}
-          <div className="flex justify-between items-center p-4 bg-gray-900">
+          <div className="flex items-center justify-between p-4 bg-gray-900">
             <p className="text-sm font-bold text-white uppercase">Your Cart</p>
             <button
               aria-label="Close cart sidebar"
@@ -73,7 +75,7 @@ const CardSIdeBar = ({ cart, open, setOpen, dispatch }) => {
               ))}
             </div>
           ) : (
-            <div className="flex justify-center items-center px-4 h-full">
+            <div className="flex items-center justify-center h-full px-4">
               <div className="text-center">
                 <FaShoppingCart className="mx-auto mb-3 text-4xl text-gray-400" />
                 <p className="text-base font-medium text-gray-500">
@@ -84,19 +86,19 @@ const CardSIdeBar = ({ cart, open, setOpen, dispatch }) => {
           )}
 
           {/* Footer */}
-          <div className="absolute bottom-0 p-4 w-full bg-white shadow-inner">
-            <div className="flex gap-2 items-center p-3 bg-gray-100 rounded-md">
+          <div className="absolute bottom-0 w-full p-4 bg-white shadow-inner">
+            <div className="flex items-center gap-2 p-3 bg-gray-100 rounded-md">
               <div className="relative flex-1">
                 <input
                   type="text"
-                  className="p-2 pl-8 w-full text-sm bg-white rounded-md outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full p-2 pl-8 text-sm bg-white rounded-md outline-none focus:ring-2 focus:ring-orange-500"
                   placeholder="Promo Code"
                   aria-label="Enter promo code"
                 />
-                <RiCouponLine className="absolute left-2 top-1/2 text-gray-400 transform -translate-y-1/2" />
+                <RiCouponLine className="absolute text-gray-400 transform -translate-y-1/2 left-2 top-1/2" />
               </div>
               <button
-                className="px-4 py-2 text-sm text-white bg-orange-500 rounded-md transition duration-200 hover:bg-orange-600"
+                className="px-4 py-2 text-sm text-white transition duration-200 bg-orange-500 rounded-md hover:bg-orange-600"
                 aria-label="Apply promo code"
               >
                 Apply
@@ -107,10 +109,15 @@ const CardSIdeBar = ({ cart, open, setOpen, dispatch }) => {
                 <span className="text-sm font-medium text-right text-gray-500">
                   Sub-Total
                 </span>
+
                 <span className="text-sm font-bold text-right text-gray-800">
-                  {cart
-                    .reduce((sum, item) => sum + item.price * item.quantity, 0)
-                    .toLocaleString("en-US")}
+                  {(Array.isArray(cart)
+                    ? cart.reduce(
+                        (sum, item) => sum + item.price * item.quantity,
+                        0
+                      )
+                    : 0
+                  ).toLocaleString("en-US")}{" "}
                   ৳
                 </span>
               </div>
@@ -118,10 +125,20 @@ const CardSIdeBar = ({ cart, open, setOpen, dispatch }) => {
                 <span className="text-sm font-medium text-right text-gray-500">
                   Total
                 </span>
-                <span className="text-sm font-bold text-right text-gray-800">
+                {/* <span className="text-sm font-bold text-right text-gray-800">
                   {cart
                     .reduce((sum, item) => sum + item.price * item.quantity, 0)
                     .toLocaleString("en-US")}
+                  ৳
+                </span> */}
+                <span className="text-sm font-bold text-right text-gray-800">
+                  {(Array.isArray(cart)
+                    ? cart.reduce(
+                        (sum, item) => sum + item.price * item.quantity,
+                        0
+                      )
+                    : 0
+                  ).toLocaleString("en-US")}{" "}
                   ৳
                 </span>
               </div>
@@ -129,7 +146,7 @@ const CardSIdeBar = ({ cart, open, setOpen, dispatch }) => {
             <div className="flex flex-col gap-3 mt-4">
               <Link
                 href="/cart"
-                className="flex gap-2 justify-center items-center px-4 py-3 text-sm font-medium text-orange-500 bg-orange-100 rounded-md transition duration-200 hover:bg-orange-200"
+                className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium text-orange-500 transition duration-200 bg-orange-100 rounded-md hover:bg-orange-200"
                 aria-label="View cart details"
               >
                 <FaShoppingCart className="text-base" />
@@ -137,7 +154,7 @@ const CardSIdeBar = ({ cart, open, setOpen, dispatch }) => {
               </Link>
               <button
                 onClick={() => setOpen(false)}
-                className="flex gap-2 justify-center items-center px-4 py-3 text-sm font-bold text-white bg-orange-500 rounded-md transition duration-200 transform cursor-pointer hover:bg-orange-600 hover:scale-105"
+                className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-bold text-white transition duration-200 transform bg-orange-500 rounded-md cursor-pointer hover:bg-orange-600 hover:scale-105"
                 aria-label="Proceed to checkout"
                 disabled={cart?.length === 0}
               >

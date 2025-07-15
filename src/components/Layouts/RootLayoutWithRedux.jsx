@@ -1,28 +1,26 @@
 "use client";
-
 import NavBar from "@/components/sheared/NavBar";
 import Footer from "@/components/sheared/Footer";
-import { useState } from "react";
-import CardSIdeBar from "../ui/CardSIdeBar";
-import { useDispatch, useSelector } from "react-redux";
+import store from "@/redux/store";
+import { Provider } from "react-redux";
+import CardSIdeBar from "@/components/ui/CardSIdeBar";
 
-const RootLayoutWithRedux = ({ children }) => {
-  const [open, setOpen] = useState(false);
-  const cart = useSelector((state) => state.cart.cart);
-  const dispatch = useDispatch();
+const RootLayoutWithRedux = ({ children, user }) => {
   return (
-    <>
-      <NavBar cartOpen={open} setCartOpen={setOpen} />
+    <Provider store={store}>
+      <NavBar user={user} />
       {children}
       <Footer />
-      <CardSIdeBar
-        open={open}
-        setOpen={setOpen}
-        cart={cart}
-        dispatch={dispatch}
-      />
-    </>
+    </Provider>
   );
 };
 
 export default RootLayoutWithRedux;
+{
+  /* <CardSIdeBar
+        open={open}
+        setOpen={setOpen}
+        cart={cart}
+        dispatch={dispatch}
+      /> */
+}

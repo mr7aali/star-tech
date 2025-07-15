@@ -1,9 +1,6 @@
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
-// export async function POST(req: NextRequest) {
-//   return NextResponse.json({ message: "Login successful" }, { status: 200 });
-// }
 export async function POST(req) {
   const body = await req.json();
 
@@ -13,11 +10,9 @@ export async function POST(req) {
     body: JSON.stringify(body),
   });
 
-  // const { accessToken, refreshToken } = await response.json();
-
   const result = await response.json();
   console.log("Token Set succesfully.", result.data.accessToken);
-  // // Store in secure cookies
+  //  Store in secure cookies
   (await cookies()).set("accessToken", result.data.accessToken, {
     httpOnly: true,
     secure: false,

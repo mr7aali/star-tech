@@ -1,17 +1,17 @@
-"use client";
+import { verifyUser } from "@/lib/auth";
 import "./globals.css";
 
 import RootLayoutWithRedux from "@/components/Layouts/RootLayoutWithRedux";
-import store from "@/redux/store";
+// import store from "@/redux/store";
 
-import { Provider, useDispatch, useSelector } from "react-redux";
-const RootLayouts = ({ children }) => {
+// import { Provider, useDispatch, useSelector } from "react-redux";
+const RootLayouts = async ({ children }) => {
+  const user = await verifyUser();
+
   return (
     <html>
       <body>
-        <Provider store={store}>
-          <RootLayoutWithRedux>{children}</RootLayoutWithRedux>
-        </Provider>
+        <RootLayoutWithRedux user={user}>{children}</RootLayoutWithRedux>
       </body>
     </html>
   );

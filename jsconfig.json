@@ -30,7 +30,8 @@
     "**/*.tsx",
     "src/service/register.js",
     "src/app/api/login/route.js",
-    "src/app/api/refresh/route.js"
+    "src/app/api/refresh/route.js",
+    "src/lib/auth.js"
   ],
   "exclude": ["node_modules"]
 }
