@@ -32,6 +32,7 @@ export async function POST(req) {
         message: "Login failed",
         error: error.message,
         path: process.env.NEXT_PUBLIC_BASE_URL,
+        fullError: error,
       },
       { status: 500 }
     );
