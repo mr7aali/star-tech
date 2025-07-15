@@ -13,9 +13,7 @@ export async function POST(req) {
         body: JSON.stringify(body),
       }
     );
-
     const result = await response.json();
-
     //  Store in secure cookies
     (await cookies()).set("accessToken", result.data.accessToken, {
       httpOnly: true,
@@ -24,6 +22,7 @@ export async function POST(req) {
       maxAge: 60 * 60 * 24 * 10, // 10 days
       path: "/",
     });
+
     return NextResponse.json(result, { status: 200 });
   } catch (error) {
     return NextResponse.json(
@@ -31,7 +30,7 @@ export async function POST(req) {
         success: false,
         message: "Login failed",
         error: error.message,
-        path: process.env.NEXT_PUBLIC_BASE_URL,
+        back_end_url: process.env.NEXT_PUBLIC_BASE_URL,
         fullError: error,
       },
       { status: 500 }
