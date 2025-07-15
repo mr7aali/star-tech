@@ -4,11 +4,14 @@ import { cookies } from "next/headers";
 export async function POST() {
   const refreshToken = (await cookies()).get("refreshToken")?.value;
 
-  const res = await fetch(`${process.env.BASE_URL}/api/v1/auth/refresh-token`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ token: refreshToken }),
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/auth/refresh-token`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token: refreshToken }),
+    }
+  );
 
   const { accessToken } = await res.json();
 
