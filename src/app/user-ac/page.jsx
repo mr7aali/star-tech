@@ -51,7 +51,7 @@ const TestPage = () => {
   } else {
     content = <AccountMenu />;
   }
-  console.log(componentName);
+
   return (
     <>
       <main className="bg- white pt-14 bg-[rgba(55,73,187,0.05)]">

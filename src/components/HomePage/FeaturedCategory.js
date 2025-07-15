@@ -1,20 +1,18 @@
 "use client";
-import { useGetCategoriesQuery } from "@/redux/api/baseApi";
+// import { useGetCategoriesQuery } from "@/redux/api/baseApi";
 import Image from "next/image";
 import Link from "next/link";
-import CustomLoader from "../sheared/CustomLoader";
-import { useDispatch, useSelector } from "react-redux";
-import { setCategories } from "@/redux/features/categories/categoriesSlice";
+import { useSelector } from "react-redux";
 
 const FeaturedCategory = () => {
-  //   const dispatch = useDispatch();
-  //   const { data, isLoading } = useGetCategoriesQuery();
-  //   if (!isLoading && data.success === true && data.data.length > 0) {
-  //     dispatch(setCategories(data.data));
-  //   }
+  // const dispatch = useDispatch();
+  // const { data, isLoading } = useGetCategoriesQuery();
+  // if (!isLoading && data.success === true && data.data.length > 0) {
+  //   dispatch(setCategories(data?.data));
+  // }
 
   const categories = useSelector((state) => state.categories.categories);
-  console.log(categories);
+
   return (
     <section className="max-w-[1300px] mx-auto">
       <div className="mt-12">

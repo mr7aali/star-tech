@@ -31,10 +31,12 @@ const NavBar = ({ user }) => {
 
   const dispatch = useDispatch();
   const { data, isLoading } = useGetCategoriesQuery();
-  if (!isLoading && data.success === true && data.data.length > 0) {
-    dispatch(setCategories(data.data));
-  }
 
+  useEffect(() => {
+    if (!isLoading && data?.success === true && data.data.length > 0) {
+      dispatch(setCategories(data.data));
+    }
+  }, [data, isLoading, dispatch]);
   let NavMenuList;
   if (isLoading) {
     NavMenuList = (

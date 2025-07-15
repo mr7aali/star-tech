@@ -17,7 +17,6 @@ const RegisterPage = () => {
   const [showCamera, setShowCamera] = useState(false); // Added for camera toggle
 
   const onSubmit = async (data) => {
-    // console.log("Base url", process.env.BASE_UR);
     const res = await fetch(`http://localhost:5000/api/v1/user/create/`, {
       method: "POST",
       headers: {
@@ -27,7 +26,7 @@ const RegisterPage = () => {
     });
     // const res = await postRegister(data);
     const result = await res.json();
-    console.log("Result", result);
+
     if (result.success === true) {
       router.push("/auth/login");
       setError(false);

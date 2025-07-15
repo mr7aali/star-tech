@@ -13,8 +13,6 @@ const LoginPage = () => {
   const [error, setError] = useState(false);
   const router = useRouter();
   const onSubmit = async (data) => {
-    console.log(data);
-
     setError(false);
     const res = await fetch("/api/login", {
       method: "POST",
@@ -33,8 +31,6 @@ const LoginPage = () => {
       setError(true);
       // alert("Login failed");
     }
-
-    console.log(res);
   };
   return (
     <section className="p-2">
