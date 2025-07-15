@@ -5,8 +5,7 @@ import { IoCart } from "react-icons/io5";
 import { LuCopyPlus } from "react-icons/lu";
 
 const ProductCard = ({ product }) => {
-  //   console.log(product);
-  console.log(product?.key_features?.split(";"));
+  console.log(product.id);
   return (
     <div className="relative flex flex-col lg:max-w-[220px] bg-white rounded-md">
       <div
@@ -17,7 +16,7 @@ const ProductCard = ({ product }) => {
       </div>
       <aside style={{ borderBottom: "3px solid rgba(55,73,187,.03)" }}>
         <Link
-          href={"/product/id"}
+          href={`/product/${product.id}`}
           className="mt-3 border-red-400 border-solid border-3"
         >
           <Image
@@ -34,7 +33,7 @@ const ProductCard = ({ product }) => {
       </aside>
       <div className="px-5 py-2">
         <Link
-          href={"/product/id"}
+          href={`/product/${product.id}`}
           className="font-serif duration-100 text-[#111] hover:text-[#ef4a23]  text-[17px] hover:underline cursor-pointer"
         >
           {product.title}
