@@ -1,7 +1,7 @@
 "use client";
 import FeaturedProductsCart from "../card/FeaturedProductsCart";
 import { useGetProductsQuery } from "@/redux/api/baseApi";
-
+import CustomLoader from "../sheared/CustomLoader";
 const FeaturedProducts = () => {
   const { data, isLoading } = useGetProductsQuery();
   return (
@@ -20,16 +20,7 @@ const FeaturedProducts = () => {
           data?.data.map((Item, index) => (
             <FeaturedProductsCart product={Item} key={index} />
           ))}
-        {isLoading && (
-          <div className="max-w-[1290px] mx-auto mt-11 flex flex-wrap justify-center">
-            <div className="flex flex-col items-center justify-center w-full">
-              <div className="w-16 h-16 border-4 border-orange-500 border-dashed rounded-full animate-spin"></div>
-              <p className="mt-4 text-lg font-semibold text-center">
-                Loading...
-              </p>
-            </div>
-          </div>
-        )}
+        {isLoading && <CustomLoader />}
       </div>
     </>
   );

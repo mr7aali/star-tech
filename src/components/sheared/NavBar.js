@@ -8,15 +8,14 @@ import {
   MdOutlineManageAccounts,
   MdLocalOffer,
 } from "react-icons/md";
-import {
-  BarsOutlined,
-  SearchOutlined,
-  ShoppingCartOutlined,
-} from "@ant-design/icons";
+import { BarsOutlined, SearchOutlined } from "@ant-design/icons";
 import { PiPlusMinusFill } from "react-icons/pi";
 import { RiBuilding3Line } from "react-icons/ri";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import { useGetCategoriesQuery } from "@/redux/api/baseApi";
+import { useDispatch } from "react-redux";
+import { setCategories } from "@/redux/features/categories/categoriesSlice";
 
 const Sidebar = dynamic(() => import("../ui/SideBar"), { ssr: true });
 const AccountLogOut = dynamic(() => import("./AccountLogOut"), { ssr: false });
@@ -24,38 +23,36 @@ const AccoutLogIn = dynamic(() => import("./AccoutLogIn"), { ssr: false });
 
 const NavBar = ({ user }) => {
   const [open, setOpen] = useState(false);
+
   const [loginStatus, setLoginStatus] = useState(!!user);
   useEffect(() => {
     setLoginStatus(!!user);
   }, [user]);
 
-  const NavMenuList = [
-    "Desktop",
-    "Laptop",
-    "Component",
-    "Monitor",
-    "UPS",
-    "Phone",
-    "Tablet",
-    "Office Equipment",
-    "Camera",
-    "Security",
-    "Networking",
-    "Software",
-    "Server & Storage",
-    "Accessories",
-    "Gadget",
-    "Gaming",
-    "TV",
-    "AC",
-  ].map((li) => (
-    <li
-      key={li}
-      className="px-3 py-2 text-sm font-medium text-gray-700 transition-colors duration-200 hover:text-orange-500"
-    >
-      {li}
-    </li>
-  ));
+  const dispatch = useDispatch();
+  const { data, isLoading } = useGetCategoriesQuery();
+  if (!isLoading && data.success === true && data.data.length > 0) {
+    dispatch(setCategories(data.data));
+  }
+
+  let NavMenuList;
+  if (isLoading) {
+    NavMenuList = (
+      <li className="px-3 py-2 text-sm font-medium text-gray-700 transition-colors duration-200 hover:text-orange-500">
+        Loading...
+      </li>
+    );
+  }
+  if (isLoading === false && data.success === true && data.data.length > 0) {
+    NavMenuList = data.data.map((li, key) => (
+      <li
+        key={key}
+        className="px-3 py-2 text-sm font-medium text-gray-700 transition-colors duration-200 hover:text-orange-500"
+      >
+        {li.title}
+      </li>
+    ));
+  }
 
   return (
     <>
@@ -115,10 +112,6 @@ const NavBar = ({ user }) => {
 
             <div className="flex space-x-2 lg:hidden">
               <SearchOutlined className="p-2 text-2xl text-white cursor-pointer" />
-              {/* <ShoppingCartOutlined
-                onClick={() => setCartOpen(true)}
-                className="p-2 text-2xl text-white cursor-pointer"
-              /> */}
             </div>
           </div>
         </main>
