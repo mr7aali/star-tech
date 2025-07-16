@@ -4,7 +4,11 @@ import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
 
 export async function verifyUser() {
-  const token = await cookies()?.get("accessToken")?.value;
+  const cookieee = await cookies();
+  if (!cookieee) {
+    return false;
+  }
+  const token = cookieee.get("accessToken")?.value;
 
   if (!token) {
     return false;
