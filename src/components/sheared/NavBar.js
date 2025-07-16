@@ -24,9 +24,9 @@ const AccoutLogIn = dynamic(() => import("./AccoutLogIn"), { ssr: false });
 const NavBar = ({ user }) => {
   const [open, setOpen] = useState(false);
 
-  const [loginStatus, setLoginStatus] = useState(!!user);
+  const [loginStatus, setLoginStatus] = useState(user);
   useEffect(() => {
-    setLoginStatus(!!user);
+    setLoginStatus(user);
   }, [user]);
 
   const dispatch = useDispatch();

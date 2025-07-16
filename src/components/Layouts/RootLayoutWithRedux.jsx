@@ -3,12 +3,11 @@ import NavBar from "@/components/sheared/NavBar";
 import Footer from "@/components/sheared/Footer";
 import store from "@/redux/store";
 import { Provider } from "react-redux";
-import CardSIdeBar from "@/components/ui/CardSIdeBar";
 
-const RootLayoutWithRedux = ({ children, user }) => {
+const RootLayoutWithRedux = ({ children }) => {
   return (
     <Provider store={store}>
-      <NavBar user={user} />
+      <NavBar user={false} />
       {children}
       <Footer />
     </Provider>
@@ -16,11 +15,3 @@ const RootLayoutWithRedux = ({ children, user }) => {
 };
 
 export default RootLayoutWithRedux;
-{
-  /* <CardSIdeBar
-        open={open}
-        setOpen={setOpen}
-        cart={cart}
-        dispatch={dispatch}
-      /> */
-}
