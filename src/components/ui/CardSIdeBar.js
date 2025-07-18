@@ -13,7 +13,7 @@ const CardSIdeBar = ({ open, setOpen, dispatch }) => {
   const ref = useRef(null);
   useClickAway(ref, () => setOpen(false));
   const cart = useSelector((state) => state.cart.cart);
-
+  console.log(cart);
   return (
     <div>
       <div className="hidden lg:block" onClick={() => setOpen(!open)}>
@@ -52,7 +52,7 @@ const CardSIdeBar = ({ open, setOpen, dispatch }) => {
                     <Image
                       width={60}
                       height={60}
-                      src="https://www.startech.com.bd/image/cache/catalog/monitor/msi/g2412/g2412-06-47x47.webp"
+                      src={item.image}
                       alt={item.name || "Cart item"}
                       className="object-contain"
                     />

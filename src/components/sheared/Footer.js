@@ -6,7 +6,13 @@ import CardSIdeBar from "../ui/CardSIdeBar";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
+import { usePathname } from "next/navigation";
+
 const Footer = () => {
+  const pathname = usePathname();
+
+  // console.log();
+
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -194,7 +200,9 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <CardSIdeBar open={open} setOpen={setOpen} dispatch={dispatch} />
+      {!pathname.includes("/auth") && (
+        <CardSIdeBar open={open} setOpen={setOpen} dispatch={dispatch} />
+      )}
     </>
   );
 };
